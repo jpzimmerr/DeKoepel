@@ -1,0 +1,38 @@
+<p>
+	<strong>Name:</strong><br />
+	<%= @reservation.first_name %>
+	<%= @reservation.last_name %>
+</p>
+
+<p>
+	<strong>Phone:</strong><br />
+	<%= @reservation.phone %>
+</p>
+
+<p>
+	<strong>E-mail:</strong><br />
+	<%= @reservation.email %>
+</p>
+
+<p>
+	<strong>Date:</strong><br />
+	<%= @reservation.date %>
+</p>
+
+<p>
+	<strong>Start time:</strong><br />
+	<%= @reservation.start %>
+</p>
+
+<p>
+	<strong>End time:</strong><br />
+	<%= @reservation.end %>
+</p>
+
+<p>
+	<strong>Description:</strong><br />
+	<%= @reservation.description %>
+</p>
+
+<%= link_to 'Back', reservations_path %>
+<%= link_to 'Edit', edit_reservation_path(@reservation) %>
