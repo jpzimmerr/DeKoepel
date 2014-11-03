@@ -20,3 +20,4 @@ Company.create(	[{name:'Vriesco int.'},
 								{name:'Be Concrete.'},
 								{name:'De Harmonie'} 
 								])
+Contact.create([{name:'De Koepel', address:'De Hooidollen 8', zip:' 8918 HV', city:'Leeuwarden', email:'info@speelkoepel.nl', phone:'058-2663327'}])

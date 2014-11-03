@@ -1,0 +1,38 @@
+
+<h1> Overzicht reserveringen</h1>
+
+
+
+
+
+<div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading">Reserveringen</div>
+
+	<%= form_tag(reservations_path, :method => "get", id: "search-form") do %>
+	  <%= text_field_tag :search, params[:search], placeholder: "Zoek op naam" %>
+	  <%= submit_tag "Zoeken !", :name => nil %>
+	<% end %>
+  <!-- Table -->
+  <table class="table table-bordered table-hover">
+  	<thead>
+			<tr>
+				<th>Naam</th>
+				<th>Bedrijf</th>
+				<th>Datum</th>
+				<th>Tijdstip</th>
+				<th>Omschrijving</th>
+			</tr>
+	</thead>
+		<% @reservations.each do |reservation| %>
+			<tr>
+				<td><%= reservation.customer.first_name  %> <%= reservation.customer.last_name  %> </td>
+				<td><%= reservation.customer.company.name %></td>
+				<td><%= reservation.date %></td>
+				<td><%= reservation.start %> - <%= reservation.end %></td>
+				<td><%= reservation.description %></td>
+			</tr>
+		<% end %>
+  </table>
+
+</div>
