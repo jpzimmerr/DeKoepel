@@ -2,6 +2,7 @@ class ReservationsController < ApplicationController
 	def new
 		@reservation = Reservation.new
 		@reservation.build_customer
+		@reservation.build_company
 	end
 
 
@@ -50,6 +51,7 @@ class ReservationsController < ApplicationController
 												:last_name,
 												:phone,
 												:email,
+												:company_name,
 												:date,
 												:start,
 												:end,
