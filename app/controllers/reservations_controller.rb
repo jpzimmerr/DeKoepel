@@ -4,7 +4,7 @@ class ReservationsController < ApplicationController
   	@customers = Customer.all
   	@companies = Company.all
 	  if params[:search]
-	    @reservations = Reservation.search(params[:search]).order("created_at DESC")
+	    @reservations = Reservation.search(params[:search])
 	  else
 	    @reservations = Reservation.all
 	  end
