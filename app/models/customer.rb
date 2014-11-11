@@ -1,5 +1,5 @@
 class Customer < ActiveRecord::Base
-	has_one :reservation, dependent: :destroy
+	has_many :reservations, dependent: :destroy
 
 	belongs_to :company
 	accepts_nested_attributes_for :company
