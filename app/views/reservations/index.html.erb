@@ -17,11 +17,11 @@
 	</tr>
 		<% @reservations.each do |reservation| %>
 			<tr>
-				<td><%= reservation.first_name %></td>
-				<td><%= reservation.last_name %></td>
-				<td><%= reservation.phone %></td>
-				<td><%= reservation.email %></td>
-				<td><%= reservation.company_name %></td>
+				<td><%= reservation.customer.first_name %></td>
+				<td><%= reservation.customer.last_name %></td>
+				<td><%= reservation.customer.phone %></td>
+				<td><%= reservation.customer.email %></td>
+				<td><%= reservation.company.company_name %></td>
 				<td><%= reservation.date %></td>
 				<td><%= reservation.start %></td>
 				<td><%= reservation.end %></td>

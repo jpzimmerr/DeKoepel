@@ -2,7 +2,6 @@ class ReservationsController < ApplicationController
 	def new
 		@reservation = Reservation.new
 		@reservation.build_customer
-		@reservation.build_company
 	end
 
 

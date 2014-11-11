@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :reservations do
-  	resources :companys
+  	resources :companies
   end
 
   resources :customers
