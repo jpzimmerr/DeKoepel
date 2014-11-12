@@ -21,8 +21,6 @@ class ReservationsController < ApplicationController
 
 	def index
 		@reservations = Reservation.all
-		@customers = Customer.all
-		@companies = Company.all
 	end
 
 	def edit 
@@ -48,12 +46,7 @@ class ReservationsController < ApplicationController
 
 	private
 		def reservation_params
-			params.require(:reservation).permit(:first_name,
-												:last_name,
-												:phone,
-												:email,
-												:company_name,
-												:date,
+			params.require(:reservation).permit(:date,
 												:start,
 												:end,
 												:description)
