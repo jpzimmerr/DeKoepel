@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 20141031085916) do
 
   create_table "contacts", force: true do |t|
     t.string   "name"
-    t.string   "adress"
+    t.string   "address"
     t.string   "zip"
     t.string   "city"
     t.string   "email"
@@ -41,10 +41,6 @@ ActiveRecord::Schema.define(version: 20141031085916) do
   end
 
   create_table "reservations", force: true do |t|
-    t.string   "first_name"
-    t.string   "last_name"
-    t.string   "phone"
-    t.string   "email"
     t.string   "date"
     t.string   "start"
     t.string   "end"
