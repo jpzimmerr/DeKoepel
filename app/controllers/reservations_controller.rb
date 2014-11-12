@@ -49,7 +49,11 @@ class ReservationsController < ApplicationController
 			params.require(:reservation).permit(:date,
 												:start,
 												:end,
-												:description)
+												:description,
+												customer_attributes: [ :first_name, 
+																	   :last_name,
+																	   :phone,
+																	   :email ])
 		end
 
 end

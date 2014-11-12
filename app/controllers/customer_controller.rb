@@ -9,6 +9,6 @@ class CustomerController < ApplicationController
 			params.require(:customer).permit(:first_name,
 											 :last_name,
 											 :phone,
-											 :email,)
+											 :email)
 		end
 end
