@@ -22,6 +22,7 @@
 				<th>Datum</th>
 				<th>Tijdstip</th>
 				<th>Omschrijving</th>
+				<th colspan="2"></th>
 			</tr>
 	</thead>
 		<% @reservations.each do |reservation| %>
@@ -32,6 +33,10 @@
 				<td><%= reservation.start %> - <%= reservation.end %></td>
 				<td><%= reservation.description %></td>
 				<td><%= reservation.status %></td>
+				<td><%= link_to 'Weergeef', reservation_path(reservation)%></td>
+				<td><%= link_to 'Aanpassen', edit_reservation_path(reservation) %></td>
+				<td><%= link_to 'Verwijder', reservation_path(reservation),
+														method: :delete, data: { confirm: 'Weet u het zeker?' } %></td>
 			</tr>
 		<% end %>
   </table>
