@@ -12,26 +12,13 @@
 	</div>
 	<% end %>
 	
-	<p>
-		<%= f.label :name, 'Uw naam' %><br />
-		<%= f.text_field :first_name %>
-		<%= f.text_field :last_name %>
-	</p>
+	<%= f.fields_for :customer do |builder| %>
+		<%= render "customers/customer_fields", :f => builder %>
+	<% end %>
 
-	<p>
-		<%= f.label :phone, 'Telefoonnummer' %><br />
-		<%= f.text_field :phone %>
-	</p>
-
-	<p>
-		<%= f.label :email, 'E-mail' %><br />
-		<%= f.text_field :email %>
-	</p>
-	
-	<p>
-		<%= f.label :company_name, 'Bedrijfsnaam' %><br />
-		<%= f.text_field :company_name %>
-	</p>
+	<%= f.fields_for :company do |builder| %>
+		<%= render "companies/company_fields", :f => builder %>
+	<% end %>
 
 	<p>
 		<%= f.label :date, 'Datum' %><br />

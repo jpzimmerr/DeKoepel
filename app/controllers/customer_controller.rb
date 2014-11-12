@@ -1,9 +1,7 @@
 class CustomerController < ApplicationController
 
 	def index
-		@customers = Customer.all
-	end
-		
+		@customer = Customer.all
 	end
 
 	private 

@@ -1,17 +1,17 @@
 <p>
 	<strong>Name:</strong><br />
-	<%= @reservation.first_name %>
-	<%= @reservation.last_name %>
+	<%= @reservation.customer.first_name %>
+	<%= @reservation.customer.last_name %>
 </p>
 
 <p>
 	<strong>Phone:</strong><br />
-	<%= @reservation.phone %>
+	<%= @reservation.customer.phone %>
 </p>
 
 <p>
 	<strong>E-mail:</strong><br />
-	<%= @reservation.email %>
+	<%= @reservation.customer.email %>
 </p>
 
 <p>
@@ -21,7 +21,7 @@
 
 <p>
 	<strong>Company Name:</strong><br />
-	<%= @reservation.company_name %>
+	<%= @reservation.company.company_name %>
 </p>
 
 <p>
