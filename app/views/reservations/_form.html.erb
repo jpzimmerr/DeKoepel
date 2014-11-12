@@ -14,6 +14,10 @@
 		<%= render "customers/customer_fields", :f => builder %>
 	<% end %>
 
+	<%= f.fields_for :company do |builder| %>
+		<%= render "companies/company_fields", :f => builder %>
+	<% end %>
+
 	<p>
 		<%= f.label :date, 'Datum' %><br />
 		<%= f.text_field :date %>

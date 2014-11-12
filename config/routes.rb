@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
-  resources :reservations 
-  	
-  resources :companies
   
-  resources :customers
-
+  resources :reservations do
+  	resources :customers do
+  		resources :companies
+  	end
+  end
+  
   root 'koepel#index'
 end

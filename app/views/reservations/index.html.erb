@@ -8,6 +8,7 @@
 		<th>Last name</th>
 		<th>Phone</th>
 		<th>E-mail</th>
+		<th>Company Name</th>
 		<th>Date</th>
 		<th>Start</th>
 		<th>End</th>
@@ -20,7 +21,7 @@
 				<td><%= reservation.customer.last_name %></td>
 				<td><%= reservation.customer.phone %></td>
 				<td><%= reservation.customer.email %></td>
-				
+				<td><%= reservation.customer.company.name %></td>
 				<td><%= reservation.date %></td>
 				<td><%= reservation.start %></td>
 				<td><%= reservation.end %></td>
