@@ -17,8 +17,7 @@
 	</tr>
 		<% @reservations.each do |reservation| %>
 			<tr>
-				<td><%= render "customers/customer" %></td>
-				<td><%= render "companies/company" %></td>
+				<td><%= reservation.company.company_name %></td>
 				<td><%= reservation.date %></td>
 				<td><%= reservation.start %></td>
 				<td><%= reservation.end %></td>
