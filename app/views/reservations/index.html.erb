@@ -21,7 +21,13 @@
 				<td><%= reservation.customer.last_name %></td>
 				<td><%= reservation.customer.phone %></td>
 				<td><%= reservation.customer.email %></td>
-				<td><%= reservation.customer.company.name %></td>
+				<td>
+					<% if reservation.customer.company.present? %>
+						<%= reservation.customer.company.name %>
+					<% else %>
+						Er is geen bedrijf gekoppeld
+					<% end %>
+				</td>
 				<td><%= reservation.date %></td>
 				<td><%= reservation.start %></td>
 				<td><%= reservation.end %></td>

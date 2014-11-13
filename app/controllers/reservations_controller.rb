@@ -55,8 +55,8 @@ class ReservationsController < ApplicationController
 												customer_attributes: [ :first_name, 
 																	   :last_name,
 																	   :phone,
-																	   :email ],
-												company_attributes: [ :name ])
+																	   :email,
+																	   company_attributes: [ :name ] ])
 		end
 
 end
