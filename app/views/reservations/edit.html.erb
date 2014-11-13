@@ -1,0 +1,38 @@
+<%= form_for @reservation do |f| %>	
+	<p>
+		<%= f.label :name, 'Uw naam' %><br />
+		<%= f.text_field :first_name %>
+		<%= f.text_field :last_name %>
+	</p>
+
+	<p>
+		<%= f.label :phone, 'Telefoonnummer' %><br />
+		<%= f.text_field :phone %>
+	</p>
+
+	<p>
+		<%= f.label :email, 'E-mail' %><br />
+		<%= f.text_field :email %>
+	</p>
+
+	<p>
+		<%= f.label :date, 'Datum' %><br />
+		<%= f.text_field :date %>
+	</p>
+
+	<p>
+		<%= f.label :start, 'Begintijd' %>
+		<%= f.label :end, 'Eindtijd' %><br/>
+		<%= f.text_field :start %>
+		<%= f.text_field :end %>
+	</p>
+
+	<p>
+		<%= f.label :description, 'Korte beschrijving van uw activiteit' %><br />
+		<%= f.text_area :description %>
+	</p>
+
+	<p>
+		<%= f.submit 'Reservering aanpassen' %>
+	</p>
+<% end %>
