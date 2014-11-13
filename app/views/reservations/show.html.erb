@@ -1,0 +1,41 @@
+<p>
+	<strong>Naam:</strong>
+	<%= @reservation.customer.first_name %> <%= @reservation.customer.last_name %>
+</p>
+
+<p>
+	<strong>Telefoonnummer:</strong>
+	<%= @reservation.customer.phone %>
+</p>
+
+<p>
+	<strong>E-mail:</strong>
+	<%= @reservation.customer.email %>
+</p>
+
+<p>
+	<strong>Bedrijfsnaam:</strong>
+	<%= @reservation.customer.company.name %>
+</p>
+
+<p>
+	<strong>Datum:</strong>
+	<%= @reservation.date %>
+</p>
+
+<p>
+	<strong>Tijd:</strong>
+	<%= @reservation.start %> - <%= @reservation.end %>
+</p>
+
+<p>
+	<strong>Beschrijving:</strong>
+	<%= @reservation.description %>
+</p>
+
+<p>
+	<strong>Status:</strong>
+	<%= @reservation.status %>
+</p>
+
+<%= link_to 'Terug naar overzicht', reservations_path %>
