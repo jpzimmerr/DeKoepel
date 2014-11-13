@@ -3,6 +3,7 @@ class ReservationsController < ApplicationController
 		@reservation = Reservation.new
 		@reservation.build_customer
 		@reservation.customer.build_company
+		@reservation.customer.company.name = "Bedrijfsnaam"
 	end
 
 
