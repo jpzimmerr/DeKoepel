@@ -21,7 +21,7 @@ class ReservationsController < ApplicationController
 	def update 
 		@reservation = Reservation.find(params[:id])
 
-		if @reservation.update(params[:id])
+		if @reservation.update(reservation_params)
 			redirect_to @reservation
 		else
 			render 'edit'
@@ -34,4 +34,18 @@ class ReservationsController < ApplicationController
 
 		redirect_to reservations_path
 	end
+
+	private
+		def reservation_params
+			params.require(:reservation).permit(:date,
+												 :start,
+												 :end,
+												 :description,
+												 customer_attributes: [ :first_name,
+												 					  	:last_name,
+												 					  	:phone,
+												 					  	:email],
+												 company_attributes:  [	:name ])
+		end
+
 end
