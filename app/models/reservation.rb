@@ -1,4 +1,6 @@
 class Reservation < ActiveRecord::Base
+	config.time_zone = 'Europe/Amsterdam'
+
 	belongs_to :customer
 	accepts_nested_attributes_for :customer
 

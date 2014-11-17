@@ -23,7 +23,7 @@
 
 	<p>
 		<%= f.label :date, 'Datum' %><br />
-		<%= f.date_select :date %>
+		<%= f.date_select :date, order: [:day, :month, :year] %>
 	</p>
 
 	<p>
