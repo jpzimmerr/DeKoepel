@@ -1,11 +1,12 @@
 <%= form_for @reservation do |f| %>	
 
-	<%= f.fields_for :customer do |builder| %>
-		<%= render "customers/customer_fields", :f => builder %>
-	<% end %>
+	<%= f.fields_for :customer do |c| %>
+		<%= render "customers/customer_fields", :f => c %>
 
-	<%= f.fields_for :company do |builder| %>
-		<%= render "companies/company_fields", :f => builder %>
+		<%= c.fields_for :company do |builder| %>
+			<%= render "companies/company_fields", :f => builder %>
+		<% end %>
+		
 	<% end %>
 
 	<p>

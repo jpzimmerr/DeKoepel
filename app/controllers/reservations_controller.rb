@@ -1,6 +1,11 @@
 class ReservationsController < ApplicationController
-	def index
+	def new 
+		@reservation = Reservation.new
+		@reservation.build_customer
+		@reservation.cutomer.build_company
+	end
 
+	def index
   	@customers = Customer.all
   	@companies = Company.all
 	  if params[:search]

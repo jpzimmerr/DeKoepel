@@ -33,7 +33,7 @@
 					<% if reservation.customer.company.present? %>
 						<%= reservation.customer.company.name %>
 					<% else %>
-						Er is geen bedrijf gekoppeld
+						<%= reservation.customer.company(name: "Er is geen bedrijf gekoppeld") %>
 					<% end %>
 				</td>
 				<td><%= reservation.date %></td>
