@@ -23,13 +23,13 @@
 
 	<p>
 		<%= f.label :date, 'Datum' %><br />
-		<%= f.date_select :date, order: [:day, :month, :year] %>
+		<%= f.text_field :date %>
 	</p>
 
 	<p>
 		<%= f.label :start, 'Begintijd' %>
 		<%= f.label :end, 'Eindtijd' %><br/>
-		<%= f.time_select :start %> - <%= f.time_select :end %>
+		<%= f.text_field :start %> - <%= f.text_field :end %>
 	</p>
 
 	<p>
