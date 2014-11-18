@@ -2,7 +2,17 @@ class ReservationsController < ApplicationController
 	def new 
 		@reservation = Reservation.new
 		@reservation.build_customer
-		@reservation.cutomer.build_company
+		@reservation.customer.build_company
+	end
+
+	def create
+		@reservation = Reservation.new(reservation_params)
+
+		if @reservation.save 
+			redirect_to reservations_path
+		else
+			render 'new'
+		end
 	end
 
 	def index
