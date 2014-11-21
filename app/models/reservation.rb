@@ -4,7 +4,7 @@ class Reservation < ActiveRecord::Base
 
 	validates :date, :start, :end, presence: true
 
-	Reservation.joins(customer: [{ company: :name }, :last_name]).find(1)
+	Reservation.joins(customer: [{ company: :name }, :last_name])
 
 	def self.search(query)
 		where('date like ? OR last_name like ? OR name like ?', query, query, query)
