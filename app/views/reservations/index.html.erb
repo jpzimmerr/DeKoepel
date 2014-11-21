@@ -3,7 +3,7 @@
 
 <%= form_tag(reservations_path, :method => "get", id: "search-form") do %>
   <%= text_field_tag :search, params[:search], placeholder: "Zoek op naam" %>
-  <%= submit_tag "Zoeken !", :name => nil, class: 'btn btn-primary' %>
+  <%= submit_tag "Zoeken !", :name => nil, :date => nil, :last_name => nil,  class: 'btn btn-primary' %>
 <% end %>
 
 
@@ -42,7 +42,7 @@
 				<td><%= link_to 'Weergeef', reservation_path(reservation) %></td>
 				<td><%= link_to 'Aanpassen', edit_reservation_path(reservation) %></td>
 				<td><%= link_to 'Verwijderen', reservation_path(reservation),
-														method: :delete, data: { confirm: 'Weet u het zeker?' } %></td>
+														method: :delete, data: { confirm: 'Weet u het zeker?'} %></td>
 
 			</tr>
 		<% end %>

@@ -16,8 +16,11 @@ class ReservationsController < ApplicationController
 	end
 
 	def index
+	@reservations = Reservation.order(params[:sort])
+
   	@customers = Customer.all
   	@companies = Company.all
+  	
 	  if params[:search]
 	    @reservations = Reservation.search(params[:search])
 	  else
