@@ -1,6 +1,8 @@
 <h1> Overzicht reserveringen</h1>
 
 
+<div class="alert alert-info" role="alert">Let op er is 1 onbehandelde reservering</div>
+
 <%= form_tag(reservations_path, :method => "get", id: "search-form") do %>
   <%= text_field_tag :search, params[:search], placeholder: "Zoek op naam" %>
   <%= submit_tag "Zoeken !", :name => nil, :date => nil, :last_name => nil,  class: 'btn btn-primary' %>
@@ -11,7 +13,6 @@
   <!-- Default panel contents -->
   <div class="panel-heading">Reserveringen</div>
 
-	
   <!-- Table -->
   <table class="table table-bordered table-hover">
   	<thead>
@@ -39,10 +40,10 @@
 				<td><%= reservation.start %> - <%= reservation.end %></td>
 				<td><%= reservation.description %></td>
 				<td><%= reservation.status %></td>
-				<td><%= link_to 'Weergeef', reservation_path(reservation) %></td>
-				<td><%= link_to 'Aanpassen', edit_reservation_path(reservation) %></td>
-				<td><%= link_to 'Verwijderen', reservation_path(reservation),
-														method: :delete, data: { confirm: 'Weet u het zeker?'} %></td>
+				<td><%= link_to 'info', reservation_path(reservation), class: 'btn btn-info' %></td>
+				<td><%= link_to 'Edit', edit_reservation_path(reservation), class: 'btn btn-warning' %></td>
+				<td><%= link_to 'Del', reservation_path(reservation),
+														method: :delete, data: { confirm: 'Weet u het zeker?'}, class: 'btn btn-danger' %></td>
 
 			</tr>
 		<% end %>
