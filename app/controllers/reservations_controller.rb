@@ -21,7 +21,6 @@ class ReservationsController < ApplicationController
   	@customers = Customer.all
   	@companies = Company.all
 
-  	
 	  if params[:search]
 	    @reservations = Reservation.search(params[:search])
 	  else
