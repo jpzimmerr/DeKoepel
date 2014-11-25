@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141103103230) do
+ActiveRecord::Schema.define(version: 20141125102408) do
 
   create_table "companies", force: true do |t|
     t.string   "name"
@@ -41,9 +41,9 @@ ActiveRecord::Schema.define(version: 20141103103230) do
   end
 
   create_table "reservations", force: true do |t|
-    t.string   "date"
-    t.string   "start"
-    t.string   "end"
+    t.date     "date",        limit: 255
+    t.time     "start",       limit: 255
+    t.time     "end",         limit: 255
     t.string   "description"
     t.string   "status"
     t.integer  "customer_id", limit: 255
