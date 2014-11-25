@@ -17,10 +17,10 @@
   <table class="table table-bordered table-hover">
   	<thead>
 			<tr>
-				<th><%= sortable 'Naam' %></th>
-				<th><%= sortable 'Bedrijf' %></th>
 				<th><%= sortable 'Datum' %></th>
 				<th><%= sortable 'Tijdstip' %></th>
+				<th><%= sortable 'Naam' %></th>
+				<th><%= sortable 'Aantal personen' %></th>
 				<th>Omschrijving</th>
 				<th>Status</th>
 				<th colspan="2"></th>
@@ -28,16 +28,18 @@
 	</thead>
 		<% @reservations.each do |reservation| %>
 			<tr>
-				<td><%= reservation.customer.first_name  %> <%= reservation.customer.last_name  %> </td>
-				<td>
-					<% if reservation.customer.company.present? %>
-						<%= reservation.customer.company.name %>
-					<% else %>
-						<%= reservation.customer.company(name: "Er is geen bedrijf gekoppeld") %>
-					<% end %>
-				</td>
 				<td><%= reservation.date %></td>
 				<td><%= reservation.start %> - <%= reservation.end %></td>
+				<td><%= reservation.customer.first_name  %> <%= reservation.customer.last_name  %> 
+					<% if reservation.customer.company.present? %>
+						<br />(<%= reservation.customer.company.name %>)
+					<% else %>
+						<br /><%= reservation.customer.company(name: "Er is geen bedrijf gekoppeld") %>
+					<% end %>
+				</td>
+				<td>
+					0
+				</td>
 				<td><%= reservation.description %></td>
 				<td><%= reservation.status %></td>
 				<td><%= link_to 'info', reservation_path(reservation), class: 'btn btn-info' %></td>
