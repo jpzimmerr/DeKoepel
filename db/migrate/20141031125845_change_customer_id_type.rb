@@ -1,6 +1,10 @@
 class ChangeCustomerIdType < ActiveRecord::Migration
   def up
-  	change_column :reservations, :customer_id, :integer
+  	connection.execute(%q{
+  		alter table reservations
+  		alter column customer_id
+  		type integer using cast (customer_id as integer)
+  		})
   end
   
   def down
