@@ -14,7 +14,7 @@
 	<% end %>
 
 	<% f.text_field :status %>
-
+	
 	<p>
 		<%= f.label :date, 'Datum' %><br />
 		<%= f.date_select(:date, order: [:day, :month, :year]) %>
@@ -24,6 +24,10 @@
 		<%= f.label :start, 'Begintijd' %> - 
 		<%= f.label :end, 'Eindtijd' %><br/>
 		<%= f.time_select :start %> - <%= f.time_select :end %>
+	</p>
+	
+	<p>
+		<%= f.label :customercount, 'Aantal bezoekers' %>
 	</p>
 
 	<p>
