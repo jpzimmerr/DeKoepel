@@ -13,6 +13,8 @@
 		
 	<% end %>
 
+	<% f.text_field :status %>
+
 	<p>
 		<%= f.label :date, 'Datum' %><br />
 		<%= f.date_select(:date, order: [:day, :month, :year]) %>

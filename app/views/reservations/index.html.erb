@@ -1,5 +1,5 @@
 <h1> Overzicht reserveringen</h1>
-
+<%= debug @reservations %>
 
 <div class="alert alert-info" role="alert">Let op er is 1 onbehandelde reservering</div>
 
@@ -20,6 +20,7 @@
 				<th><%= sortable 'Datum' %></th>
 				<th><%= sortable 'Tijdstip' %></th>
 				<th><%= sortable 'Naam' %></th>
+				<th><%= sortable 'Bedrijfsnaam' %></th>
 				<th><%= sortable 'Aantal personen' %></th>
 				<th>Omschrijving</th>
 				<th>Status</th>
@@ -30,9 +31,9 @@
 			<tr>
 				<td><%= reservation.date %></td>
 				<td><%= reservation.start %> - <%= reservation.end %></td>
-				<td><%= reservation.customer.first_name  %> <%= reservation.customer.last_name  %> 
-					<% if reservation.customer.company.present? %>
-						<br />(<%= reservation.customer.company.name %>)
+				<td><%= reservation.customer.first_name  %> <%= reservation.customer.last_name  %> </td>
+				<td><% if reservation.customer.company.present? %>
+						<br /><%= reservation.customer.company.name %>
 					<% else %>
 						<br /><%= reservation.customer.company(name: "Er is geen bedrijf gekoppeld") %>
 					<% end %>
