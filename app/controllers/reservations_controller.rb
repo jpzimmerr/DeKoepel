@@ -25,7 +25,7 @@ class ReservationsController < ApplicationController
   	@companies = Company.all
 
 	  if params[:search]
-	    @reservations = @reservations.search(params[:search])
+		@reservations = @reservations.search(params[:search])
 	  end
 	end
 
