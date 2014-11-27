@@ -1,12 +1,12 @@
 class CreateReservations < ActiveRecord::Migration
   def change
     create_table :reservations do |t|
-      t.string :date
-      t.string :start
-      t.string :end
+      t.date :date
+      t.time :start
+      t.time :end
       t.string :description
       t.string :status
-      t.string :customer_id
+      t.integer :customer_id
 
       t.timestamps
     end

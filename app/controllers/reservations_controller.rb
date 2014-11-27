@@ -25,9 +25,7 @@ class ReservationsController < ApplicationController
   	@companies = Company.all
 
 	  if params[:search]
-	    @reservations = Reservation.search(params[:search])
-	  else
-	    @reservations = Reservation.all
+	    @reservations = @reservations.search(params[:search])
 	  end
 	end
 
@@ -70,7 +68,7 @@ class ReservationsController < ApplicationController
 		end
 
 		def sort_column
-			Reservation.column_names.include?(params[:sort]) ? params[:sort] : "name"
+			Reservation.column_names.include?(params[:sort]) ? params[:sort] : "date"
 		end
 
 		def sort_direction
