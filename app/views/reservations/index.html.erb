@@ -55,11 +55,13 @@
 				<td><%= link_to 'Edit', edit_reservation_path(reservation), class: 'btn btn-warning' %></td>
 				<td><%= link_to 'Del', reservation_path(reservation),
 														method: :delete, data: { confirm: 'Weet u het zeker?'}, class: 'btn btn-danger' %></td>
-
 			</tr>
 		<% end %>
   </table>
 </div>
 <div>
-<%= link_to 'Nieuwe Reservering', new_reservation_path %> 
+<%= link_to 'Nieuwe Reservering', new_reservation_path %>
+<nav>
+  <%= will_paginate @reservations, :previous_label => 'Vorige', :next_label => 'Volgende',renderer: BootstrapPagination::Rails %>
+</nav>
 </div>

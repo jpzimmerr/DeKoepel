@@ -41,3 +41,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin]
 
 #loads postgresql
 gem 'pg'
+
+#pagination and pagination for bootstrap
+gem 'will_paginate', '~> 3.0.7'
+gem 'will_paginate-bootstrap', '~> 1.0.1'
