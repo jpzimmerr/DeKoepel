@@ -1,5 +1,5 @@
 class ReservationsController < ApplicationController
-	helper_method :sort_column, :sort_direction
+	
 
 	def new 
 		@reservation = Reservation.new
@@ -19,8 +19,7 @@ class ReservationsController < ApplicationController
 	end
 
 	def index
-	@reservations = Reservation.order(sort_column + ' ' + sort_direction)
-
+	@reservations = Reservation.all	
   	@customers = Customer.all
   	@companies = Company.all
 
@@ -65,13 +64,5 @@ class ReservationsController < ApplicationController
 												 					  	:phone,
 												 					  	:email,
 												 					  	company_attributes: [ :name ] ])
-		end
-
-		def sort_direction
-			%w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
-		end
-
-		def sort_column
-			Reservation.column_names.include?(params[:sort]) ? params[:sort] : "date"
 		end
 end

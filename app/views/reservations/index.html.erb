@@ -1,5 +1,7 @@
 <h1> Overzicht reserveringen</h1>
 
+
+
 <div class="alert alert-info" role="alert">Let op er is 1 onbehandelde reservering</div>
 
 <%= form_tag(reservations_path, :method => "get", id: "search-form") do %>
@@ -13,14 +15,14 @@
   <div class="panel-heading">Reserveringen</div>
 
   <!-- Table -->
-  <table class="table table-bordered table-hover">
+  <table class="sortable table table-bordered table-hover">
   	<thead>
 			<tr>
-				<th><%= sortable :date ,'Datum' %></th>
-				<th><%= sortable 'Tijdstip' %></th>
-				<th><%= sortable 'Naam' %></th>
-				<th><%= sortable 'Bedrijfsnaam' %></th>
-				<th><%= sortable 'Aantal personen' %></th>
+				<th>Datum</th>
+				<th>Tijdstip</th>
+				<th>Naam</th>
+				<th>Bedrijfsnaam</th>
+				<th>Aantal personen</th>
 				<th>Omschrijving</th>
 				<th>Status</th>
 				<th colspan="2"></th>
