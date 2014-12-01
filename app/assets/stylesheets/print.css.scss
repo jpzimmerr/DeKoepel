@@ -1,11 +1,8 @@
-@import "bootstrap-sprockets";
-@import "bootstrap";
-
 @media print {
 		body { background-color: #FFF; }
 		a:after { content:' [' attr(href) '] '}
-		h1, div.alert, form#search-form, a.btn.btn-info, th.no_print, td.no_print {
-		display: none;
+		h1, div, a {
+		visibility: hidden;
 		}
 	#container {
 				width: auto;
