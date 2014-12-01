@@ -45,3 +45,9 @@ gem 'pg'
 #pagination and pagination for bootstrap
 gem 'will_paginate', '~> 3.0.7'
 gem 'will_paginate-bootstrap', '~> 1.0.1'
+
+#filter stuff
+gem 'filterrific'
+
+#datepicker for bootstrap3
+gem 'bootstrap-datepicker-rails', '~> 1.3.0.2'

@@ -23,7 +23,10 @@ class ReservationsController < ApplicationController
   	@customers = Customer.all
   	@companies = Company.all
 
-  	@reservations = Reservation.paginate(:page => params[:page])
+  	@filterrific = Filterrific.new(Reservation, params[:filterrific])
+  	@reservations = Reservation.filterrific_find(@filterrific).page(params[:page])
+
+	@reservations = Reservation.paginate(:page => params[:page])
 
 	  if params[:search]
 		@reservations = @reservations.search(params[:search])
