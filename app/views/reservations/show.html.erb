@@ -1,41 +1,49 @@
-<p>
-	<strong>Naam:</strong>
-	<%= @reservation.customer.first_name %> <%= @reservation.customer.last_name %>
-</p>
+<h1>Reservering</h1>
 
-<p>
-	<strong>Telefoonnummer:</strong>
-	<%= @reservation.customer.phone %>
-</p>
+<p>Reservering van <%= @reservation.customer.first_name %> <%= @reservation.customer.last_name %> aangevraagd op <%= @reservation.created_at %> </p>
 
-<p>
-	<strong>E-mail:</strong>
-	<%= @reservation.customer.email %>
-</p>
+<b><%= @reservation.customer.company.name %></b><br><br>
 
-<p>
-	<strong>Bedrijfsnaam:</strong>
-	<%= @reservation.customer.company.name %>
-</p>
+<%= @reservation.customer.first_name %> <%= @reservation.customer.last_name %><br>
+Brandemeer 113<br>
+8918 CV Leeuwarden
+<br><br>
 
-<p>
-	<strong>Datum:</strong>
-	<%= @reservation.date %>
-</p>
+<%= @reservation.customer.email %><br>
+<%= @reservation.customer.phone %><br><br>
 
-<p>
-	<strong>Tijd:</strong>
-	<%= @reservation.start %> - <%= @reservation.end %>
-</p>
 
-<p>
-	<strong>Beschrijving:</strong>
-	<%= @reservation.description %>
-</p>
+<div class="pull-right">
+<%= link_to 'Wijzigen', edit_reservation_path(@reservation), type: "button",  class: 'btn btn-warning' %>
 
-<p>
-	<strong>Status:</strong>
-	<%= @reservation.status %>
-</p>
+<%= link_to 'Verwijderen', reservation_path(@reservation),
+														method: :delete, data: { confirm: 'Weet u het zeker?'}, type: "button", class: 'btn btn-danger' %>
+</div>
 
-<%= link_to 'Terug naar overzicht', reservations_path %>
+<table class="table table-bordered">
+ <thead>
+	<tr class="active">
+		<th>Datum</th>
+		<th>Tijd</th>
+  		<th>Plaats</th>
+		<th>Naam</th>
+		<th>Omschrijving</th>
+		<th>Aantal personen</th>
+		<th>Notities</th>
+		<th>Status</th>
+	</tr>
+ </thead>
+  <tr>
+  	<td><%= @reservation.date %></td>
+  	<td><%= @reservation.start %> - <%= @reservation.end %></td>
+  	<td>Plaats</td>
+  	<td><%= @reservation.customer.first_name %> <%= @reservation.customer.last_name %></td>
+  	<td><%= @reservation.description %></td>
+  	<td>Aantal personen</td>
+  	<td>Notities</td>
+  	<td><%= @reservation.status %></td>
+  </tr>
+</table>
+
+
+<%= link_to 'Terug naar overzicht', reservations_path, class: "btn btn-primary" %>
