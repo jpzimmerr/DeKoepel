@@ -28,7 +28,6 @@
 				<th>Datum</th>
 				<th>Tijdstip</th>
 				<th>Naam</th>
-				<th>Bedrijfsnaam</th>
 				<th>Aantal personen</th>
 				<th class="sorttable_nosort">Omschrijving</th>
 				<th class="sorttable_nosort">Status</th>
@@ -39,13 +38,14 @@
 			<tr>
 				<td><%= reservation.date %></td>
 				<td><%= reservation.start %> - <%= reservation.end %></td>
-				<td><%= reservation.customer.first_name  %> <%= reservation.customer.last_name  %> </td>
-				<td><% if reservation.customer.company.present? %>
-						<br /><%= reservation.customer.company.name %>
+				<td><%= reservation.customer.first_name  %> <%= reservation.customer.last_name  %> 
+					<% if reservation.customer.company.present? %>
+						<br />(<%= reservation.customer.company.name %>)
 					<% else %>
 						<br /><%= reservation.customer.company(name: "Er is geen bedrijf gekoppeld") %>
 					<% end %>
 				</td>
+				
 				<td>
 					0
 				</td>
