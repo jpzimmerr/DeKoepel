@@ -1,5 +1,5 @@
 class Reservation < ActiveRecord::Base
-	self.per_page = 2
+	self.per_page = 10
 
 	belongs_to :customer
 	accepts_nested_attributes_for :customer

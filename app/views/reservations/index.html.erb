@@ -1,5 +1,5 @@
 <h1> Overzicht reserveringen</h1>
-
+<%= stylesheet_link_tag "application", :media => 'all' %>
 
 <div class="alert alert-warning alert-dismissible fade in" role="alert">
       <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">×</span><span class="sr-only">Sluit</span></button>
@@ -60,7 +60,8 @@
   </table>
 </div>
 <div>
-<%= link_to 'Nieuwe Reservering', new_reservation_path %>
+<%= link_to 'Nieuwe Reservering', new_reservation_path %><br />
+<%= link_to 'Download PDF', reservations_path(@reservations, :format => 'pdf') %> 
 <nav>
   <%= will_paginate @reservations, :previous_label => 'Vorige', :next_label => 'Volgende',renderer: BootstrapPagination::Rails %>
 </nav>
