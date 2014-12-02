@@ -1,3 +1,33 @@
+<div class= "col-md-2">
+	<div class="accordion" id="accordion2">
+	  <div class="accordion-group">
+	    <div class="accordion-heading">
+	      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
+	        Collapsible Group Item #1
+	      </a>
+	    </div>
+	    <div id="collapseOne" class="accordion-body collapse in">
+	      <div class="accordion-inner">
+	        Anim pariatur cliche...
+	      </div>
+	    </div>
+	  </div>
+	  <div class="accordion-group">
+	    <div class="accordion-heading">
+	      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">
+	        Collapsible Group Item #2
+	      </a>
+	    </div>
+	    <div id="collapseTwo" class="accordion-body collapse">
+	      <div class="accordion-inner">
+	        Anim pariatur cliche...
+	      </div>
+	    </div>
+	  </div>
+	</div>
+</div>
+<div class= "col-md-10">
+
 <h1> Overzicht reserveringen</h1>
 <%= stylesheet_link_tag "application", :media => 'print' %>
 
@@ -6,7 +36,32 @@
     $('.datepicker').datepicker();
   });
 </script>
+<div class="row" > 
 
+<!-- Standard button -->
+<button type="button" class="btn btn-default">Default</button>
+
+<!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
+<button type="button" class="btn btn-primary">Primary</button>
+
+<!-- Indicates a successful or positive action -->
+<button type="button" class="btn btn-success">Success</button>
+
+<!-- Contextual button for informational alert messages -->
+<button type="button" class="btn btn-info">Info</button>
+
+<!-- Indicates caution should be taken with this action -->
+<button type="button" class="btn btn-warning">Warning</button>
+
+<!-- Indicates a dangerous or potentially negative action -->
+<button type="button" class="btn btn-danger">Danger</button>
+
+<!-- Deemphasize a button by making it look like a link while maintaining button behavior -->
+<button type="button" class="btn btn-link">Link</button>
+
+<%= link_to 'Nieuwe Reservering', new_reservation_path, class: 'btn pull-right btn-primary' %>
+<%= link_to("Print dit overzicht", "javascript:print()", class: 'btn pull-right btn-default') %> 
+</div>
 <div class="alert alert-warning alert-dismissible fade in" role="alert">
       <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">×</span><span class="sr-only">Sluit</span></button>
       <strong>Tip: </strong>Klik op de kopjes van het tabel om deze te sorteren. Het pijltje geeft dan aan of deze oplopend of aflopen gesorteerd worden.
@@ -71,9 +126,6 @@
 		<% end %>
   </table>
 </div>
-<div>
-<%= link_to 'Nieuwe Reservering', new_reservation_path, class: 'btn btn-info' %>
-<%= link_to("Print dit Overzicht", "javascript:print()", class: 'btn btn-info') %> 
 <nav>
   <%= will_paginate @reservations, :previous_label => 'Vorige', :next_label => 'Volgende',renderer: BootstrapPagination::Rails %>
 </nav>
