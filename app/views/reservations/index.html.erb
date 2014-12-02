@@ -55,8 +55,8 @@
 	</thead>
 		<% @reservations.each do |reservation| %>
 			<tr>
-				<td>date</td>
-				<td><%= reservation.started_at %> - <%= reservation.ended_at %></td>
+				<td><%= reservation.started_at_date %></td>
+				<td><%= reservation.started_at_time %> - <%= reservation.ended_at_time %></td>
 				<td><%= reservation.customer.first_name  %> <%= reservation.customer.last_name  %> 
 					<% if reservation.customer.company.present? %>
 						<br />(<%= reservation.customer.company.name %>)

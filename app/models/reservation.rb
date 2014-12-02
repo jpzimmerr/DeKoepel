@@ -1,4 +1,42 @@
 class Reservation < ActiveRecord::Base
+	before_save :convert_to_datetime
+
+	def started_at_date
+		started_at.strftime("%d/%m/%Y") if started_at.present?
+	end
+
+	def started_at_time
+		started_at.strftime("%H:%M") if started_at.present?
+	end
+
+	def started_at_date=(date)
+		@started_at_date = Date.parse(date).strftime("%Y-%m-%d")
+	end
+
+	def started_at_time=(time)
+		@started_at_time = Time.parse(time).strftime("%H:%M")
+	end
+
+	def ended_at_date
+		ended_at.strftime("%d/%m/%Y") if ended_at.present?
+	end
+
+	def ended_at_time
+		ended_at.strftime("%H:%M") if ended_at.present?
+	end
+
+	def ended_at_date=(date)
+		@ended_at_date = Date.parse(date).strftime("%Y-%m-%d")
+	end
+
+	def ended_at_time=(time)
+		@ended_at_time = Time.parse(time).strftime("%H:%M")
+	end
+
+	def convert_to_datetime
+		self.started_at = DateTime.parse("#{@started_at_date} #{@started_at_time}")
+		self.ended_at = DateTime.parse("#{@ended_at_date} #{@ended_at_time}")
+	end
 
 	self.per_page = 10
 
