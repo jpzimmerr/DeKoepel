@@ -7,16 +7,16 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 #tabelnaam.create({kolom:'data',kolom:222,kolom:'etc'},{kolom:'data',kolom:222,kolom:'etc'} )
-Customer.create([	{first_name:'Luuk', last_name:'Reuzel', phone:'0612345678', email:'Luuk@vriesco.com', company_id:1, address:'Rengerslaan 1', zip:'8917 DA', city:'Leeuwarden' },
-					{first_name:'Mandy', last_name:'Fransz', phone:'0612345677', email:'Mandy@vriesco.com', company_id:2, address:'Rengerslaan 2', zip:'8917 DB', city:'Leeuwarden' },
-					{first_name:'Phong', last_name:'Tran', phone:'0612345676', email:'Phong@vriesco.com', company_id:3, address:'Rengerslaan 3', zip:'8917 DC', city:'Leeuwarden' },
-					{first_name:'Anne', last_name:'Stoer', phone:'0612345675', email:'Anne@vriesco.com', company_id:4, address:'Rengerslaan 4', zip:'8917 DE', city:'Leeuwarden' },
-					{first_name:'Jelmer Pieter', last_name:'Timmer', phone:'0612345674', email:'Jelmer@vriesco.com', company_id:5, address:'Rengerslaan 5', zip:'8917 DF', city:'Leeuwarden' },
-					{first_name:'Joey', last_name:'Stoelwinder', phone:'0612345673', email:'Joey@vriesco.com', company_id:6, address:'Rengerslaan 6', zip:'8917 DG', city:'Leeuwarden' },
-					{first_name:'Dirk Sierd', last_name:'De Vries', phone:'0612345672', email:'Dirk@vriesco.com', company_id:7, address:'Rengerslaan 7', zip:'8917 DH', city:'Leeuwarden' },
-					{first_name:'Sjef', last_name:'Smeets', phone:'0612345671', email:'Sjef@vriesco.com', company_id:8, address:'Rengerslaan 8', zip:'8917 DI', city:'Leeuwarden' },
-					{first_name:'Raymond', last_name:'Van Dongelen', phone:'0612345670', email:'Raymond@vriesco.com', company_id:9, address:'Rengerslaan 9', zip:'8917 DJ', city:'Leeuwarden' },
-					{first_name:'Jan-Wessel', last_name:'Hovingh', phone:'0612345668', email:'Jan@vriesco.com', company_id:10, address:'Rengerslaan 10', zip:'8917 DD', city:'Leeuwarden' }
+Customer.create([	{id:'1', first_name:'Luuk', last_name:'Reuzel', phone:'0612345678', email:'Luuk@vriesco.com', company_id:1, address:'Rengerslaan 1', zip:'8917 DA', city:'Leeuwarden' },
+					{id:'2', first_name:'Mandy', last_name:'Fransz', phone:'0612345677', email:'Mandy@vriesco.com', company_id:2, address:'Rengerslaan 2', zip:'8917 DB', city:'Leeuwarden' },
+					{id:'3', first_name:'Phong', last_name:'Tran', phone:'0612345676', email:'Phong@vriesco.com', company_id:3, address:'Rengerslaan 3', zip:'8917 DC', city:'Leeuwarden' },
+					{id:'4', first_name:'Anne', last_name:'Stoer', phone:'0612345675', email:'Anne@vriesco.com', company_id:4, address:'Rengerslaan 4', zip:'8917 DE', city:'Leeuwarden' },
+					{id:'5', first_name:'Jelmer Pieter', last_name:'Timmer', phone:'0612345674', email:'Jelmer@vriesco.com', company_id:5, address:'Rengerslaan 5', zip:'8917 DF', city:'Leeuwarden' },
+					{id:'6', first_name:'Joey', last_name:'Stoelwinder', phone:'0612345673', email:'Joey@vriesco.com', company_id:6, address:'Rengerslaan 6', zip:'8917 DG', city:'Leeuwarden' },
+					{id:'7', first_name:'Dirk Sierd', last_name:'De Vries', phone:'0612345672', email:'Dirk@vriesco.com', company_id:7, address:'Rengerslaan 7', zip:'8917 DH', city:'Leeuwarden' },
+					{id:'8', first_name:'Sjef', last_name:'Smeets', phone:'0612345671', email:'Sjef@vriesco.com', company_id:8, address:'Rengerslaan 8', zip:'8917 DI', city:'Leeuwarden' },
+					{id:'9', first_name:'Raymond', last_name:'Van Dongelen', phone:'0612345670', email:'Raymond@vriesco.com', company_id:9, address:'Rengerslaan 9', zip:'8917 DJ', city:'Leeuwarden' },
+					{id:'10', first_name:'Jan-Wessel', last_name:'Hovingh', phone:'0612345668', email:'Jan@vriesco.com', company_id:10, address:'Rengerslaan 10', zip:'8917 DD', city:'Leeuwarden' }
 				])
 Reservation.create([	{started_at:'2014-12-10 19:00:00', ended_at:'2014-12-10 20:00:00', amount:40, description:'een bedrijfsuitje voor teambuilding met een wandeling door het bos en activiteiten', status:0, customer_id:1},
 						{started_at:'2014-12-13 19:00:00', ended_at:'2014-12-13 20:00:00', amount:36, description:'bedrijfs vergadering', status:0, customer_id:2},
