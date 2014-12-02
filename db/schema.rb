@@ -54,8 +54,8 @@ ActiveRecord::Schema.define(version: 20141202204938) do
     t.datetime "updated_at"
     t.integer  "amount"
     t.text     "note"
-    t.time     "started_at"
-    t.time     "ended_at"
+    t.datetime "started_at"
+    t.datetime "ended_at"
   end
 
 end
