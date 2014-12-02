@@ -61,10 +61,14 @@ class ReservationsController < ApplicationController
 												 :ended_at,
 												 :amount,
 												 :description,
+												 :note,
 												 customer_attributes: [ :first_name,
 												 					  	:last_name,
 												 					  	:phone,
 												 					  	:email,
+												 					  	:address,
+												 					  	:zip,
+												 					  	:city,
 												 					  	company_attributes: [ :name ] ])
 		end
 end
