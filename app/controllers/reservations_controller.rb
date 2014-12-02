@@ -23,9 +23,6 @@ class ReservationsController < ApplicationController
   	@customers = Customer.all
   	@companies = Company.all
 
-  	@filterrific = Filterrific.new(Reservation, params[:filterrific])
-  	@reservations = Reservation.filterrific_find(@filterrific).page(params[:page])
-
 	@reservations = Reservation.paginate(:page => params[:page])
 
 	  if params[:search]
@@ -60,9 +57,8 @@ class ReservationsController < ApplicationController
 
 	private
 		def reservation_params
-			params.require(:reservation).permit(:date,
-												 :start,
-												 :end,
+			params.require(:reservation).permit( :started_at,
+												 :ended_at,
 												 :amount,
 												 :description,
 												 customer_attributes: [ :first_name,

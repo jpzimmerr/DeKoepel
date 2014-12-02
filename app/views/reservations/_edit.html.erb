@@ -23,14 +23,9 @@
               </p>
 
               <p>
-                <%= f.label :date, 'Datum' %><br />
-                <%= f.date_select(:date, order: [:day, :month, :year]) %>
-              </p>
-
-              <p>
-                <%= f.label :start, 'Begintijd' %> - 
-                <%= f.label :end, 'Eindtijd' %><br/>
-                <%= f.time_select :start %> - <%= f.time_select :end %>
+                <%= f.label :started_at, 'Begintijd' %> - 
+                <%= f.label :ended_at, 'Eindtijd' %><br/>
+                <%= f.time_select :started_at, {minute_step: 15} %> - <%= f.time_select :ended_at, {minute_step: 15} %>
               </p>
 
               <p>
