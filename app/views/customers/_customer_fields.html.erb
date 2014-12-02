@@ -1,15 +1,32 @@
-<div class="form-inline">
-		<%= f.label :names, 'Uw naam' %>
-		<%= f.text_field :first_name, class: "form-control" %>
-		<%= f.text_field :last_name, class: "form-control" %>
+
+<div class="form-group">
+	<%= f.label :names, 'Uw naam' %>
+	<%= f.text_field :first_name, class: "form-control" %>
+	<%= f.text_field :last_name, class: "form-control" %>
 </div>
 
-<%= f.label :phone, 'Telefoonnummer' %>
-<%= f.text_field :phone, class: "form-control" %>
+<div class="form-group">
+	<%= f.label :address, 'Adres' %>
+	<%= f.text_field :address, class: "form-control" %>
 
-<%= f.label :email, 'E-mail' %>
+</div>
+<div class="form-group">
+	<%= f.label :zip, 'Postcode' %>
+	<%= f.text_field :zip, class: "form-control" %>
 
-	<div class="input-group">
-<div class="input-group-addon">@</div>	
-<%= f.text_field :email, class: "form-control", type: "email" %>
+</div>
+<div class="form-group">
+	<%= f.label :city, 'Plaats' %>
+	<%= f.text_field :city, class: "form-control" %>
+
+</div>
+<div class="form-group">
+	<%= f.label :phone, 'Telefoonnummer' %>
+	<%= f.text_field :phone, class: "form-control" %>
+
+</div>
+<div class="form-group">
+	<%= f.label :email, 'E-mail' %>
+	<%= f.text_field :email, class: "form-control", type: "email" %>
+
 </div>

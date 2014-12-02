@@ -1,41 +1,18 @@
-<%= form_for @reservation do |f| %>	
+<%= form_for @reservation do |f| %> 
+            <%= f.fields_for :customer do |c| %>
+              <%= render "customers/customer_fields", :f => c %>
 
-	<%= f.fields_for :customer do |c| %>
-		<%= render "customers/customer_fields", :f => c %>
-
-		<%= c.fields_for :company do |builder| %>
-			<%= render "companies/company_fields", :f => builder %>
-		<% end %>
-		
-	<% end %>
-
-	<p>
-		<%= f.label :status, 'Status' %><br />
-		<%= f.text_field :status %>
-	</p>
-
-	<p>
-		<%= f.label :date, 'Datum' %><br />
-		<%= f.date_select(:date, order: [:day, :month, :year]) %>
-	</p>
-
-	<p>
-		<%= f.label :start, 'Begintijd' %> - 
-		<%= f.label :end, 'Eindtijd' %><br/>
-		<%= f.time_select :start, {minute_step: 15} %> - <%= f.time_select :end, {minute_step: 15} %>
-	</p>
-	
-	<p>
-		<%= f.label :amount, 'Aantal personen' %>
-		<%= f.select :amount, (10..40) %>
-	</p>
-
-	<p>
-		<%= f.label :description, 'Korte beschrijving van uw activiteit' %><br />
-		<%= f.text_area :description %>
-	</p>
-
-	<p>
-		<%= f.submit 'Reservering aanpassen' %>
-	</p>
-<% end %>
+              <%= c.fields_for :company do |builder| %>
+                <%= render "companies/company_fields", :f => builder %>
+              <% end %>
+              
+            <% end %>
+              <%= f.label :started_at, 'Begintijd' %> - 
+              <%= f.label :ended_at, 'Eindtijd' %><br/>
+              <%= f.time_select :started_at, {minute_step: 15} %> - <%= f.time_select :ended_at, {minute_step: 15} %>
+              <%= f.label :description, 'Korte beschrijving van uw activiteit' %><br />
+              <%= f.text_area :description, class: "form-control" %>
+              <%= f.label :note, 'Notities' %><br />
+              <%= f.text_area :note, class: "form-control" %>
+          <%= f.submit 'Reservering aanpassen', class: "btn btn-primary" %>
+          <% end %>

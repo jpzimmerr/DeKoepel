@@ -6,42 +6,27 @@
       </div>
       <div class="modal-body">
           <%= form_for @reservation do |f| %> 
+            <%= f.fields_for :customer do |c| %>
+              <%= render "customers/customer_fields", :f => c %>
 
-            <div class="form-group">
-              <%= f.fields_for :customer do |c| %>
-                <%= render "customers/customer_fields", :f => c %>
-
-                <%= c.fields_for :company do |builder| %>
-                  <%= render "companies/company_fields", :f => builder %>
-                <% end %>
-                
+              <%= c.fields_for :company do |builder| %>
+                <%= render "companies/company_fields", :f => builder %>
               <% end %>
-
-              <p>
-                <%= f.label :status, 'Status' %><br />
-                <%= f.text_field :status, class: "form-control" %>
-              </p>
-
-              <p>
-                <%= f.label :started_at, 'Begintijd' %> - 
-                <%= f.label :ended_at, 'Eindtijd' %><br/>
-                <%= f.time_select :started_at, {minute_step: 15} %> - <%= f.time_select :ended_at, {minute_step: 15} %>
-              </p>
-
-              <p>
-                <%= f.label :description, 'Korte beschrijving van uw activiteit' %><br />
-                <%= f.text_area :description, class: "form-control" %>
-              </p>
-
-              <p>
-                <%= f.submit 'Reservering aanpassen' %>
-              </p>
-            </div>
-          <% end %>
+              
+            <% end %>
+              <%= f.label :started_at, 'Begintijd' %> - 
+              <%= f.label :ended_at, 'Eindtijd' %><br/>
+              <%= f.time_select :started_at, {minute_step: 15} %> - <%= f.time_select :ended_at, {minute_step: 15} %>
+              <%= f.label :description, 'Korte beschrijving van uw activiteit' %><br />
+              <%= f.text_area :description, class: "form-control" %>
+              <%= f.label :note, 'Notities' %><br />
+              <%= f.text_area :note, class: "form-control" %>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+
+          <%= f.submit 'Reservering aanpassen', class: "btn btn-primary" %>
+          <% end %>
       </div>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
