@@ -36,8 +36,8 @@ Brandemeer 113<br>
 	</tr>
  </thead>
   <tr>
-  	<td><%= @reservation.date %></td>
-  	<td><%= @reservation.start %> - <%= @reservation.end %></td>
+  	<td>datum</td>
+  	<td><%= @reservation.started_at %> - <%= @reservation.ended_at %></td>
   	<td>Plaats</td>
   	<td><%= @reservation.customer.first_name %> <%= @reservation.customer.last_name %></td>
   	<td><%= @reservation.description %></td>
