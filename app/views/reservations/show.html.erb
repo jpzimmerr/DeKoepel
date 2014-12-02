@@ -5,8 +5,8 @@
 <b><%= @reservation.customer.company.name %></b><br><br>
 
 <%= @reservation.customer.first_name %> <%= @reservation.customer.last_name %><br>
-Brandemeer 113<br>
-8918 CV Leeuwarden
+<%= @reservation.customer.address %><br>
+<%= @reservation.customer.zip %> <%= @reservation.customer.city %>
 <br><br>
 
 <%= @reservation.customer.email %><br>
