@@ -6,7 +6,7 @@
     $('.datepicker').datepicker();
   });
 </script>
-<div class="pull-right">
+<div class="pull-right no_print">
 <%= link_to("Print dit overzicht", "javascript:print()", class: 'btn btn-default') %> 
 <%= link_to 'Nieuwe Reservering', new_reservation_path, class: 'btn btn-primary' %>
 </div>
@@ -31,10 +31,10 @@
   <div class="panel-heading">
   	Reserveringen 
   	
-  	<div class="pull-right">
+  	<div class="pull-right no_print">
 		<%= form_tag(reservations_path, :method => "get", id: "search-form") do %>
 		  <%= text_field_tag :search, params[:search], placeholder: "Zoek op naam" %>
-		  <%= submit_tag "Zoeken !", :name => nil, :date => nil, :last_name => nil,  class: 'btn btn-default' %>
+		  <%= submit_tag "Zoeken !", :name => nil, :date => nil, :last_name => nil,  class: 'btn btn-default no_print' %>
 		<% end %>
 	</div>
 
