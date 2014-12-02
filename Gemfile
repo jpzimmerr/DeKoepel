@@ -51,3 +51,6 @@ gem 'filterrific'
 
 #datepicker for bootstrap3
 gem 'bootstrap-datepicker-rails', '~> 1.3.0.2'
+
+#remove some unecessary stuff from the console
+gem 'quiet_assets', group: :development
