@@ -12,18 +12,18 @@
 		<% end %>
 		
 	<% end %>
-
-	<% f.text_field :status %>
 	
+
 	<p>
-		<%= f.label :date, 'Datum' %><br />
-		<%= f.date_select(:date, order: [:day, :month, :year]) %>
-	</p>
+		<%= f.label :status, 'Status' %><br />
+        <%= f.text_field :status, class: "form-control" %>
+    </p>
+
 
 	<p>
 		<%= f.label :start, 'Begintijd' %> - 
 		<%= f.label :end, 'Eindtijd' %><br/>
-		<%= f.time_select :start, {minute_step: 15} %> - <%= f.time_select :end, {minute_step: 15} %>
+		<%= f.time_select :started_at, {minute_step: 15} %> - <%= f.time_select :ended_at, {minute_step: 15} %>
 	</p>
 	
 	<p>

@@ -9,7 +9,7 @@
   });
 </script>
 
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#add_reservation">Reservering toevoegen</button>
+<%= link_to 'Nieuwe Reservering', new_reservation_path, class: 'btn btn-info' %>
 
 <%= link_to("Print dit overzicht", "javascript:print()", class: 'btn pull-right btn-default') %> 
 <div class="alert alert-warning alert-dismissible fade in" role="alert">
@@ -73,6 +73,4 @@
   <%= will_paginate @reservations, :previous_label => 'Vorige', :next_label => 'Volgende',renderer: BootstrapPagination::Rails %>
 </nav>
 <!--Popup met nieuwe reservering-->
-<div id="add_reservation" class="modal fade">
-  <%= render "new" %>
-</div><!-- /.modal -->
+<!-- /.modal -->
