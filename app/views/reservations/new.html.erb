@@ -23,12 +23,12 @@
 	<p>
 		<%= f.label :start, 'Begintijd' %> - 
 		<%= f.label :end, 'Eindtijd' %><br/>
-		<%= f.time_select :start %> - <%= f.time_select :end %>
+		<%= f.time_select :start, {minute_step: 15} %> - <%= f.time_select :end, {minute_step: 15} %>
 	</p>
 	
 	<p>
-		<%= f.label :customercount, 'Aantal bezoekers' %>
-		<%= f.number_field_tag :customercount, nil, in 1 40  %>
+		<%= f.label :amount, 'Aantal personen' %>
+		<%= f.select :amount, (10..40) %>
 	</p>
 
 	<p>

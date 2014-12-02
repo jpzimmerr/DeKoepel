@@ -1,15 +1,15 @@
-<p>
-	<%= f.label :names, 'Uw naam' %><br />
-	<%= f.text_field :first_name %>
-	<%= f.text_field :last_name %>
-</p>
+<div class="form-inline">
+		<%= f.label :names, 'Uw naam' %>
+		<%= f.text_field :first_name, class: "form-control" %>
+		<%= f.text_field :last_name, class: "form-control" %>
+</div>
 
-<p>
-	<%= f.label :phone, 'Telefoonnummer' %><br />
-	<%= f.text_field :phone %>
-</p>
+<%= f.label :phone, 'Telefoonnummer' %>
+<%= f.text_field :phone, class: "form-control" %>
 
-<p>
-	<%= f.label :email, 'E-mail' %><br />
-	<%= f.text_field :email %>
-</p>
+<%= f.label :email, 'E-mail' %>
+
+	<div class="input-group">
+<div class="input-group-addon">@</div>	
+<%= f.text_field :email, class: "form-control", type: "email" %>
+</div>

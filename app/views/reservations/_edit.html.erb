@@ -1,0 +1,52 @@
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title">Wijzigen</h4>
+      </div>
+      <div class="modal-body">
+          <%= form_for @reservation do |f| %> 
+
+            <div class="form-group">
+              <%= f.fields_for :customer do |c| %>
+                <%= render "customers/customer_fields", :f => c %>
+
+                <%= c.fields_for :company do |builder| %>
+                  <%= render "companies/company_fields", :f => builder %>
+                <% end %>
+                
+              <% end %>
+
+              <p>
+                <%= f.label :status, 'Status' %><br />
+                <%= f.text_field :status, class: "form-control" %>
+              </p>
+
+              <p>
+                <%= f.label :date, 'Datum' %><br />
+                <%= f.date_select(:date, order: [:day, :month, :year]) %>
+              </p>
+
+              <p>
+                <%= f.label :start, 'Begintijd' %> - 
+                <%= f.label :end, 'Eindtijd' %><br/>
+                <%= f.time_select :start %> - <%= f.time_select :end %>
+              </p>
+
+              <p>
+                <%= f.label :description, 'Korte beschrijving van uw activiteit' %><br />
+                <%= f.text_area :description, class: "form-control" %>
+              </p>
+
+              <p>
+                <%= f.submit 'Reservering aanpassen' %>
+              </p>
+            </div>
+          <% end %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
