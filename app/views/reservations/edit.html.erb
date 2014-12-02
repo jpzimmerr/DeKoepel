@@ -23,7 +23,7 @@
 	<p>
 		<%= f.label :start, 'Begintijd' %> - 
 		<%= f.label :end, 'Eindtijd' %><br/>
-		<%= f.datetime_select :started_at, {minute_step: 15} %> - <%= f.datetime_select :ended_at, {minute_step: 15} %>
+		<%= f.datetime_select :started_at, {minute_step: 15}, start_year: Time.zone.now %> - <%= f.datetime_select :ended_at, {minute_step: 15}, start_year: Time.zone.now %>
 	</p>
 	
 	<p>
