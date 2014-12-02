@@ -1,4 +1,14 @@
 class Reservation < ActiveRecord::Base
+
+	filterrific(
+		filter_names: [
+			:date,
+			])
+
+	scope :with_date, lambda { |reference_time|
+		where('reservation.date >= ?', reference_time) 
+	}
+
 	self.per_page = 10
 
 	belongs_to :customer
