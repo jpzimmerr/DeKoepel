@@ -21,12 +21,6 @@
   <%= text_field_tag :search, params[:search], placeholder: "Zoek op naam" %>
   <%= submit_tag "Zoeken !", :name => nil, :date => nil, :last_name => nil,  class: 'btn btn-primary' %>
 <% end %>
-<%= form_for @filterrific do |r| %>
-  Date
-    <%= r.text_field(:date, class: 'datepicker') %>
-    <%= r.submit 'Filter' %>
-  <%= render_filterrific_spinner %>
-<% end %>
 
 <div class="panel panel-default">
 
