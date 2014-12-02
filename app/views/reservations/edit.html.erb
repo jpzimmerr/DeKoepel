@@ -1,3 +1,7 @@
+<% if @reservation.errors.any? %>
+	<%= render :partial => 'validation' %>
+<% end %>
+
 <%= form_for @reservation do |f| %>	
 
 	<%= f.fields_for :customer do |c| %>
@@ -8,21 +12,18 @@
 		<% end %>
 		
 	<% end %>
+	
 
 	<p>
 		<%= f.label :status, 'Status' %><br />
-		<%= f.text_field :status %>
-	</p>
+        <%= f.text_field :status, class: "form-control" %>
+    </p>
 
-	<p>
-		<%= f.label :date, 'Datum' %><br />
-		<%= f.date_select(:date, order: [:day, :month, :year]) %>
-	</p>
 
 	<p>
 		<%= f.label :start, 'Begintijd' %> - 
 		<%= f.label :end, 'Eindtijd' %><br/>
-		<%= f.time_select :start, {minute_step: 15} %> - <%= f.time_select :end, {minute_step: 15} %>
+		<%= f.time_select :started_at, {minute_step: 15} %> - <%= f.time_select :ended_at, {minute_step: 15} %>
 	</p>
 	
 	<p>
@@ -36,6 +37,12 @@
 	</p>
 
 	<p>
+		<%= f.label :note, 'Notities' %>
+		<%= f.text_area :note %>
+	</p>
+
+	<p>
 		<%= f.submit 'Reservering aanpassen' %>
 	</p>
 <% end %>
+<%= link_to 'Terug', reservations_path %>
