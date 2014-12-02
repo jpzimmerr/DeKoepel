@@ -42,7 +42,7 @@
 				<th>Aantal personen</th>
 				<th class="sorttable_nosort">Omschrijving</th>
 				<th class="sorttable_nosort">Status</th>
-				<th class="sorttable_nosort no_print" colspan="2"></th>
+				<th class="sorttable_nosort no_print">Bekijk</th>
 			</tr>
 	</thead>
 		<% @reservations.each do |reservation| %>
@@ -61,10 +61,10 @@
 				</td>
 				<td><%= reservation.description %></td>
 				<td><%= reservation.status %></td>
-				<td class="no_print"><%= link_to 'info', reservation_path(reservation), class: 'btn btn-info' %></td>
-				<td class="no_print"><%= link_to 'Edit', edit_reservation_path(reservation), class: 'btn btn-warning' %></td>
+				<td class="no_print"><%= link_to 'Bekijk', reservation_path(reservation), class: 'btn btn-info' %></td>
+				<!--<td class="no_print"><%= link_to 'Edit', edit_reservation_path(reservation), class: 'btn btn-warning' %></td>
 				<td class="no_print"><%= link_to 'Del', reservation_path(reservation),
-														method: :delete, data: { confirm: 'Weet u het zeker?'}, class: 'btn btn-danger' %></td>
+														method: :delete, data: { confirm: 'Weet u het zeker?'}, class: 'btn btn-danger' %></td> -->
 			</tr>
 		<% end %>
   </table>
