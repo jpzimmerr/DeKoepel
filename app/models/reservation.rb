@@ -1,5 +1,5 @@
 class Reservation < ActiveRecord::Base
-	before_save :convert_to_datetime
+	#before_save :convert_to_datetime
 
 	def started_at_date
 		started_at.strftime("%d/%m/%Y") if started_at.present?

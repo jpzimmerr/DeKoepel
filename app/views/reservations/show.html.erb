@@ -33,8 +33,8 @@
 	</tr>
  </thead>
   <tr>
-  	<td>datum</td>
-  	<td><%= @reservation.started_at %> - <%= @reservation.ended_at %></td>
+  	<td><%= @reservation.started_at_date %></td>
+  	<td><%= @reservation.started_at_time %> - <%= @reservation.ended_at_time %></td>
   	<td>Plaats</td>
   	<td><%= @reservation.customer.first_name %> <%= @reservation.customer.last_name %></td>
   	<td><%= @reservation.description %></td>
