@@ -24,6 +24,11 @@
 		<%= f.label :end, 'Eindtijd' %><br/>
 		<%= f.time_select :start, {minute_step: 15} %> - <%= f.time_select :end, {minute_step: 15} %>
 	</p>
+	
+	<p>
+		<%= f.label :amount, 'Aantal personen' %>
+		<%= f.select :amount, (10..40) %>
+	</p>
 
 	<p>
 		<%= f.label :description, 'Korte beschrijving van uw activiteit' %><br />
