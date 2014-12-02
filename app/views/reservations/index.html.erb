@@ -1,5 +1,3 @@
-
-
 <h1> Overzicht reserveringen</h1>
 <%= stylesheet_link_tag "application", :media => 'print' %>
 
@@ -8,10 +6,12 @@
     $('.datepicker').datepicker();
   });
 </script>
+<div class="pull-right">
+<%= link_to 'Nieuwe Reservering', new_reservation_path, class: 'btn btn-primary' %>
 
-<%= link_to 'Nieuwe Reservering', new_reservation_path, class: 'btn btn-info' %>
-
-<%= link_to("Print dit overzicht", "javascript:print()", class: 'btn pull-right btn-default') %> 
+<%= link_to("Print dit overzicht", "javascript:print()", class: 'btn btn-default') %> 
+</div>
+<br /><br />
 <div class="alert alert-warning alert-dismissible fade in" role="alert">
       <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">×</span><span class="sr-only">Sluit</span></button>
       <strong>Tip: </strong>Klik op de kopjes van het tabel om deze te sorteren. Het pijltje geeft dan aan of deze oplopend of aflopen gesorteerd worden.
