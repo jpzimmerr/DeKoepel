@@ -14,10 +14,7 @@
 
 
 <div class="pull-right">
-<!--<%= link_to 'Wijzigen', edit_reservation_path(@reservation), type: "button",  class: 'btn btn-warning' %> -->
-<button type="button" class="btn btn-warning" data-toggle="modal" data-target="#wijzigen">
-  Wijzigen
-</button>
+<%= link_to 'Wijzigen', edit_reservation_path(@reservation), type: "button",  class: 'btn btn-warning' %>
 <%= link_to 'Verwijderen', reservation_path(@reservation),
 														method: :delete, data: { confirm: 'Weet u het zeker?'}, type: "button", class: 'btn btn-danger' %>
 </div>
