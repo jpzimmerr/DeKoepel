@@ -38,7 +38,7 @@ class Reservation < ActiveRecord::Base
 		self.ended_at = DateTime.parse("#{@ended_at_date} #{@ended_at_time}")
 	end
 
-	self.per_page = 10
+	self.per_page = 5
 
 	belongs_to :customer
 	accepts_nested_attributes_for :customer

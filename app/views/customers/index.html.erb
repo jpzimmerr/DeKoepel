@@ -1,0 +1,39 @@
+<h1> Overzicht alle gebruikers</h1>
+<div class="panel panel-info">
+
+  <!-- Default panel contents -->
+  <div class="panel-heading ">
+  	Reserveringen 
+ 
+  </div>
+<!-- Table -->
+  <table class="sortable table table-bordered table-striped table-hover">
+  	<thead>
+			<tr>
+				<th>Bedrijf</th>
+				<th>Naam</th>
+				<th>Adres</th>
+				<th>Postcode</th>
+				<th>Plaats</th>
+				<th>Telefoon</th>
+				<th>email</th>
+			</tr>
+	</thead>
+		<% @customers.each do |customer| %>
+			<tr>
+				<td> 
+					<% if customer.company.present? %>
+						<br />(<%= customer.company.name %>)
+					<% else %>
+						<br /><%= customer.company(name: "Er is geen bedrijf gekoppeld") %>
+					<% end %>
+				</td>
+				<td><%= customer.first_name  %> <%= customer.last_name  %> </td>
+				<td> <%= customer.address %> </td>
+				<td> <%= customer.zip %> </td>
+				<td> <%= customer.city %> </td>
+				<td> <%= customer.phone %> </td>
+				<td> <%= customer.email %> </td>
+		<% end %>
+  </table>
+</div>

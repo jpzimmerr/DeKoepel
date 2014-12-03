@@ -1,3 +1,7 @@
+<div class="pull-right no_print">
+	<%= link_to("Print dit overzicht", "javascript:print()", class: 'btn btn-default') %> 
+	<%= link_to 'Nieuwe Reservering', new_reservation_path, class: 'btn btn-primary' %>
+</div>
 <h1> Overzicht reserveringen</h1>
 <%= stylesheet_link_tag "application", :media => 'print' %>
 
@@ -6,12 +10,7 @@
     $('.datepicker').datepicker();
   });
 </script>
-<div class="pull-right no_print">
-<%= link_to("Print dit overzicht", "javascript:print()", class: 'btn btn-default') %> 
-<%= link_to 'Nieuwe Reservering', new_reservation_path, class: 'btn btn-primary' %>
-</div>
 
-<br /><br />
 <!--
 <div class="alert alert-warning alert-dismissible fade in" role="alert">
       <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">×</span><span class="sr-only">Sluit</span></button>
@@ -23,34 +22,39 @@
 <div class="alert alert-info" role="alert">Let op er is 1 onbehandelde reservering</div>
 
    -->
+<div class="row no_print">
+	<%= form_tag(reservations_path, :method => "get", id: "search-form") do %>
 
-
-<div class="panel panel-default">
+		<div class="col-md-2">
+			<%= text_field_tag :search, params[:search], placeholder: "Zoek op naam", class: 'form-control' %>
+		</div>
+		<div class="col-md-1">
+			<%= submit_tag "Zoeken !", :name => nil, :date => nil, :last_name => nil,  class: 'btn btn-default ' %>
+		</div>
+		<div class="col-md-8">
+		</div>
+	<% end %>
+</div>
+<br>
+<div class="panel panel-info">
 
   <!-- Default panel contents -->
   <div class="panel-heading">
   	Reserveringen 
-  	
-  	<div class="pull-right no_print">
-		<%= form_tag(reservations_path, :method => "get", id: "search-form") do %>
-		  <%= text_field_tag :search, params[:search], placeholder: "Zoek op naam" %>
-		  <%= submit_tag "Zoeken !", :name => nil, :date => nil, :last_name => nil,  class: 'btn btn-default no_print' %>
-		<% end %>
-	</div>
-
+ 
   </div>
 
   <!-- Table -->
   <table class="sortable table table-bordered table-hover">
   	<thead>
-			<tr>
-				<th>Datum</th>
-				<th>Tijdstip</th>
-				<th>Naam</th>
-				<th>Aantal personen</th>
-				<th class="sorttable_nosort">Omschrijving</th>
-				<th class="sorttable_nosort">Notities</th>
-				<th class="sorttable_nosort no_print">Bekijk</th>
+			<tr class="">
+				<th class="sortable col-md-0">Datum</th>
+				<th class="sortable col-md-2">Tijdstip</th>
+				<th class="sortable col-md-2">Naam</th>
+				<th class="col-md-0 sorttable_nosort">Aantal personen</th>
+				<th class="col-md-3 sorttable_nosort">Omschrijving</th>
+				<th class="col-md-3 sorttable_nosort">Notities</th>
+				<th class="col-md-1 sorttable_nosort no_print">Bekijk</th>
 			</tr>
 	</thead>
 		<% @reservations.each do |reservation| %>
@@ -69,7 +73,7 @@
 				</td>
 				<td><%= reservation.description %></td>
 				<td><%= reservation.note %></td>
-				<td class="no_print"><%= link_to 'Bekijk', reservation_path(reservation), class: 'btn btn-info' %></td>
+				<td class="no_print"><%= link_to 'Bekijk', reservation_path(reservation), class: 'btn btn-warning' %></td>
 				<!--<td class="no_print"><%= link_to 'Edit', edit_reservation_path(reservation), class: 'btn btn-warning' %></td>
 				<td class="no_print"><%= link_to 'Del', reservation_path(reservation),
 														method: :delete, data: { confirm: 'Weet u het zeker?'}, class: 'btn btn-danger' %></td> -->
@@ -77,8 +81,8 @@
 		<% end %>
   </table>
 </div>
-<nav>
-  <%= will_paginate @reservations, :previous_label => 'Vorige', :next_label => 'Volgende',renderer: BootstrapPagination::Rails %>
+<nav >
+  <%= will_paginate @reservations, :previous_label => 'Vorige', :next_label => 'Volgende' , renderer: BootstrapPagination::Rails %>
 </nav>
 <!--Popup met nieuwe reservering-->
 <!-- /.modal -->

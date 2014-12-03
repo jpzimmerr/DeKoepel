@@ -13,42 +13,29 @@
 <%= @reservation.customer.phone %><br><br>
 
 
-<div class="pull-right">
-<%= link_to 'Wijzigen', edit_reservation_path(@reservation), type: "button",  class: 'btn btn-warning' %>
-<%= link_to 'Verwijderen', reservation_path(@reservation),
-														method: :delete, data: { confirm: 'Weet u het zeker?'}, type: "button", class: 'btn btn-danger' %>
-</div>
+
 
 <table class="table table-bordered">
  <thead>
-	<tr class="active">
-		<th>Datum</th>
-		<th>Tijd</th>
-  		<th>Plaats</th>
-		<th>Naam</th>
-		<th>Omschrijving</th>
-		<th>Aantal personen</th>
-		<th>Notities</th>
-		<th>Status</th>
+	<tr class="info">
+		<th class="col-md-0">Datum</th>
+		<th class="col-md-2">Tijd</th>
+    <th class="col-md-2">Aantal personen</th>
+		<th class="col-md-4">Omschrijving</th>
+		<th class="col-md-4">Notities</th>
 	</tr>
  </thead>
   <tr>
   	<td><%= @reservation.started_at_date %></td>
   	<td><%= @reservation.started_at_time %> - <%= @reservation.ended_at_time %></td>
-  	<td>Plaats</td>
-  	<td><%= @reservation.customer.first_name %> <%= @reservation.customer.last_name %></td>
+    <td><%= @reservation.amount %></td>
   	<td><%= @reservation.description %></td>
-  	<td>Aantal personen</td>
-  	<td>Notities</td>
-  	<td><%= @reservation.status %></td>
+  	<td><%= @reservation.note %></td>
   </tr>
 </table>
-
-<div id="wijzigen" class="modal fade">
-  <%= render "edit" %>
-</div><!-- /.modal -->
-
-
-
-
+<div class="pull-right">
+<%= link_to 'Wijzigen', edit_reservation_path(@reservation), type: "button",  class: 'btn btn-warning' %>
+<%= link_to 'Verwijderen', reservation_path(@reservation),
+                            method: :delete, data: { confirm: 'Weet u het zeker?'}, type: "button", class: 'btn btn-danger' %>
+</div>
 <%= link_to 'Terug naar overzicht', reservations_path, class: "btn btn-primary" %>
