@@ -19,15 +19,17 @@ class ReservationsController < ApplicationController
 	end
 
 	def index
-	@reservations = Reservation.all	
-  	@customers = Customer.all
-  	@companies = Company.all
+		@reservations = Reservation.all	
+	  	@customers = Customer.all
+	  	@companies = Company.all
 
-	@reservations = Reservation.paginate(:page => params[:page])
+	  	@filterrific = Filterrific.new(Reservation, params[:filterrific])
+	  	@reservations = Reservation.filterrific_find(@filterrific).page(params[:page])
 
-	  if params[:search]
-		@reservations = @reservations.search(params[:search])
-	  end
+	  	respond_to do |format|
+	  		format.html
+	  		format.js
+	  	end
 	end
 
 	def show

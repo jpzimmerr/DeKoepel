@@ -1,6 +1,16 @@
 class Reservation < ActiveRecord::Base
 	#before_save :convert_to_datetime
 
+	filterrific(
+		default_settings: { sorted_by: 'created_at_desc'},
+		filter_names: [
+			:search_query,
+			:sorted_by,
+			:with_customer_id,
+			:with_created_at_gte
+			]
+		)
+
 	def started_at_date
 		started_at.strftime("%d/%m/%Y") if started_at.present?
 	end
@@ -38,15 +48,17 @@ class Reservation < ActiveRecord::Base
 		self.ended_at = DateTime.parse("#{@ended_at_date} #{@ended_at_time}")
 	end
 
-	self.per_page = 5
+	def self.options_for_sorted_by
+		[
+			['Name (a-z)', 'last_name_asc'],
+			['Registration date (desc)', 'created_at_desc'],
+			['Registration date (asc)', 'created_at_asc'],
+			['Customer (a-z)', 'customer_first_name_asc']
+		]
+	end
 
 	belongs_to :customer
 	accepts_nested_attributes_for :customer
 
 	validates :started_at, :ended_at, :amount, presence: true
-
-	def self.search(query)
-		q = "%#{query}%"
-		joins(customer: :company).where('started_at::text like ? or ended_at::text like ? or upper(customers.last_name) like ? or upper(customers.first_name) like ? or upper(companies.name) like ?', q, q, q.upcase, q.upcase, q.upcase)
-	end
 end	

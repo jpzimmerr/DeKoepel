@@ -22,20 +22,6 @@
 <div class="alert alert-info" role="alert">Let op er is 1 onbehandelde reservering</div>
 
    -->
-<div class="row no_print">
-	<%= form_tag(reservations_path, :method => "get", id: "search-form") do %>
-
-		<div class="col-md-2">
-			<%= text_field_tag :search, params[:search], placeholder: "Zoek op naam", class: 'form-control' %>
-		</div>
-		<div class="col-md-1">
-			<%= submit_tag "Zoeken !", :name => nil, :date => nil, :last_name => nil,  class: 'btn btn-default ' %>
-		</div>
-		<div class="col-md-8">
-		</div>
-	<% end %>
-</div>
-<br>
 <div class="panel panel-info">
 
   <!-- Default panel contents -->
@@ -44,45 +30,45 @@
  
   </div>
 
-  <!-- Table -->
-  <table class="sortable table table-bordered table-hover">
-  	<thead>
-			<tr class="">
-				<th class="sortable col-md-0">Datum</th>
-				<th class="sortable col-md-2">Tijdstip</th>
-				<th class="sortable col-md-2">Naam</th>
-				<th class="col-md-0 sorttable_nosort">Aantal personen</th>
-				<th class="col-md-3 sorttable_nosort">Omschrijving</th>
-				<th class="col-md-3 sorttable_nosort">Notities</th>
-				<th class="col-md-1 sorttable_nosort no_print">Bekijk</th>
-			</tr>
-	</thead>
-		<% @reservations.each do |reservation| %>
-			<tr>
-				<td><%= reservation.started_at_date %></td>
-				<td><%= reservation.started_at_time %> - <%= reservation.ended_at_time %></td>
-				<td><%= reservation.customer.first_name  %> <%= reservation.customer.last_name  %> 
-					<% if reservation.customer.company.present? %>
-						<br />(<%= reservation.customer.company.name %>)
-					<% else %>
-						<br /><%= reservation.customer.company(name: "Er is geen bedrijf gekoppeld") %>
-					<% end %>
-				</td>
-				
-				<td><%= reservation.amount %>
-				</td>
-				<td><%= reservation.description %></td>
-				<td><%= reservation.note %></td>
-				<td class="no_print"><%= link_to 'Bekijk', reservation_path(reservation), class: 'btn btn-warning' %></td>
-				<!--<td class="no_print"><%= link_to 'Edit', edit_reservation_path(reservation), class: 'btn btn-warning' %></td>
-				<td class="no_print"><%= link_to 'Del', reservation_path(reservation),
-														method: :delete, data: { confirm: 'Weet u het zeker?'}, class: 'btn btn-danger' %></td> -->
-			</tr>
-		<% end %>
-  </table>
+  <%= form_for @filterrific do |f| %>
+  	<div>
+  		<%= f.text_field(
+  			:search_query,
+  			class: 'filterrific-periodically-observed'
+  		) %>
+  	</div>
+  	<div>
+  		Customer
+  		<%= f.select(
+  			:with_customer_id,
+  			@filterrific.select_options[:with_customer_id],
+  			{ include_blank: '- Any -'}
+  		) %>
+  	</div>
+  	<div>
+  		Reserved after
+		<%= f.text_field(:with_created_at_gte, class: 'js-datepicker') %>
+   	</div>
+   	<div>
+   		Sorted by
+   		<%= f.select(:sorted_by, @filterrific.select_options[:sorted_by]) %>
+   	</div>
+   	<div>
+   		<%= link_to(
+   			'Reset filters',
+   			reset_filterrific_reservations_path,
+   		) %>
+   	</div>
+   	<%= render_filterrific_spinner %>
+   <% end %>
+
+   <%= render (
+   	partial: 'reservations/list',
+   	locals: { reservations: @reservations }
+   	) %>
+
 </div>
-<nav >
-  <%= will_paginate @reservations, :previous_label => 'Vorige', :next_label => 'Volgende' , renderer: BootstrapPagination::Rails %>
+<nav>
 </nav>
 <!--Popup met nieuwe reservering-->
 <!-- /.modal -->
