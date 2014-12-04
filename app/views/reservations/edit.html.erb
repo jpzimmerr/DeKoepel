@@ -16,17 +16,14 @@
 					<% end %>
 					
 				<% end %>
-				
 
 				<div class="form-group">
-					<%= f.label :start, 'Begintijd' %><br>
-					<%= f.datetime_select :started_at, {minute_step: 15}, start_year: Time.zone.now %> 
-
+					<%= f.label :started_at, 'Begintijd' %> <br>
+					<%= f.datetime_select :started_at, {minute_step: 15}, start_year: Time.zone.now %>
 				</div>
 				<div class="form-group">
-
-					<%= f.label :end, 'Eindtijd' %><br>
-					<%= f.datetime_select :ended_at, {minute_step: 15}, start_year: Time.zone.now %>
+					<%= f.label :ended_at, 'Eindtijd' %><br>
+					<%= f.datetime_select :ended_at, {minute_step: 15, discard_year: true, discard_month: true}, start_year: Time.zone.now %>
 				</div>
 				
 				<div class="row">

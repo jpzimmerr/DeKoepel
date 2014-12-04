@@ -38,12 +38,12 @@ class Reservation < ActiveRecord::Base
 		self.ended_at = DateTime.parse("#{@ended_at_date} #{@ended_at_time}")
 	end
 
-	self.per_page = 5
+	self.per_page = 10
 
 	belongs_to :customer
 	accepts_nested_attributes_for :customer
 
-	validates :started_at, :ended_at, :amount, presence: true
+	validates :started_at, :ended_at, presence: true
 
 	def self.search(query)
 		q = "%#{query}%"
