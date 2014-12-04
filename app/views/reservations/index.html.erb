@@ -47,7 +47,7 @@
   	</div>
   	<div>
   		Reserved after
-		<%= f.text_field(:with_created_at_gte, class: 'js-datepicker') %>
+		<%= f.text_field(:with_created_at_gte, class: 'datepicker') %>
    	</div>
    	<div>
    		Sorted by
@@ -62,10 +62,10 @@
    	<%= render_filterrific_spinner %>
    <% end %>
 
-   <%= render (
+   <%= render(
    	partial: 'reservations/list',
    	locals: { reservations: @reservations }
-   	) %>
+    ) %>
 
 </div>
 <nav>

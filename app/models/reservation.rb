@@ -57,6 +57,22 @@ class Reservation < ActiveRecord::Base
 		]
 	end
 
+	scope :with_customer_id, lambda { |customer_ids| 
+		where(customer_id: [*customer_ids])
+	}
+
+	scope :sorted_by, lambda { |sort_option|
+		direction = (sort_option =~ /desc$/ ) ? 'desc' : 'asc'
+		case sort_option.to_s
+		when /^created_at_/
+			order("customers.created_at #{ direction }")
+		when /^name_/
+			order("LOWER(customer.last_name) #{ direction }, LOWER(customer.first_name) #{ direction }")
+		else
+			raise(ArgumentError, "Invalid sort option: #{ sort_option.inspect }")
+		end
+ 	}
+
 	belongs_to :customer
 	accepts_nested_attributes_for :customer
 
