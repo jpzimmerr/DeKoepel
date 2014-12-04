@@ -7,7 +7,9 @@ class Customer < ActiveRecord::Base
 	def self.options_for_select
 		order('LOWER(last_name)').map { |e| [e.last_name, e.id]}
 	end
+	def edit
 
+	end
 	validates :first_name, :last_name, presence: true, 
 										length: { minimum: 1, maximum: 20 }
 	validates :phone, numericality: true, presence: true,

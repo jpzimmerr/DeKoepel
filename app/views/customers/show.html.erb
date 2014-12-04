@@ -1,0 +1,31 @@
+  
+<%= link_to 'Wijzigen', edit_customer_path(@customer), type: "button",  class: 'btn btn-warning' %>
+<table class="sortable table table-bordered table-striped table-hover">
+	<tr>
+		<td> Naam</td>
+		<td><%= @customer.first_name  %> <%= @customer.last_name  %> </td>
+		<td> Aantal reserveringen </td>
+		<td> <%= @reservations_count  %></td>
+	</tr>
+	<tr>
+		<td> Adress</td>
+		<td> <%= @customer.address %> </td>
+	</tr>
+	<tr>
+		<td> Postcode</td>
+		<td> <%= @customer.zip %> </td>
+	</tr>
+	<tr>
+		<td> Plaats</td>
+		<td> <%= @customer.city %> </td>
+	</tr>
+	<tr>
+		<td> Telefoon</td>
+		<td> <%= @customer.phone %> </td>
+	</tr>
+	<tr>
+		<td> E-mail</td>
+		<td> <%= @customer.email %> </td>
+	</tr>
+</table>
+
