@@ -46,11 +46,12 @@ class Reservation < ActiveRecord::Base
 	validates :started_at, :ended_at, presence: true
 
 	def self.search(q)
+
 		joins(customer: :company).where("
-			upper(concat_ws('',customer.first_name, customer.last_name)) LIKE ? 
-													OR 'started_at::text LIKE ? 
+			upper(concat_ws('',customers.first_name, customers.last_name)) LIKE ? 
+													OR started_at::text LIKE ? 
 													OR ended_at::text LIKE ? 
-													OR upper(companies.name) LIKE ?\
+													OR upper(companies.name) LIKE ?
 													","%#{q.upcase.strip}%", "%#{q}%", "%#{q}%", "%#{q.upcase}%")
 	end
 end	

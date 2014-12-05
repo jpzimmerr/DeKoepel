@@ -4,9 +4,6 @@ class Customer < ActiveRecord::Base
 	belongs_to :company
 	accepts_nested_attributes_for :company
 
-	def self.options_for_select
-		order('LOWER(last_name)').map { |e| [e.last_name, e.id]}
-	end
 	def edit
 
 	end
