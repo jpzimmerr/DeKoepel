@@ -43,15 +43,15 @@ class Reservation < ActiveRecord::Base
 	belongs_to :customer
 	accepts_nested_attributes_for :customer
 
-	validates :started_at, :ended_at, presence: true
+	validates :started_at, :ended_at, :amount, presence: true
 
 	def self.search(q)
-
+		q = "%#{q.upcase.strip}%"
 		joins(customer: :company).where("
-			upper(concat_ws('',customers.first_name, customers.last_name)) LIKE ? 
+			upper(concat_ws(' ',customers.first_name, customers.last_name)) LIKE ? 
 													OR started_at::text LIKE ? 
 													OR ended_at::text LIKE ? 
 													OR upper(companies.name) LIKE ?
-													","%#{q.upcase.strip}%", "%#{q}%", "%#{q}%", "%#{q.upcase}%")
+													", q, q, q, q)
 	end
 end	

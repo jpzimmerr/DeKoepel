@@ -6,6 +6,7 @@ class ReservationsController < ApplicationController
 		@reservation.build_customer
 		@reservation.customer.build_company
 		@reservation.status = 1
+		@reservation.amount = 0
 	end
 
 	def create

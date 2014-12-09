@@ -1,4 +1,14 @@
 nl:
+  activerecord:
+    models: 
+      customer: 
+        one: klant
+    attributes:
+      customer:
+        first_name: Voornaam 
+        last_name: Achternaam
+        phone: Telefoonnummer
+        email: E-mail
   date:
     abbr_day_names:
     - zo
