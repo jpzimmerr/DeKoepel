@@ -29,6 +29,10 @@ class ReservationsController < ApplicationController
 	  if params[:search]
 		@reservations = @reservations.search(params[:search])
 	  end
+
+	  if params[:month_search]
+	  	@reservation = @reservations.search(params[:search])
+	  end
 	end
 
 	def show
