@@ -29,4 +29,16 @@ class CustomersController < ApplicationController
 
 		redirect_to customers_path
 	end
+	private
+		def customer_params
+			params.require(:customer).permit( :first_name,
+												 :last_name,
+												 :address,
+												 :phone,
+												 :email,
+												 :zip,
+												 :city,
+												 company_attributes: [ :name ])
+		end
+
 end
