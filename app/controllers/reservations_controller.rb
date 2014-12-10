@@ -24,6 +24,8 @@ class ReservationsController < ApplicationController
   	@customers = Customer.all
   	@companies = Company.all
 
+  	Reservation.find(:all, :include => :customers)
+
 	@reservations = Reservation.paginate(:page => params[:page])
 
 	  if params[:search]
