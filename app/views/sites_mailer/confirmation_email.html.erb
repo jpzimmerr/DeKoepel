@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html> 
+	<head>
+		<meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+	</head>
+	<body>
+		<h1>Uw reservering bij De Koepel, Heer/Mevrouw <%= @last_name %></h1>
+		<p>
+			Dit is een bevestiging van uw reservering. Hieronder staan uw gegevens:
+		</p>
+		<ul>
+			<li><%= @first_name %></li>
+			<li><%= @last_name %></li>
+			<li><%= @email %></li>
+			<li><%= @phone %></li>
+			<li><%= @company %></li>
+			<li><%= @date %></li>
+			<li><%= @start %></li>
+			<li><%= @end %></li>
+			<li><%= @description %></li>
+		</ul>
+	</body>
+</html>
