@@ -1,6 +1,8 @@
 class Reservation < ActiveRecord::Base
 	#before_save :convert_to_datetime
 
+	Reservation.eager_load(:customers, :companies)
+
 	def started_at_date
 		started_at.strftime("%d/%m/%Y") if started_at.present?
 	end

@@ -20,6 +20,7 @@ class ReservationsController < ApplicationController
 	end
 
 	def index
+	
 	@reservations = Reservation.all	
   	@customers = Customer.all
   	@companies = Company.all

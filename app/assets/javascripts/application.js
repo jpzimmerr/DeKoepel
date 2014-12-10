@@ -17,7 +17,3 @@
 //= require_tree .
 // require turbolinks
 
-
-$(function () {
-  $('[data-toggle="tooltip"]').tooltip()
-})

@@ -3,12 +3,19 @@ nl:
     models: 
       customer: 
         one: klant
+        other: klanten
+      reservation:
+        one: reservering
+        other: reserveringen
     attributes:
+      reservation:
+        amount: Aantal bezoekers
       customer:
         first_name: Voornaam 
         last_name: Achternaam
         phone: Telefoonnummer
         email: E-mail
+
   date:
     abbr_day_names:
     - zo
