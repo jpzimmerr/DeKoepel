@@ -13,6 +13,9 @@ class ReservationsController < ApplicationController
 		@reservation = Reservation.new(reservation_params)
 
 		if @reservation.save 
+			SitesMailer.confirmation_email(@reservation).deliver
+			SitesMailer.reservation_email(@reservation).deliver
+
 			redirect_to reservations_path
 		else
 			render 'new'
@@ -20,7 +23,7 @@ class ReservationsController < ApplicationController
 	end
 
 	def index
-	
+
 	@reservations = Reservation.all	
   	@customers = Customer.all
   	@companies = Company.all

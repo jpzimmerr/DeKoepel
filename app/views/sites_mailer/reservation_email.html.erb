@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html> 
+	<head>
+		<meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+	</head>
+	<body>
+		<h1>Er is een nieuwe reservering gemaakt om <%= @created_at %></h1>
+		<p>
+			Hieronder staan de details van de nieuwe reservering:
+		</p>
+		<ul>
+			<li><%= @created_at %></li>
+			<li><%= @first_name %></li>
+			<li><%= @last_name %></li>
+			<li><%= @email %></li>
+			<li><%= @phone %></li>
+			<li><%= @company %></li>
+			<li><%= @date %></li>
+			<li><%= @start %></li>
+			<li><%= @end %></li>
+			<li><%= @description %></li>
+		</ul>
+	</body>
+</html>
