@@ -9,10 +9,9 @@
         <%= f.fields_for :customer do |c| %>
           <%= render "customers/customer_fields", :f => c %>
 
-          <%= c.fields_for :company do |builder| %>
-            <%= render "companies/company_fields", :f => builder %>
-          <% end %>
-          
+            <%= c.fields_for :company do |builder| %>
+              <%= render "companies/company_fields", :f => builder %>
+            <% end %>
         <% end %>
         
         <div class="form-group">

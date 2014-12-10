@@ -1,5 +1,3 @@
-<%= debug @reservation %>
-
-<%= render 'reservations/new', locals: {reservation: @reservation} %>
+<%= render partial: "reservations/new", locals: {reservation: @reservation} %>
 
 <p><%= link_to "Back", sites_path %></p>
