@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
 	def index
-		@posts = Post.all
+		@posts = Post.all.order('created_at DESC')
 	end
 	def new
 		#<%= form_for @post do |f| %>
@@ -37,6 +37,11 @@ class PostsController < ApplicationController
 		#post updaten adhv de ingevoerde data
 		@post.update(post_params)
 		#doorsturen naar blog
+		redirect_to posts_path
+	end
+	def destroy
+		@post = Post.find(params[:id])
+		@post.destroy
 		redirect_to posts_path
 	end
 	private
