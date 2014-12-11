@@ -1,0 +1,6 @@
+<div class="panel panel-info">
+  <div class="panel-heading"><%= link_to_if action_name == 'index', post.title, post %></div>
+  <div class="panel-body">
+	<%= simple_format post.body %>
+  </div>
+</div>

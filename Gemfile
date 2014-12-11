@@ -4,8 +4,6 @@ gem 'bootstrap-sass', '~> 3.3.1'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.6'
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
 # Use Uglifier as compressor for JavaScript assets
@@ -60,3 +58,4 @@ gem 'jquery-turbolinks', '~> 2.1.0'
 
 #tidying
 gem 'rubocop', '~> 0.28.0'
+
