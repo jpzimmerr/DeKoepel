@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resources :customers
   resources :sites
   resources :posts
+  resources :pages
 
   root 'sites#index'
 end
