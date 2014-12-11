@@ -25,3 +25,7 @@ a, input, .btn, .form-control{
 	font-size: 12px;
 	line-height: 1.200
 }
+
+table.sortable th:not(.sorttable_sorted):not(.sorttable_sorted_reverse):not(.sorttable_nosort):after { 
+    content: " \25B4\25BE" 
+}
