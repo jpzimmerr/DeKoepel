@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :reservations
   resources :customers
   resources :sites
+  resources :posts
 
   root 'sites#index'
 end
