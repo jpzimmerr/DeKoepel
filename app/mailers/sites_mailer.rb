@@ -1,6 +1,16 @@
 class SitesMailer < ActionMailer::Base
   default from: "from@example.com"
 
+  ActionMailer::Base.smtp_settings = {
+    :address => "smtp.gmail.com",
+    :port => 587,
+    :domain => "gmail.com",
+    :username => "my@email.com",
+    :password => "mypassword",
+    :authentication => "plain",
+    :enable_starttls_auto => true
+  }
+
   def reservation_email(reservation)
   	@last_name = reservation.customer.last_name
   	@email = reservation.customer.email
