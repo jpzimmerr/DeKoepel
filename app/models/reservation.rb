@@ -51,9 +51,8 @@ class Reservation < ActiveRecord::Base
 		q = "%#{q.upcase.strip}%"
 		joins(customer: :company).where("
 			upper(concat_ws(' ',customers.first_name, customers.last_name)) LIKE ? 
-													OR started_at::text LIKE ? 
 													OR ended_at::text LIKE ? 
 													OR upper(companies.name) LIKE ?
-													", q, q, q, q)
+													", q, q, q)
 	end
 end	
