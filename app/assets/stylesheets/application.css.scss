@@ -1,6 +1,5 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
-
 @media print {
 		body { background-color: #FFF; }
 		a:after { content:' [' attr(href) '] '}
@@ -16,4 +15,13 @@
 }
 table th.sortable{
 	cursor: pointer;
+}
+body{
+	background-color: #fafafa;
+	font-size: 12px;
+
+}
+a, input, .btn, .form-control{
+	font-size: 12px;
+	line-height: 1.200
 }
