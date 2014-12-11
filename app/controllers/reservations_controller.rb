@@ -23,21 +23,18 @@ class ReservationsController < ApplicationController
 	end
 
 	def index
+		@reservations = Reservation.includes(customer: :company).paginate(:page => params[:page])
 
-	@reservations = Reservation.all	
-  	@customers = Customer.all
-  	@companies = Company.all
+		if params[:search]
+			@reservations = @reservations.search(params[:search])
+		end
 
-
-	@reservations = Reservation.paginate(:page => params[:page])
-
-	  if params[:search]
-		@reservations = @reservations.search(params[:search])
-	  end
-
-	  if params[:filter]
-	  	@reservation = @reservations.filter(params[:filter])
-	  end
+	 	if params[:year] && params[:month]
+	 		start_date = Date.new(params[:year].to_i, params[:month].to_i).beginning_of_month
+	 		end_date = start_date.end_of_month
+	  		@reservations = @reservations.where("started_at >= ? AND started_at <= ?", start_date, end_date)
+	  		@reservations.per_page = 100
+	  	end
 	end
 
 	def show

@@ -23,9 +23,11 @@
   <div class="col-md-2 no_print">
     <%= link_to 'Nieuwe Reservering', new_reservation_path, class: 'btn btn-primary' %>
   </div>
-	<%= form_tag(reservations_path :method => "get", id: "filter") do %>
+	<%= form_tag(reservations_path, :method => "get", id: "filter") do %>
 		<div class="col-md-2 pull-right">
-      		<%= datetime_select :filter, params[:filter], {discard_hour: true, discard_minute: true, discard_day: true}, class: 'form-control' %> 
+			<%= select_tag :year, options_for_select((2010..2016)) %>
+			<%= select_tag :month, options_for_select((1..12)) %>
+      		<%# datetime_select :filter, params[:filter], {discard_hour: true, discard_minute: true, discard_day: true}, class: 'form-control' %> 
     	</div>
     	<div class="col-md-2 pull-right">
     		<%= submit_tag "Filter op datum", :started_at => nil, class: 'btn btn-info' %>
