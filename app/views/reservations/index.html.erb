@@ -23,16 +23,21 @@
   <div class="col-md-2 no_print">
     <%= link_to 'Nieuwe Reservering', new_reservation_path, class: 'btn btn-primary' %>
   </div>
-
+	<%= form_tag(reservations_path :method => "get", id: "filter") do %>
+		<div class="col-md-2 pull-right">
+      		<%= datetime_select :filter, params[:filter], {discard_hour: true, discard_minute: true, discard_day: true}, class: 'form-control' %> 
+    	</div>
+    	<div class="col-md-2 pull-right">
+    		<%= submit_tag "Filter op datum", :started_at => nil, class: 'btn btn-info' %>
+    	</div>
+    <% end %>
+	
 	<%= form_tag(reservations_path, :method => "get", id: "search-form") do %>
-    <div class="col-md-2 pull-right">
-      <%= datetime_select :search, params[:search], {discard_hour: true, discard_minute: true, discard_day: true}, class: 'form-control' %> 
-    </div>
 		<div class="col-md-2 pull-right">
 			<%= text_field_tag :search, params[:search], placeholder: "Zoek op naam", class: 'form-control' %>
 		</div>
 		<div class="col-md-1 pull-right">
-			<%= submit_tag "Zoeken !", :name => nil, :started_at => nil, :last_name => nil, :first_name => nil, class: 'btn btn-info ' %>
+			<%= submit_tag "Zoeken !", :name => nil, :last_name => nil, :first_name => nil, class: 'btn btn-info ' %>
 		</div>
 		<div class="col-md-8">
 		</div>
