@@ -46,6 +46,19 @@ class Reservation < ActiveRecord::Base
 	accepts_nested_attributes_for :customer
 
 	validates :started_at, :ended_at, :amount, presence: true
+	validate :end_cannot_be_in_past, :start_cannot_be_equal_to_end
+
+	def start_cannot_be_equal_to_end
+		if started_at_time == ended_at_time
+			errors.add(:ended_at_time, "kan niet gelijk zijn aan Begintijd")
+		end
+	end
+
+	def end_cannot_be_in_past
+		if ended_at_time < started_at_time
+			errors.add(:ended_at_time, "kan niet voor Begintijd zijn")
+		end
+	end
 
 	def self.search(q)
 		q = "%#{q.upcase.strip}%"

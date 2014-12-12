@@ -7,6 +7,7 @@ class Customer < ActiveRecord::Base
 	def edit
 
 	end
+	
 	validates :first_name, :last_name, presence: true, 
 										length: { minimum: 1, maximum: 20 }
 	validates :phone, numericality: true, presence: true,

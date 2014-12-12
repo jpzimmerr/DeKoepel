@@ -11,6 +11,8 @@
 // about supported directives.
 //
 //= require jquery
+//= require parsley
+//= require parsley.i18n.nl
 //= require jquery_ujs
 // require jquery.turbolinks
 //= require bootstrap-sprockets

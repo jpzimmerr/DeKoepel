@@ -59,3 +59,5 @@ gem 'jquery-turbolinks', '~> 2.1.0'
 #tidying
 gem 'rubocop', '~> 0.28.0'
 
+#form validation
+gem "parsley-rails"
