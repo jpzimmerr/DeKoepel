@@ -10,6 +10,8 @@ nl:
     attributes:
       reservation:
         amount: Aantal bezoekers
+        started_at_time: Begintijd
+        ended_at_time: Eindtijd
       customer:
         first_name: Voornaam 
         last_name: Achternaam
