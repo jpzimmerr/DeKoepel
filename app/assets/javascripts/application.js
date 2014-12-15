@@ -19,4 +19,4 @@
 //= require_tree .
 //= require bootstrap-wysiwyg
 // require turbolinks
-
+//= require bootstrap-wysiwyg
