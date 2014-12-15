@@ -14,9 +14,9 @@
 //= require parsley
 //= require parsley.i18n.nl
 //= require jquery_ujs
+//= require bootsy
 // require jquery.turbolinks
 //= require bootstrap-sprockets
 //= require_tree .
-//= require bootstrap-wysiwyg
 // require turbolinks
-//= require bootstrap-wysiwyg
+
