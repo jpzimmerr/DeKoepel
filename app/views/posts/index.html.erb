@@ -1,31 +1,32 @@
 <h1>Nieuws overzicht pagina </h1>
 <%= link_to 'Nieuw bericht', new_post_path, class: 'btn btn-primary' %>
 
+<div class="panel panel-info">
+
+  <!-- Default panel contents -->
+  <div class="panel-heading ">
+  	Titel 
+ 
+  </div>
+
 <table class="table table-bordered table-striped table-hover">
-	<thead>
+
+
+	<% @posts.each do |post| %>
 		<tr>
-				<th colspan="4">Titel</th>
-
-				
-
-				
+			<td class="col-md-12"> <%= post.title %> </td>
+			<td class="col-md-0">
+				<%= link_to 'Bekijk', post_path(post), class: 'btn btn-info' %> </td>
+			<td class="col-md-0"> 
+				<%= link_to 'Edit', edit_post_path(post), class: 'btn btn-warning' %> </td>
+			<td class="col-md-0">
+				<%= link_to 'Del', post_path(post),
+													method: :delete, data: { confirm: 'Weet u het zeker?'}, class: 'btn btn-danger' %> </td>
 				
 		</tr>
-		<% @posts.each do |post| %>
-			<tr>
-				<td class="col-md-12"> <%= post.title %> </td>
-				<td class="col-md-0">
-					<%= link_to 'Bekijk', post_path(post), class: 'btn btn-warning' %> </td>
-				<td class="col-md-0"> 
-					<%= link_to 'Edit', edit_post_path(post), class: 'btn btn-warning' %> </td>
-				<td class="col-md-0">
-					<%= link_to 'Del', post_path(post),
-														method: :delete, data: { confirm: 'Weet u het zeker?'}, class: 'btn btn-danger' %> </td>
-					
-			</tr>
-		<% end %>
+	<% end %>
 
 			
-	</thead>
+	
+</table>
 
-<%= render @posts %>
