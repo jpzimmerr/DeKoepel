@@ -14,27 +14,14 @@
 	</div>
 </div>
 
-<div class="form-group">
-	<%= f.label :address, 'Adres' %>
-	<%= f.text_field :address, class: "form-control" %>
+	<% f.label :address, 'Adres' %>
+	<% f.text_field :address, class: "form-control" %>
 
-</div>
-
-<div class="row">
-	<div class="col-lg-6">
-		<div class="form-group">
-			<%= f.label :zip, 'Postcode' %>
-			<%= f.text_field :zip, class: "form-control" %>
-		</div>
-	</div>
-	<div class="col-lg-6">
-		<div class="form-group">
-			<%= f.label :city, 'Plaats' %>
-			<%= f.text_field :city, class: "form-control" %>
-		</div>
-	</div>
-</div>
-
+	<% f.label :zip, 'Postcode' %>
+	<% f.text_field :zip, class: "form-control" %>
+	
+	<% f.label :city, 'Plaats' %>
+	<% f.text_field :city, class: "form-control" %>
 
 <div class="row">
 	<div class="col-lg-6">

@@ -7,7 +7,7 @@
       <%= form_for reservation do |f| %> 
 
         <%= f.fields_for :customer do |c| %>
-          <%= render "customers/customer_fields", :f => c %>
+          <%= render "customers/customer_fields_front", :f => c %>
 
             <%= c.fields_for :company do |builder| %>
               <%= render "companies/company_fields", :f => builder %>
@@ -18,16 +18,19 @@
           <%= f.label :started_at, 'Datum' %><br/>
           <%= f.datetime_select :started_at, {discard_hour: true, discard_minute: true} %>
         </div>
+        <div class="row col-lg-6">
+          <div class="form-group">
+            <%= f.label :started_at, 'Begintijd' %> <br>
+            <%= f.datetime_select :started_at, {minute_step: 15, discard_year: true, discard_month: true,}, start_year: Time.zone.now, class: 'form-control' %>
+          </div>
+        </div>
+        <div class="row col-lg-6">
+          <div class="form-group">
+            <%= f.label :ended_at, 'Eindtijd' %><br>
+            <%= f.datetime_select :ended_at, {minute_step: 15, discard_year: true, discard_month: true}, start_year: Time.zone.now, class: 'form-control' %>
+          </div>
+        </div>
 
-        <div class="form-group">
-          <%= f.label :started_at, 'Begintijd' %> <br>
-          <%= f.datetime_select :started_at, {minute_step: 15, discard_year: true, discard_month: true,}, start_year: Time.zone.now %>
-        </div>
-        <div class="form-group">
-          <%= f.label :ended_at, 'Eindtijd' %><br>
-          <%= f.datetime_select :ended_at, {minute_step: 15, discard_year: true, discard_month: true}, start_year: Time.zone.now %>
-        </div>
-        
         <div class="row">
           <div class="col-lg-4">
             <div class="form-group">
@@ -40,8 +43,8 @@
         <%= f.label :description, 'Korte beschrijving van uw activiteit' %><br />
         <%= f.text_area :description, class: 'form-control' %>
 
-        <%= f.label :note, 'Notities' %>
-        <%= f.text_area :note, class: 'form-control' %>
+        <% f.label :note, 'Notities' %>
+        <% f.text_area :note, class: 'form-control' %>
         <br>
         <%= link_to 'Terug', sites_path, class: 'btn btn-default' %>
         <%= f.submit 'Reservering aanmaken', class: 'btn btn-primary pull-right' %>
