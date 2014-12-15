@@ -1,0 +1,52 @@
+
+<div class="row">
+	<div class="col-lg-6">
+		<div class="form-group">
+			<%= f.label :names, 'Voornaam' %>
+			<%= f.text_field :first_name, class: "form-control" %>
+		</div>
+	</div>
+	<div class="col-lg-6">
+		<div class="form-group">
+			<%= f.label :names, 'Achternaam' %>
+			<%= f.text_field :last_name, class: "form-control" %>
+		</div>
+	</div>
+</div>
+
+<div class="form-group">
+	<%= f.label :address, 'Adres' %>
+	<%= f.text_field :address, class: "form-control" %>
+
+</div>
+
+<div class="row">
+	<div class="col-lg-6">
+		<div class="form-group">
+			<%= f.label :zip, 'Postcode' %>
+			<%= f.text_field :zip, class: "form-control" %>
+		</div>
+	</div>
+	<div class="col-lg-6">
+		<div class="form-group">
+			<%= f.label :city, 'Plaats' %>
+			<%= f.text_field :city, class: "form-control" %>
+		</div>
+	</div>
+</div>
+
+
+<div class="row">
+	<div class="col-lg-6">
+		<div class="form-group">
+			<%= f.label :phone, 'Telefoonnummer' %>
+			<%= f.text_field :phone, class: "form-control" %>
+		</div>
+	</div>
+	<div class="col-lg-6">
+		<div class="form-group">
+			<%= f.label :email, 'E-mail' %>
+			<%= f.text_field :email, class: "form-control", type: "email" %>
+		</div>
+	</div>
+</div>

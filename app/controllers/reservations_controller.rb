@@ -1,5 +1,4 @@
 class ReservationsController < ApplicationController
-	
 
 	def new 
 		@reservation = Reservation.new
@@ -12,10 +11,7 @@ class ReservationsController < ApplicationController
 	def create
 		@reservation = Reservation.new(reservation_params)
 
-		if @reservation.save 
-			SitesMailer.confirmation_email(@reservation).deliver
-			SitesMailer.reservation_email(@reservation).deliver
-
+		if @reservation.save
 			redirect_to reservations_path
 		else
 			render 'new'
@@ -30,7 +26,7 @@ class ReservationsController < ApplicationController
 		end
 
 	 	if params[:year] && params[:month]
-	 		@reservations.per_page = 100
+	 		@reservations.per_page = 256
 	 		start_date = Date.new(params[:year].to_i, params[:month].to_i).beginning_of_month
 	 		end_date = start_date.end_of_month
 	  		@reservations = @reservations.where("started_at >= ? AND started_at <= ?", start_date, end_date)
