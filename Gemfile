@@ -1,4 +1,4 @@
-source 'https://rubygems.org'
+source 'http://rubygems.org'
 #bootstrap 3.3.1
 gem 'bootstrap-sass', '~> 3.3.1'
 
@@ -61,3 +61,6 @@ gem 'rubocop', '~> 0.28.0'
 
 #form validation
 gem "parsley-rails"
+
+#wysiwyg editor
+gem 'wysiwyg-rails', '~> 1.2.4'
