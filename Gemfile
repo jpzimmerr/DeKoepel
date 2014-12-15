@@ -63,4 +63,4 @@ gem 'rubocop', '~> 0.28.0'
 gem "parsley-rails"
 
 #wysiwyg
-gem 'bootstrap-wysiwyg-rails', '~> 0.3.1'
+gem 'bootsy', '~> 2.0.12'
