@@ -1,36 +1,40 @@
 
 <div class="row">
-	<div class="col-lg-6">
+	<div class="col-xs-6">
 		<div class="form-group">
 			<%= f.label :names, 'Voornaam' %>
-			<%= f.text_field :first_name, class: "form-control" %>
+			<%= f.text_field :first_name, class: "form-control input-sm" %>
 		</div>
 	</div>
-	<div class="col-lg-6">
+	<div class="col-xs-6">
 		<div class="form-group">
 			<%= f.label :names, 'Achternaam' %>
-			<%= f.text_field :last_name, class: "form-control", 'data-parsley-required' => 'true' %>
+			<%= f.text_field :last_name, class: "form-control input-sm", 'data-parsley-required' => 'true' %>
 		</div>
 	</div>
-</div>
-
-<div class="form-group">
-	<%= f.label :address, 'Adres' %>
-	<%= f.text_field :address, class: "form-control" %>
-
 </div>
 
 <div class="row">
-	<div class="col-lg-6">
+	<div class="col-xs-12">
 		<div class="form-group">
-			<%= f.label :zip, 'Postcode' %>
-			<%= f.text_field :zip, class: "form-control" %>
+			<%= f.label :address, 'Adres' %>
+			<%= f.text_field :address, class: "form-control input-sm" %>
+
 		</div>
 	</div>
-	<div class="col-lg-6">
+</div>
+
+<div class="row">
+	<div class="col-xs-6">
+		<div class="form-group">
+			<%= f.label :zip, 'Postcode' %>
+			<%= f.text_field :zip, class: "form-control input-sm", maxlength: '6' %>
+		</div>
+	</div>
+	<div class="col-xs-6">
 		<div class="form-group">
 			<%= f.label :city, 'Plaats' %>
-			<%= f.text_field :city, class: "form-control" %>
+			<%= f.text_field :city, class: "form-control input-sm" %>
 		</div>
 	</div>
 </div>
@@ -40,13 +44,13 @@
 	<div class="col-lg-6">
 		<div class="form-group">
 			<%= f.label :phone, 'Telefoonnummer' %>
-			<%= f.text_field :phone, class: "form-control" %>
+			<%= f.text_field :phone, class: "form-control input-sm" %>
 		</div>
 	</div>
 	<div class="col-lg-6">
 		<div class="form-group">
 			<%= f.label :email, 'E-mail' %>
-			<%= f.text_field :email, class: "form-control", type: "email" %>
+			<%= f.text_field :email, class: "form-control input-sm", type: "email" %>
 		</div>
 	</div>
 </div>

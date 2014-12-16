@@ -23,9 +23,12 @@ body{
 	font-size: 12px;
 
 }
-a, input, .btn, .form-control{
+a, label,  input, .btn, .form-control{
 	font-size: 12px;
 	line-height: 1.200
+}
+h3.panel-title{
+	font-size: 14px;
 }
 
 table.sortable th:not(.sorttable_sorted):not(.sorttable_sorted_reverse):not(.sorttable_nosort):after { 
