@@ -41,6 +41,9 @@
           </div>
         </div>
 
+        <%= f.label :location, 'Locatie van de reservering' %><br />
+        <%= f.select :location, options_for_select(["De Koepel", "Wijkcentrum", "Grote zaal", "Digikamer"]) %>
+
         <%= f.label :description, 'Korte beschrijving van uw activiteit' %><br />
         <%= f.text_area :description, class: 'form-control' %>
 
