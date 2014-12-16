@@ -18,22 +18,40 @@
 
     <div id="logo"> </div>
 
-    <ul class="nav nav-pills nav-stacked panel panel-primary">
-      <li class="active"><a href="#">Reserveringen</a></li>
-      <li><%= link_to 'Alle reserveringen', reservations_path %></li>
-    </ul>
-
-    <ul class="nav nav-pills nav-stacked panel panel-primary">
-      <li class="active"><a href="#">Website</a></li>
-      <li><%= link_to 'Nieuws berichten', posts_path%></li>
-      <li><%= link_to "Website pagina's", pages_path%></li>
-    </ul>
-
-     <ul class="nav nav-pills nav-stacked panel panel-primary">
-      <li class="active"><a href="#">Klanten</a></li>
-      <li><%= link_to 'Overzicht alle klanten', customers_path%></li>
-    </ul>
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h3 class="panel-title">Reserveringen</h3>
+    </div>
+      <div class="panel-body">
+        <ul class="nav nav-pills nav-stacked">
+          <li><%= link_to 'Alle reserveringen', reservations_path %></li>
+        </ul>
+    </div>
   </div>
+
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h3 class="panel-title">Website</h3>
+    </div>
+      <div class="panel-body">
+        <ul class="nav nav-pills nav-stacked">
+          <li><%= link_to 'Nieuws berichten', posts_path%></li>
+          <li><%= link_to "Website pagina's", pages_path%></li>
+        </ul>
+    </div>
+  </div>
+
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h3 class="panel-title">Klanten</h3>
+    </div>
+    <div class="panel-body">
+       <ul class="nav nav-pills nav-stacked">
+        <li><%= link_to 'Overzicht alle klanten', customers_path%></li>
+      </ul>
+    </div>
+  </div>
+</div>
 
   <div class= "col-md-10">
 
