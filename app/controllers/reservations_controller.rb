@@ -65,6 +65,7 @@ class ReservationsController < ApplicationController
 												 :amount,
 												 :description,
 												 :note,
+												 :location,
 												 customer_attributes: [ :first_name,
 												 					  	:last_name,
 												 					  	:phone,

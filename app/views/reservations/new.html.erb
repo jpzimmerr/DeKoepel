@@ -48,6 +48,15 @@
 							<%= f.text_field :amount, class: 'form-control input-sm' %>
 						</div>
 					</div>
+					<div class="col-lg-4">
+						<div class="form-group">
+							<%= f.label :location, 'Locatie' %>
+							<%= f.select(:location, options_for_select([['De Koepel', 'De Koepel'],
+																														['Digikamer', 'Digikamer'],
+																														['Wijkcentrum', 'Wijkcentrum'],
+																														['Grote zaal', 'Grote zaal']])) %>
+						</div>
+					</div>
 				</div>
 
 				<%= f.label :description, 'Korte beschrijving van uw activiteit' %><br />

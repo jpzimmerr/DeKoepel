@@ -56,6 +56,7 @@
 				<th> </th>
 				<th class="sortable col-md-0">Datum</th>
 				<th class="sortable col-md-2">Tijdstip</th>
+				<th class="sortable col-md-2">Locatie</th>
 				<th class="col-md-2 sorttable_nosort">Naam</th>
 				<th class="col-md-0 sorttable_nosort">Aantal personen</th>
 				<th class="col-md-3 sorttable_nosort">Omschrijving</th>
@@ -76,6 +77,8 @@
 				<% end %>
 				<td><%= reservation.started_at_date %></td>
 				<td><%= reservation.started_at_time %> - <%= reservation.ended_at_time %></td>
+				
+				<td><%= reservation.location %></td>
 				<td>(<%= reservation.customer.id  %>) <%= reservation.customer.first_name  %> <%= reservation.customer.last_name  %> 
 					<% if reservation.customer.company.present? %>
 						<br />(<%= reservation.customer.company.name%> (<%= reservation.customer.company.id %>)
@@ -84,7 +87,7 @@
 					<% end %>
 				</td>
 				
-				<td><%= reservation.amount %>
+				<td><%= reservation.amount %></td>
 				<td><%= reservation.description %></td>
 				<td><%= reservation.note %></td>
 				<td class="no_print"><%= link_to 'Bekijk', reservation_path(reservation), class: 'btn btn-warning' %></td>
