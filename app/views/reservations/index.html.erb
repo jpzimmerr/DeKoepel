@@ -53,7 +53,7 @@
   <table class="sortable table table-hover">
   	<thead>
 			<tr class="info">
-				<th> </th>
+				<th class="sorttable_nosort col-md-0">Betaald</th>
 				<th class="sortable col-md-0">Datum</th>
 				<th class="sortable col-md-2">Tijdstip</th>
 				<th class="sortable col-md-2">Locatie</th>
@@ -67,11 +67,9 @@
 		<% @reservations.each do |reservation| %>
 			<tr>
 				<% if reservation.status == "1" %>
-					<td class="warning"><%= reservation.status %></td>
-				<% elsif reservation.status == "2" %>
 					<td class="success"><%= reservation.status %></td>
 				<% elsif reservation.status == "0" %>
-					<td class="danger"><%= reservation.status %></td>
+					<td class="warning"><%= reservation.status %></td>
 				<% else %>
 					<td>-</td>
 				<% end %>

@@ -51,7 +51,8 @@
 					<div class="col-lg-4">
 						<div class="form-group">
 							<%= f.label :location, 'Locatie' %>
-							<%= f.select(:location, options_for_select([['De Koepel', 'De Koepel'],
+							<%= f.select(:location, options_for_select([	['Onbekend', 'Onbekend'],
+																														['De Koepel', 'De Koepel'],
 																														['Digikamer', 'Digikamer'],
 																														['Wijkcentrum', 'Wijkcentrum'],
 																														['Grote zaal', 'Grote zaal']])) %>
