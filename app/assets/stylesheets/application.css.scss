@@ -46,3 +46,9 @@ table.sortable th:not(.sorttable_sorted):not(.sorttable_sorted_reverse):not(.sor
     color: $state-danger-text;
   }
 }
+
+#logo{
+	background-image: image-url("166x111wit.png");
+	height: 111px;
+	width: 166px;
+}
