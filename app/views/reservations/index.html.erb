@@ -25,9 +25,8 @@
   </div>
 	<%= form_tag(reservations_path, :method => "get", id: "filter", target: "_blank") do %>
 		<div class="col-md-2">
-			<%= select_tag :year, options_for_select((Time.now.year - 2...Time.now.year + 5)) %>
 			<%= select_tag :month, options_for_select((1..12)) %>
-      		<%# datetime_select :filter, params[:filter], {discard_hour: true, discard_minute: true, discard_day: true}, class: 'form-control' %> 
+			<%= select_tag :year, options_for_select((Time.now.year - 2...Time.now.year + 5)) %>
     	</div>
     	<div class="col-md-2 pull-right">
     		<%= submit_tag "Filter op datum", :started_at => nil, class: 'btn btn-info' %>
