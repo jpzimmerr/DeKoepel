@@ -21,24 +21,24 @@
     <%= link_to("Print dit overzicht", "javascript:print()", class: 'btn btn-default') %> 
   </div>
   <div class="col-md-2 no_print">
-    <%= link_to 'Nieuwe Reservering', new_reservation_path, class: 'btn btn-primary' %>
+    <%= link_to 'Nieuwe Reservering', new_reservation_path, class: 'btn btn-success' %>
   </div>
 	<%= form_tag(reservations_path, :method => "get", id: "filter", target: "_blank") do %>
 		<div class="col-md-2">
 			<%= select_tag :month, options_for_select((1..12)) %>
 			<%= select_tag :year, options_for_select((Time.now.year - 2...Time.now.year + 5)) %>
     	</div>
-    	<div class="col-md-2 pull-right">
-    		<%= submit_tag "Filter op datum", :started_at => nil, class: 'btn btn-info' %>
+    	<div class="col-md-2">
+    		<%= submit_tag "Filter op datum", :started_at => nil, class: 'btn btn-primary' %>
     	</div>
     <% end %>
 	
 	<%= form_tag(reservations_path, :method => "get", id: "search-form", target: "_blank") do %>
-		<div class="col-md-2 pull-right">
+		<div class="col-md-2">
 			<%= text_field_tag :search, params[:search], placeholder: "Zoek op naam", class: 'form-control' %>
 		</div>
 		<div class="col-md-1 pull-right">
-			<%= submit_tag "Zoeken !", :name => nil, :last_name => nil, :first_name => nil, class: 'btn btn-info ' %>
+			<%= submit_tag "Zoeken!", :name => nil, :last_name => nil, :first_name => nil, class: 'btn btn-primary' %>
 		</div>
 		<div class="col-md-8">
 		</div>
@@ -87,7 +87,7 @@
 				<td><%= reservation.amount %></td>
 				<td><%= reservation.description %></td>
 				<td><%= reservation.note %></td>
-				<td class="no_print"><%= link_to 'Bekijk', reservation_path(reservation), class: 'btn btn-warning' %></td>
+				<td class="no_print"><%= link_to 'Bekijk', reservation_path(reservation), class: 'btn btn-primary' %></td>
 				<!--<td class="no_print"><%= link_to 'Edit', edit_reservation_path(reservation), class: 'btn btn-warning' %></td>
 				<td class="no_print"><%= link_to 'Del', reservation_path(reservation),
 														method: :delete, data: { confirm: 'Weet u het zeker?'}, class: 'btn btn-danger' %></td> -->
