@@ -19,7 +19,7 @@ class ReservationsController < ApplicationController
 	end
 
 	def index
-		@reservations = Reservation.includes(customer: :company).paginate(:page => params[:page]).order('created_at DESC')
+		@reservations = Reservation.order('created_at DESC').includes(customer: :company).paginate(:page => params[:page])
 		
 		if params[:search]
 			@reservations = @reservations.search(params[:search])

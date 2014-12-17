@@ -1,49 +1,68 @@
-<div class="col-md-6">
-	<div class="panel panel-primary">
-		<div class="panel-heading">
-			<h3 class="panel-title">Reservering Aanpassen</h3>
-		</div>
-	  	<div class="panel-body">
-			
-
-			<%= form_for @reservation do |f| %>	
-
-				<%= f.fields_for :customer do |c| %>
-					<%= render "customers/customer_fields", :f => c %>
-
-					<%= c.fields_for :company do |builder| %>
-						<%= render "companies/company_fields", :f => builder %>
-					<% end %>
-					
-				<% end %>
-
-				<div class="form-group">
-					<%= f.label :started_at, 'Begintijd' %> <br>
-					<%= f.datetime_select :started_at, {minute_step: 15}, start_year: Time.zone.now %>
-				</div>
-				<div class="form-group">
-					<%= f.label :ended_at, 'Eindtijd' %><br>
-					<%= f.datetime_select :ended_at, {minute_step: 15, discard_year: true, discard_month: true}, start_year: Time.zone.now %>
-				</div>
+<h1>Reservering wijzigen </h1>
+<div class="row">
+	<div class="col-md-6">
+		<div class="panel panel-primary">
+			<div class="panel-heading">
+				<h3 class="panel-title">Reservering Aanpassen</h3>
+			</div>
+		  	<div class="panel-body">
 				
-				<div class="row">
-					<div class="col-lg-4">
-						<div class="form-group">
-					<%= f.label :amount, 'Aantal personen' %>
-					<%= f.text_field :amount, class: 'form-control' %>
+
+				<%= form_for @reservation do |f| %>	
+
+					<%= f.fields_for :customer do |c| %>
+						<%= render "customers/customer_fields", :f => c %>
+
+						<%= c.fields_for :company do |builder| %>
+							<%= render "companies/company_fields", :f => builder %>
+						<% end %>
+						
+					<% end %>
+
+					<div class="row">
+						<div class="col-md-9">
+							<div class="form-group">
+								<%= f.label :started_at, 'Datum' %> ------------------------------------ <label> Begin tijd</label> <br>
+								<%= f.datetime_select :started_at, {minute_step: 15}, start_year: Time.zone.now %>
+							</div>
+						</div>
+						<div class="col-md-3">
+							<div class="form-group">
+								<%= f.label :ended_at, 'Eindtijd' %><br>
+								<%= f.datetime_select :ended_at, {minute_step: 15, discard_year: true, discard_month: true}, start_year: Time.zone.now %>
+							</div>
 						</div>
 					</div>
-				</div>
-					<%= f.label :description, 'Korte beschrijving van uw activiteit' %><br />
-					<%= f.text_area :description, class: 'form-control' %>
-					<%= f.label :note, 'Notities' %> 
-					<%= f.text_area :note, class: 'form-control' %>
-					<br>
-					<input class="btn btn-default" type="button" value="Terug" onClick="history.go(-1);return true;">
-					<%= f.submit 'Reservering aanpassen', class: 'btn btn-primary pull-right' %>
 				
-			<% end %>
-			</div>
-			
+					<div class="row">
+						<div class="col-lg-4">
+							<div class="form-group">
+						<%= f.label :amount, 'Aantal personen' %>
+						<%= f.text_field :amount, class: 'form-control' %>
+							</div>
+						</div>
+						<div class="col-lg-4">
+							<div class="form-group">
+								<%= f.label :location, 'Locatie' %>
+								<%= f.select(:location, options_for_select([
+																															['De Koepel', 'De Koepel'],
+																															['Digikamer', 'Digikamer'],
+																															['Wijkcentrum', 'Wijkcentrum'],
+																															['Grote zaal', 'Grote zaal']])) %>
+							</div>
+					</div>
+				</div>
+						<%= f.label :description, 'Korte beschrijving van uw activiteit' %><br />
+						<%= f.text_area :description, class: 'form-control' %>
+						<%= f.label :note, 'Notities' %> 
+						<%= f.text_area :note, class: 'form-control' %>
+						<br>
+						<input class="btn btn-default" type="button" value="Terug" onClick="history.go(-1);return true;">
+						<%= f.submit 'Reservering aanpassen', class: 'btn btn-primary pull-right' %>
+					
+				<% end %>
+				</div>
+				
+		</div>
 	</div>
 </div>

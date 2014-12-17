@@ -1,24 +1,24 @@
-<h1> Overzicht alle gebruikers</h1>
+<h1> Overzicht alle klanten</h1>
 
 <div class="panel panel-info">
 
   <!-- Default panel contents -->
   <div class="panel-heading ">
-  	Reserveringen 
+  	Klanten 
  
   </div>
 <!-- Table -->
   <table class="sortable table table-bordered table-striped table-hover">
   	<thead>
 			<tr>
-				<th>Bedrijf</th>
-				<th>Naam</th>
-				<th>Adres</th>
-				<th>Postcode</th>
-				<th>Plaats</th>
-				<th>Telefoon</th>
-				<th>email</th>
-				<th> Bekijken </th>
+				<th class="sorttable_nosort">Bedrijf</th>
+				<th class="sortable">Naam</th>
+				<th class="sorttable_nosort">Adres</th>
+				<th class="sorttable_nosort">Postcode</th>
+				<th class="sorttable_nosort">Plaats</th>
+				<th class="sorttable_nosort">Telefoon</th>
+				<th class="sorttable_nosort">email</th>
+				<th class="sorttable_nosort" > Bekijken </th>
 			</tr>
 	</thead>
 		<% @customers.each do |customer| %>

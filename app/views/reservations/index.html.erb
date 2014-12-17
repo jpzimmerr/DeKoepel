@@ -1,4 +1,4 @@
-<h1> Overzicht reserveringen</h1>
+
 <head>
   <%= stylesheet_link_tag "application", :media => 'print' %>
   <%= javascript_include_tag "sorttable" %>
@@ -16,85 +16,91 @@
 
    -->
 
-<div class="row no_print">
-  <div class="col-md-2 no_print">
-    <%= link_to("Print dit overzicht", "javascript:print()", class: 'btn btn-default') %> 
-  </div>
-  <div class="col-md-2 no_print">
-    <%= link_to 'Nieuwe Reservering', new_reservation_path, class: 'btn btn-success' %>
-  </div>
-	<%= form_tag(reservations_path, :method => "get", id: "filter", target: "_blank") do %>
-		<div class="col-md-2">
+<div class="row">
+	<div class="col-md-6 ">
+			
+	<h1> Overzicht reserveringen</h1>
+</div>
+	<div class="col-md-6 ">
+		<br>
+		<br>
+	<%= form_tag(reservations_path, :method => "get", id: "search-form", target: "_blank", class: 'navbar-form navbar-right') do %>
+			<%= text_field_tag :search, params[:search], placeholder: "Zoek op naam", class: 'form-control' %>
+			<%= submit_tag "Zoeken!", :name => nil, :last_name => nil, :first_name => nil, class: 'btn btn-primary' %>
+	<% end %>
+
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-12 ">
+
+	  <%= link_to 'Nieuwe Reservering', new_reservation_path, class: 'btn btn-success' %>
+	  <%= link_to("Print", "javascript:print()", class: 'btn btn-default') %> 
+
+		<%= form_tag(reservations_path, :method => "get", id: "filter", target: "_blank", class: 'navbar-form navbar-right') do %>
+
 			<%= select_tag :month, options_for_select((1..12)) %>
 			<%= select_tag :year, options_for_select((Time.now.year - 2...Time.now.year + 5)) %>
-    	</div>
-    	<div class="col-md-2">
-    		<%= submit_tag "Filter op datum", :started_at => nil, class: 'btn btn-primary' %>
-    	</div>
-    <% end %>
-	
-	<%= form_tag(reservations_path, :method => "get", id: "search-form", target: "_blank") do %>
-		<div class="col-md-2">
-			<%= text_field_tag :search, params[:search], placeholder: "Zoek op naam", class: 'form-control' %>
-		</div>
-		<div class="col-md-1 pull-right">
-			<%= submit_tag "Zoeken!", :name => nil, :last_name => nil, :first_name => nil, class: 'btn btn-primary' %>
-		</div>
-		<div class="col-md-8">
-		</div>
+			<%= submit_tag "Filter op maand", :started_at => nil, class: 'btn btn-xs btn-primary' %>
+
 	<% end %>
+
+	</div>
 </div>
-<br>
-<div class="panel panel-info">
+<div class="row">
+	<div class="col-md-12">
+		<div class="panel panel-info">
 
 
-  <!-- Table -->
-  <table class="sortable table table-hover">
-  	<thead>
-			<tr class="info">
-				<th class="sorttable_nosort col-md-0">Betaald</th>
-				<th class="sortable col-md-0">Datum</th>
-				<th class="sortable col-md-2">Tijdstip</th>
-				<th class="sortable col-md-2">Locatie</th>
-				<th class="col-md-2 sorttable_nosort">Naam</th>
-				<th class="col-md-0 sorttable_nosort">Aantal personen</th>
-				<th class="col-md-3 sorttable_nosort">Omschrijving</th>
-				<th class="col-md-3 sorttable_nosort">Notities</th>
-				<th class="col-md-1 sorttable_nosort no_print">Bekijk</th>
-			</tr>
-	</thead>
-		<% @reservations.each do |reservation| %>
-			<tr>
-				<% if reservation.status == "1" %>
-					<td class="success"><%= reservation.status %></td>
-				<% elsif reservation.status == "0" %>
-					<td class="warning"><%= reservation.status %></td>
-				<% else %>
-					<td>-</td>
+		  <!-- Table -->
+		  <table class="sortable table table-striped table-hover">
+		  	<thead>
+					<tr class="info">
+						<!--<th class="sorttable_nosort col-md-0">Betaald</th> -->
+						<th class="col-md-2 sorttable_nosort">Naam</th>
+						<th class="sortable col-md-0">Datum</th>
+						<th class="col-md-2 sorttable_nosort">Tijdstip</th>
+						<th class="sortable col-md-2">Locatie</th>
+						<th class="col-md-0 sorttable_nosort">Personen</th>
+						<th class="col-md-3 sorttable_nosort">Omschrijving</th>
+						<th class="col-md-3 sorttable_nosort">Notities</th>
+						<th class="col-md-0 sorttable_nosort no_print">Bekijk</th>
+					</tr>
+			</thead>
+				<% @reservations.each do |reservation| %>
+					<tr>
+						<!--<% if reservation.status == "1" %>
+							<td class="success"><%= reservation.status %></td>
+						<% elsif reservation.status == "0" %>
+							<td class="warning"><%= reservation.status %></td>
+						<% else %>
+							<td>-</td>
+						<% end %> -->
+						<td> <%= reservation.customer.first_name  %> <%= reservation.customer.last_name  %> 
+							<% if reservation.customer.company.present? %>
+								<br /><i>(<%= reservation.customer.company.name%>)</i>
+							<% else %>
+								<br /><%= reservation.customer.company(name: "Er is geen bedrijf gekoppeld") %>
+							<% end %>
+						</td>
+						<td><%= reservation.started_at_date %></td>
+						<td><%= reservation.started_at_time %> - <%= reservation.ended_at_time %></td>
+						
+						<td><%= reservation.location %></td>
+						
+						<td><%= reservation.amount %></td>
+						<td><%= reservation.description %></td>
+						<td><%= reservation.note %></td>
+						<td class="no_print"><%= link_to 'Bekijk', reservation_path(reservation), class: 'btn btn-info' %></td>
+						<!--<td class="no_print"><%= link_to 'Edit', edit_reservation_path(reservation), class: 'btn btn-warning' %></td>
+						<td class="no_print"><%= link_to 'Del', reservation_path(reservation),
+																method: :delete, data: { confirm: 'Weet u het zeker?'}, class: 'btn btn-danger' %></td> -->
+					</tr>
+
 				<% end %>
-				<td><%= reservation.started_at_date %></td>
-				<td><%= reservation.started_at_time %> - <%= reservation.ended_at_time %></td>
-				
-				<td><%= reservation.location %></td>
-				<td>(<%= reservation.customer.id  %>) <%= reservation.customer.first_name  %> <%= reservation.customer.last_name  %> 
-					<% if reservation.customer.company.present? %>
-						<br />(<%= reservation.customer.company.name%> (<%= reservation.customer.company.id %>)
-					<% else %>
-						<br /><%= reservation.customer.company(name: "Er is geen bedrijf gekoppeld") %>
-					<% end %>
-				</td>
-				
-				<td><%= reservation.amount %></td>
-				<td><%= reservation.description %></td>
-				<td><%= reservation.note %></td>
-				<td class="no_print"><%= link_to 'Bekijk', reservation_path(reservation), class: 'btn btn-primary' %></td>
-				<!--<td class="no_print"><%= link_to 'Edit', edit_reservation_path(reservation), class: 'btn btn-warning' %></td>
-				<td class="no_print"><%= link_to 'Del', reservation_path(reservation),
-														method: :delete, data: { confirm: 'Weet u het zeker?'}, class: 'btn btn-danger' %></td> -->
-			</tr>
-
-		<% end %>
-  </table>
+		  </table>
+		</div>
+	</div>
 </div>
 <nav >
   <%= will_paginate @reservations, :previous_label => 'Vorige', :next_label => 'Volgende' , renderer: BootstrapPagination::Rails %>
