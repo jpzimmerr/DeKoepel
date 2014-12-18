@@ -32,7 +32,7 @@
 	</div>
 </div>
 <div class="row">
-	<div class="col-md-12 ">
+	<div class="col-md-12 no_print ">
 
 	  <%= link_to 'Nieuwe Reservering', new_reservation_path, class: 'btn btn-success' %>
 	  <%= link_to("Print", "javascript:print()", class: 'btn btn-default') %> 
@@ -102,8 +102,10 @@
 		</div>
 	</div>
 </div>
+<div class="no_print">
 <nav >
   <%= will_paginate @reservations, :previous_label => 'Vorige', :next_label => 'Volgende' , renderer: BootstrapPagination::Rails %>
 </nav>
+</div>
 <!--Popup met nieuwe reservering-->
 <!-- /.modal -->
