@@ -39,8 +39,8 @@
 
 		<%= form_tag(reservations_path, :method => "get", id: "filter", target: "_blank", class: 'navbar-form navbar-right') do %>
 
-			<%= select_tag :month, options_for_select((1..12), selected: Time.now.month) %>
-			<%= select_tag :year, options_for_select((Time.now.year - 2...Time.now.year + 5), selected: Time.now.year) %>
+			<%= select_tag :month, options_for_select((1..12), selected: params[:month]) %>
+			<%= select_tag :year, options_for_select((Time.now.year - 2...Time.now.year + 3), selected: params[:year]) %>
 			<%= submit_tag "Filter op maand", :started_at => nil, class: 'btn btn-xs btn-primary' %>
 
 	<% end %>
