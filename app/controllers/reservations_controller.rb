@@ -1,4 +1,5 @@
 class ReservationsController < ApplicationController
+	http_basic_authenticate_with name: "Administrator", password: "Welkom12"
 
 	def new 
 		@reservation = Reservation.new
@@ -20,7 +21,7 @@ class ReservationsController < ApplicationController
 
 	def index
 		@reservations = Reservation.includes(customer: :company).paginate(:page => params[:page])
-		
+
 		if params[:search]
 			@reservations = @reservations.search(params[:search])
 		end
