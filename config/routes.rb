@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   resources :sites
   resources :posts
   resources :pages
+  resources :products
 
   root 'sites#index'
 end
