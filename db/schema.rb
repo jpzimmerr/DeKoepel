@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141216120146) do
+ActiveRecord::Schema.define(version: 20141218134115) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,6 +46,19 @@ ActiveRecord::Schema.define(version: 20141216120146) do
     t.string   "city"
   end
 
+  create_table "menu_products", force: true do |t|
+    t.integer  "menu_id"
+    t.integer  "product_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "menus", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "pages", force: true do |t|
     t.string   "title"
     t.text     "body"
@@ -56,6 +69,21 @@ ActiveRecord::Schema.define(version: 20141216120146) do
   create_table "posts", force: true do |t|
     t.string   "title"
     t.text     "body"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "product_catagories", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "products", force: true do |t|
+    t.string   "name"
+    t.decimal  "price",       precision: 10, scale: 2
+    t.string   "per"
+    t.integer  "category_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
