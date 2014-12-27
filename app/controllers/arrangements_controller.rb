@@ -1,11 +1,11 @@
 class ArrangementsController < ApplicationController
 
 	def index
-		@arrangements = Arrangement.all
+		@arrangements = Page.all
 	end
 
 	def edit
-		@arrangement = Arrangement.find(params[:id])
+		@arrangement = Page.find(params[:id])
 	end
 
 end

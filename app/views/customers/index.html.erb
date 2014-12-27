@@ -25,9 +25,9 @@
 			<tr>
 				<td> 
 					<% if customer.company.present? %>
-						<br />(<%= customer.company.name %>)
+						<%= customer.company.name %>
 					<% else %>
-						<br /><%= customer.company(name: "Er is geen bedrijf gekoppeld") %>
+						<%= customer.company(name: "Er is geen bedrijf gekoppeld") %>
 					<% end %>
 				</td>
 				<td><%= customer.first_name  %> <%= customer.last_name  %> </td>

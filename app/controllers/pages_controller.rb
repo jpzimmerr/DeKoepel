@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
 	def index
-		@pages = Page.all.order('created_at DESC')
+		@pages = Page.where(:kind => "0").order('created_at DESC')
 	end
 	def new
 		@page = Page.new
@@ -30,7 +30,7 @@ class PagesController < ApplicationController
 	end
 	private
 		def page_params
-			params.require(:page).permit(:title,:body)
+			params.require(:page).permit(:title,:body,:kind)
 
 		end
 end
