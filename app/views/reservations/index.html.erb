@@ -43,6 +43,7 @@
 
 	  <%= link_to 'Nieuwe Reservering', new_reservation_path, class: 'btn btn-success' %>
 	  <%= link_to("Print", "javascript:print()", class: 'btn btn-default') %> 
+	  <%= link_to 'Vernieuw deze pagina', reservations_path, class: 'btn btn-default' %> 
 
 		<%= form_tag(reservations_path, :method => "get", id: "filter", class: 'navbar-form navbar-right') do %>
 
