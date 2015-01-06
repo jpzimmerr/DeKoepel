@@ -81,6 +81,7 @@ GEM
       slop (~> 3.4, >= 3.4.5)
     parsley-rails (2.0.6.0)
       railties (>= 3.0.0)
+    pg (0.18.1)
     pg (0.18.1-x86-mingw32)
     powerpack (0.0.9)
     quiet_assets (1.1.0)
