@@ -1,2 +1,12 @@
 <h1>Nieuws overzicht</h1>
-<%= render @post %>
+<div class="panel panel-info">
+  <div class="panel-heading">
+  	<%= @post.title %>
+  </div>
+  <div class="panel-body">
+	<%= simple_format @post.body %>
+	<%= link_to 'Wijzigen', edit_post_path(@post), class: 'btn btn-sm btn-warning' %>
+	<%= link_to 'Verwijder', post_path(@post), method: :delete, data: { confirm: 'Weet u het zeker?'}, class: 'btn btn-sm btn-danger' %>
+  </div>
+</div>
+<%= link_to 'Terug naar overzicht', posts_path, class: 'btn btn-primary no_print' %>
