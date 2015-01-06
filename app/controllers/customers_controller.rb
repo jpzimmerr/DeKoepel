@@ -3,6 +3,10 @@ class CustomersController < ApplicationController
 		@reservations = Reservation.all
 		@customers = Customer.all
 		@companies = Company.all
+
+		if params[:search]
+			@customers = @customers.search(params[:search])
+		end
 	end
   	def show
 		@customer = Customer.find(params[:id])

@@ -1,7 +1,13 @@
 <h1> Overzicht alle klanten</h1>
+	
+	<%= form_tag(customers_path, :method => "get", id: "search-form", class: 'navbar-form navbar-right') do %>
+		<%= text_field_tag :search, params[:search], placeholder: "Zoek op naam", class: 'form-control' %>
+		<%= submit_tag "Zoeken!", :name => nil, :last_name => nil, :first_name => nil, :email => nil, class: 'btn btn-primary' %>
+	<% end %>
+	<br />
+	<br />
 
 <div class="panel panel-info">
-
   <!-- Default panel contents -->
   <div class="panel-heading ">
   	Klanten 

@@ -13,4 +13,12 @@ class Customer < ActiveRecord::Base
 	validates :phone, numericality: true, presence: true,
 										length: { minimum: 7 }
 	validates_format_of :email, presence: true, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
+
+	def self.search(cq)
+		cq = "%#{cq.upcase.strip}%"
+		joins(:company).where("upper(concat_ws(' ',first_name, last_name)) LIKE ?  
+																	OR upper(email) LIKE ?
+																	OR upper(companies.name) LIKE ?
+																	", cq, cq, cq)
+	end
 end
