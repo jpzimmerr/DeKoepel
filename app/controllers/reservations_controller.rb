@@ -1,5 +1,5 @@
 class ReservationsController < ApplicationController
-	http_basic_authenticate_with name: "Administrator", password: "Welkom12"
+	#http_basic_authenticate_with name: "Administrator", password: "Welkom12"
 
 	def new 
 		@reservation = Reservation.new
