@@ -23,10 +23,12 @@
 	<% if params[:search].present? %>
 		<div class="alert alert-warning" role="alert">
 			<h3>U heeft gezocht op: '<%= params[:search] %>'</h3>
+			<%= link_to 'Verwijder zoekwoord', reservations_path, class: 'btn btn-info' %>
 		</div>
 	<% elsif params[:month].present? & params[:year].present? %>
 		<div class="alert alert-warning" role="alert" >
 			<h3>U heeft gefilterd op: 'Maand: <%= params[:month] %> en het Jaar: <%= params[:year] %>'</h3>
+			<%= link_to 'Verwijder filter', reservations_path, class: 'btn btn-info' %>
 		</div>
 	<% else %> 
 		<h1> Overzicht reserveringen</h1>
