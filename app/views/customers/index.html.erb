@@ -1,48 +1,53 @@
 <h1> Overzicht alle klanten</h1>
-	
-	<%= form_tag(customers_path, :method => "get", id: "search-form", class: 'navbar-form navbar-right') do %>
-		<%= text_field_tag :search, params[:search], placeholder: "Zoek op naam", class: 'form-control' %>
-		<%= submit_tag "Zoeken!", :name => nil, :last_name => nil, :first_name => nil, :email => nil, class: 'btn btn-primary' %>
-	<% end %>
-	<br />
-	<br />
-
-<div class="panel panel-info">
-  <!-- Default panel contents -->
-  <div class="panel-heading ">
-  	Klanten 
- 
-  </div>
-<!-- Table -->
-  <table class="sortable table table-bordered table-striped table-hover">
-  	<thead>
-			<tr>
-				<th class="sorttable_nosort">Bedrijf</th>
-				<th class="sortable">Naam</th>
-				<th class="sorttable_nosort">Adres</th>
-				<th class="sorttable_nosort">Postcode</th>
-				<th class="sorttable_nosort">Plaats</th>
-				<th class="sorttable_nosort">Telefoon</th>
-				<th class="sorttable_nosort">email</th>
-				<th class="sorttable_nosort" > Bekijken </th>
-			</tr>
-	</thead>
-		<% @customers.each do |customer| %>
-			<tr>
-				<td> 
-					<% if customer.company.present? %>
-						<%= customer.company.name %>
-					<% else %>
-						<%= customer.company(name: "Er is geen bedrijf gekoppeld") %>
-					<% end %>
-				</td>
-				<td><%= customer.first_name  %> <%= customer.last_name  %> </td>
-				<td> <%= customer.address %> </td>
-				<td> <%= customer.zip %> </td>
-				<td> <%= customer.city %> </td>
-				<td> <%= customer.phone %> </td>
-				<td> <%= customer.email %> </td>
-				<td class="no_print"><%= link_to 'Bekijk', customer_path(customer), class: 'btn btn-warning' %></td>
+<div class="row">
+	<div class="col-md-12">
+		<%= form_tag(customers_path, :method => "get", id: "search-form", class: 'navbar-form navbar-right') do %>
+			<%= text_field_tag :search, params[:search], placeholder: "Zoek op naam", class: 'form-control' %>
+			<%= submit_tag "Zoeken!", :name => nil, :last_name => nil, :first_name => nil, :email => nil, class: 'btn btn-primary' %>
 		<% end %>
-  </table>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-md-12">
+		<div class="panel panel-info">
+		  <!-- Default panel contents -->
+		  <div class="panel-heading ">
+		  	Klanten 
+		 
+		  </div>
+		<!-- Table -->
+		  <table class="sortable table table-bordered table-striped table-hover">
+		  	<thead>
+					<tr>
+						<th class="sorttable_nosort">Bedrijf</th>
+						<th class="sortable">Naam</th>
+						<th class="sorttable_nosort">Adres</th>
+						<th class="sorttable_nosort">Postcode</th>
+						<th class="sorttable_nosort">Plaats</th>
+						<th class="sorttable_nosort">Telefoon</th>
+						<th class="sorttable_nosort">email</th>
+						<th class="sorttable_nosort" > Bekijken </th>
+					</tr>
+			</thead>
+				<% @customers.each do |customer| %>
+					<tr>
+						<td> 
+							<% if customer.company.present? %>
+								<%= customer.company.name %>
+							<% else %>
+								<%= customer.company(name: "Er is geen bedrijf gekoppeld") %>
+							<% end %>
+						</td>
+						<td><%= customer.first_name  %> <%= customer.last_name  %> </td>
+						<td> <%= customer.address %> </td>
+						<td> <%= customer.zip %> </td>
+						<td> <%= customer.city %> </td>
+						<td> <%= customer.phone %> </td>
+						<td> <%= customer.email %> </td>
+						<td class="no_print"><%= link_to 'Bekijk', customer_path(customer), class: 'btn btn-warning' %></td>
+				<% end %>
+		  </table>
+		</div>
+	</div>
 </div>
