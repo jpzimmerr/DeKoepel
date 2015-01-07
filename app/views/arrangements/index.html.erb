@@ -1,7 +1,22 @@
 <h1>Arrangementen</h1>
-<% @arrangements.each do |arrangement| %>
-	<%= arrangement.title %> <br>
-	<%= arrangement.body %>
-<% end %>
 <%= link_to 'Nieuw arrangement', new_arrangement_path, class: 'btn btn-success' %>
+	<div class='panel panel-info'>
+		<div class="panel-heading ">
+		  	Titel 
+		 
+		</div>
+
+<table class="table table-bordered table-striped table-hover">
+	<% @arrangements.each do |arrangement| %>
+		<tr>
+			<td class="col-md-12"> <%= link_to arrangement.title, arrangement_path(arrangement) %></td>
+			<td class="col-md-0"> <%= link_to 'Bekijk', arrangement_path(arrangement), class: 'btn btn-info' %>
+			  </td>
+			<td class="col-md-0"> <%= link_to 'Wijzigen', edit_arrangement_path(arrangement), class: 'btn btn-warning' %> </td>
+			<td class="col-md-0"> <%= link_to 'Verwijderen', arrangement_path(arrangement), method: :delete, data: { confirm: 'Weet u het zeker?' }, class: 'btn btn-danger' %> </td>
+	<% end %>
+</table>			
+	</div>
+
+
 
