@@ -1,4 +1,6 @@
+<%= link_to 'new product', new_product_path, class: 'btn btn-success' %>
+
 <% @products.each do |product| %>
-	<%= @product.name %>
+	<%= product.name %>
 
 <% end %>

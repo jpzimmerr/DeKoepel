@@ -1,0 +1,10 @@
+<h1> Nieuw product toevoegen </h1>
+<%=form_for product do |f| %>
+	<% f.label :name, 'Naam' %>
+	<%= f.text_field :name, class: 'form_control' %>
+	<% f.label :price, 'Prijs' %>
+	<%= f.text_field :price, class: 'form_control' %>
+	<% f.label :per, 'per' %>
+	<%= f.select :per, [['Per uur', 'uur'],['Per keer', 'keer'], ['Per stoel', 'stoel'], ['Per tafel', 'tafel']], class: 'form_control' %>
+	<%= f.submit 'Product toevoegen', class: 'btn btn-primary' %>
+<%end%>
