@@ -1,0 +1,12 @@
+<h1> Arrangement </h1>
+	<div class="panel panel-info">
+	  <div class="panel-heading">
+		<%= @arrangement.title %> 
+	  </div>
+	  <div class="panel-body">
+			<%= simple_format @arrangement.body %>
+			<%= link_to 'Wijzigen', edit_arrangement_path(@arrangement), class: 'btn btn-sm btn-warning' %>
+			<%= link_to 'Verwijder', arrangement_path(@arrangement), method: :delete, data: { confirm: 'Weet u het zeker?'}, class: 'btn btn-sm btn-danger' %>
+	  </div>
+	</div>
+	<%= link_to 'Terug naar overzicht', arrangements_path, class: 'btn btn-primary no_print' %>

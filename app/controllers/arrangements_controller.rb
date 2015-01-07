@@ -20,6 +20,16 @@ class ArrangementsController < ApplicationController
 		redirect_to arrangements_path
 	end
 
+	def show
+		@arrangement = Page.find(params[:id])
+	end
+
+	def destroy
+		@arrangement = Page.find(params[:id])
+		@arrangement.destroy
+		redirect_to arrangements_path
+	end
+	
 	private
 		def arrangement_params
 			params.require(:arrangement).permit(:title,:body,:kind)	
