@@ -1,7 +1,7 @@
 <h1>Arrangementen</h1>
 <% @arrangements.each do |arrangement| %>
-<%= arrangement.title %> <br>
-<%= arrangement.body %>
-
+	<%= arrangement.title %> <br>
+	<%= arrangement.body %>
 <% end %>
+<%= link_to 'Nieuw arrangement', new_arrangement_path, class: 'btn btn-success' %>
 
