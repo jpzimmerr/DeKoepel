@@ -1,32 +1,41 @@
 <h1>Nieuws overzicht pagina </h1>
-<%= link_to 'Nieuw bericht', new_post_path, class: 'btn btn-success' %>
 
-<div class="panel panel-info">
+<div class="row">
+	<div class="col-md-12">
+		<%= link_to 'Nieuw bericht', new_post_path, class: 'btn btn-success' %>
 
-  <!-- Default panel contents -->
-  <div class="panel-heading ">
-  	Titel 
- 
-  </div>
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-12">
+		<div class="panel panel-info">
 
-<table class="table table-bordered table-striped table-hover">
+			<!-- Default panel contents -->
+			<div class="panel-heading ">
+				Titel 
+
+			</div>
+
+			<table class="table table-bordered table-striped table-hover">
 
 
-	<% @posts.each do |post| %>
-		<tr>
-			<td class="col-md-12"> <%= link_to post.title, post_path(post) %> </td>
-			<td class="col-md-0">
-				<%= link_to 'Bekijk', post_path(post), class: 'btn btn-info' %> </td>
-			<td class="col-md-0"> 
-				<%= link_to 'Wijzigen', edit_post_path(post), class: 'btn btn-warning' %> </td>
-			<td class="col-md-0">
-				<%= link_to 'Verwijderen', post_path(post),
-													method: :delete, data: { confirm: 'Weet u het zeker?'}, class: 'btn btn-danger' %> </td>
+				<% @posts.each do |post| %>
+					<tr>
+						<td class="col-md-12"> <%= link_to post.title, post_path(post) %> </td>
+						<td class="col-md-0">
+							<%= link_to 'Bekijk', post_path(post), class: 'btn btn-info' %> </td>
+						<td class="col-md-0"> 
+							<%= link_to 'Wijzigen', edit_post_path(post), class: 'btn btn-warning' %> </td>
+						<td class="col-md-0">
+							<%= link_to 'Verwijderen', post_path(post),
+																method: :delete, data: { confirm: 'Weet u het zeker?'}, class: 'btn btn-danger' %> </td>
+							
+					</tr>
+				<% end %>
+
+						
 				
-		</tr>
-	<% end %>
-
-			
-	
-</table>
-
+			</table>
+		</div>
+	</div>
+</div>
