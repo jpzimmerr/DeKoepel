@@ -12,9 +12,6 @@ class PostsController < ApplicationController
 		@post = Page.find(params[:id])
 	end
 	def create
-		#nieuwe post maken in Post tabel
-		post = Page.new
-
 		##post title in title kolom
 		#post.title = params[:post][:title]
 		##post body in body kolom
