@@ -61,6 +61,3 @@ gem 'rubocop', '~> 0.28.0'
 
 #form validation
 gem "parsley-rails"
-
-#wysiwyg
-gem 'bootsy', '~> 2.0.12'
