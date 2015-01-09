@@ -1,10 +1,46 @@
-<h1> Nieuw product toevoegen </h1>
-<%=form_for product do |f| %>
-	<% f.label :name, 'Naam' %>
-	<%= f.text_field :name, class: 'form_control' %>
-	<% f.label :price, 'Prijs' %>
-	<%= f.text_field :price, class: 'form_control' %>
-	<% f.label :per, 'per' %>
-	<%= f.select :per, [['Per uur', 'uur'],['Per keer', 'keer'], ['Per stoel', 'stoel'], ['Per tafel', 'tafel']], class: 'form_control' %>
-	<%= f.submit 'Product toevoegen', class: 'btn btn-primary' %>
-<%end%>
+<% if action_name == 'new' %>
+	<h1> Nieuw product toevoegen </h1>
+<% elsif action_name == 'edit' %>
+	<h1> Product bewerken </h1>
+<% else %>
+	<h1>Product</h1>
+<% end %>
+<div class="row">
+	<div class="col-md-4">
+		<div class="panel panel-primary">
+			<div class="panel-heading">
+					<% if action_name == 'new' %>
+						Nieuw product
+					<% elsif action_name == 'edit' %>
+						Product bewerken
+					<% else %>
+						Product
+					<% end %>
+			</div>
+		  	<div class="panel-body">
+				<%=form_for product do |f| %>
+					<div class="form-group">
+						<%= f.label :name, 'Naam' %>
+						<%= f.text_field :name, class: 'form-control' %>
+					</div>
+					<div class="form-group">					
+						<%= f.label :price, 'Prijs' %>
+						<%= f.text_field :price, class: 'form-control' %>
+					</div>
+					<div class="form-group">
+						<%= f.label :per, 'per' %> <br>
+						<%= f.select :per, [['Per uur', 'uur'],['Per keer', 'keer'], ['Per stoel', 'stoel'], ['Per tafel', 'tafel']], class: 'form-control' %>
+					</div>
+						<%= link_to 'Terug', products_path, class: 'btn btn-default' %>
+					<% if action_name == 'new' %>
+						<%= f.submit 'Product toevoegen', class: 'btn btn-success pull-right' %>
+					<% elsif action_name == 'edit' %>
+						<%= f.submit 'Product aanpassen', class: 'btn btn-warning pull-right' %>
+					<% else %>
+						<%= f.submit 'Product opslaan', class: 'btn btn-primary pull-right' %>
+					<% end %>
+				<%end%>
+			</div>	
+		</div>
+	</div>
+</div>
