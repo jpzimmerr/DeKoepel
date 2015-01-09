@@ -1,6 +1,11 @@
+/*
+ *= require froala_editor.min.css
+ *= require froala_style.min.css
+ */
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import 'parsley';
+@import "font-awesome";
 
 @media print {
 		body { background-color: #FFF; }
