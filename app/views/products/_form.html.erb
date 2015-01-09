@@ -29,7 +29,7 @@
 					</div>
 					<div class="form-group">
 						<%= f.label :per, 'per' %> <br>
-						<%= f.select :per, [['Per uur', 'uur'],['Per keer', 'keer'], ['Per stoel', 'stoel'], ['Per tafel', 'tafel']], class: 'form-control' %>
+						<%= f.select :per, [['Per stuk', 'stuk'], ['Per uur', 'uur'], ['Per keer', 'keer'], ['Per stoel', 'stoel'], ['Per tafel', 'tafel']], class: 'form-control' %>
 					</div>
 						<%= link_to 'Terug', products_path, class: 'btn btn-default' %>
 					<% if action_name == 'new' %>
