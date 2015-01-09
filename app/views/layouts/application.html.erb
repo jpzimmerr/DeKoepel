@@ -47,10 +47,10 @@
     </div>
       <div class="panel-body">
         <ul class="nav nav-pills nav-stacked">
-          <li><%= link_to "Website pagina's", pages_path%></li>
-          <li><%= link_to 'Nieuws berichten', posts_path%></li>
+          <li><%= link_to "Website pagina's", pages_path(:kind => '0')%></li>
+          <li><%= link_to 'Nieuws berichten', pages_path(:kind => '1')%></li>
           <li><%= link_to "Producten", products_path%></li>
-          <li><%= link_to "Arrangementen", arrangements_path%></li>
+          <li><%= link_to "Arrangementen", pages_path(:kind => '2')%></li>
         </ul>
     </div>
   </div>

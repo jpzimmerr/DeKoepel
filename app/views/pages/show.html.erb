@@ -1,2 +1,12 @@
-<%= render @page %>
-<%= link_to 'Bewerken', edit_page_path(@page) %>
+<h1> Website </h1>
+<div class="panel panel-info">
+  <div class="panel-heading">
+	<%= @page.title %> 
+  </div>
+  <div class="panel-body">
+		<%= simple_format @page.body %>
+		<%= link_to 'Wijzigen', edit_page_path(@page), class: 'btn btn-sm btn-warning' %>
+		<%= link_to 'Verwijder', page_path(@page), method: :delete, data: { confirm: 'Weet u het zeker?'}, class: 'btn btn-sm btn-danger' %>
+  </div>
+</div>
+<%= link_to 'Terug naar overzicht', arrangements_path, class: 'btn btn-primary no_print' %>

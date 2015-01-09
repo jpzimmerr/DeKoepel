@@ -1,18 +1,32 @@
-<h1>Pagina's</h1>
-<%= link_to 'Nieuwe Pagina', new_page_path, class: 'btn btn-success' %>
-	<div class="panel panel-info">
+<% if params['kind'] == "0" %>
+	<h1>Website</h1>
+<% elsif params['kind'] == "1" %>
+	<h1>Nieuws</h1>
+<% elsif params['kind'] == "2" %>
+	<h1>Arrangementen</h1>
+<% else %>
+<% end %>
+<%= link_to 'Nieuwe Pagina', new_page_path(:kind => params[:kind]), class: 'btn btn-success' %>
+<div class="panel panel-info">
 
-  	<div class="panel-heading ">
-  	Titel 
- 
-  	</div>
- 	 <table class="sortable table table-bordered table-striped table-hover">
-			<% @pages.each do |page| %>
-				<tr>
-					<td class="col-md-12"> <%= page.title %> </td>
-					<td class="col-md-0"> <%= link_to 'Bekijk', page_path(page), class: 'btn btn-info' %> </td>
-					<td class="col-md-0"> <%= link_to 'Wijzigen', edit_page_path(page), class: 'btn btn-warning' %> </td>
-					<td class="col-md-0"> <%= link_to 'Verwijderen', page_path(page), method: :delete, data: {confirm: 'Weet u het zeker?'}, class: 'btn btn-danger' %> </td>
-			<% end %>
- 	 </table>
-	</div>
+  <div class="panel-heading ">
+    <% if params['kind'] == "0" %>
+      Pagina's
+    <% elsif params['kind'] == "1" %>
+      Nieuwsartikelen
+    <% elsif params['kind'] == "2" %>
+      Arrangementen
+    <% else %>
+    <% end %>
+
+  </div>
+   <table class="sortable table table-bordered table-striped table-hover">
+  		<% @pages.each do |page| %>
+  			<tr>
+  				<td class="col-md-12"> <%= page.title %> </td>
+  				<td class="col-md-0"> <%= link_to 'Bekijk', page_path(page), class: 'btn btn-info' %> </td>
+  				<td class="col-md-0"> <%= link_to 'Wijzigen', edit_page_path(page), class: 'btn btn-warning' %> </td>
+  				<td class="col-md-0"> <%= link_to 'Verwijderen', page_path(page), method: :delete, data: {confirm: 'Weet u het zeker?'}, class: 'btn btn-danger' %> </td>
+  		<% end %>
+   </table>
+</div>

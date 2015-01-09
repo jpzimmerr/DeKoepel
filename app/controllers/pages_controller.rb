@@ -1,8 +1,8 @@
 class PagesController < ApplicationController
 	def index
 
-		#@pages = Page.where(:kind => params[:kind]).order('created_at DESC')
-		@pages = Page.where(:kind => "0").order('created_at DESC')
+		@pages = Page.where(:kind => params[:kind]).order('created_at DESC')
+		#@pages = Page.where(:kind => "0").order('created_at DESC')
 	end
 	def new
 		@page = Page.new
