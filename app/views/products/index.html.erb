@@ -1,6 +1,45 @@
-<%= link_to 'new product', new_product_path, class: 'btn btn-success' %>
+<h1> Producten</h1>
+<div class="row">
+	<div class="col-md-8">
+		
+		<% if params[:search].present? %>
+			<div class="alert alert-warning" role="alert">
+				<b>U heeft gezocht op: '<%= params[:search] %>'</b>
+				<%= link_to 'Verwijder zoekwoord', products_path, class: 'btn btn-danger btn-xs' %>
+			</div>
+		<% end %>
 
-<% @products.each do |product| %>
-	<%= product.name %>
+		<%= link_to 'new product', new_product_path, class: 'btn btn-success no_print' %>
+			<%= link_to("Print", "javascript:print()", class: 'btn btn-default no_print') %> 
+			<%= form_tag(products_path, :method => "get", id: "search-form", class: 'navbar-form navbar-right') do %>
+				<%= text_field_tag :search, params[:search], placeholder: "Vul uw zoekterm in", class: 'form-control' %>
+				<%= submit_tag "Zoeken!", :name => nil, class: 'btn btn-primary' %>
+		<% end %>
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-8">
+		<table class="table table-bordered table-striped table-hover">
+			<thead>
+				<tr class= "info">
+					<th class="col-md-10">Product</th>
+					<th class="col-md-2">Prijs</th>
+					<th class="col-md-0">Per</th>
+					<th class='no_print' colspan= "2" ></th>
 
-<% end %>
+				</tr>
+			</thead>
+			<% @products.each do |product| %>
+				<tr>
+
+					<td><%= product.name %></td>
+					<td>€ <%= product.price %></td>
+					<td><%= product.per %></td>
+					<td class="no_print col-md-0 "> <%= link_to 'Wijzigen', edit_product_path(product), class: 'btn btn-warning no_print' %> </td>
+					<td class="no_print col-md-0"> <%= link_to 'Verwijderen', product_path(product), method: :delete, data: {confirm: 'Weet u het zeker?'}, class: 'btn btn-danger no_print' %> </td>
+
+				</tr>
+			<% end %>
+		</table>
+	</div>
+</div>
