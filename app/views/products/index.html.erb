@@ -9,8 +9,8 @@
 			</div>
 		<% end %>
 
-		<%= link_to 'new product', new_product_path, class: 'btn btn-success' %>
-			<%= link_to("Print", "javascript:print()", class: 'btn btn-default') %> 
+		<%= link_to 'new product', new_product_path, class: 'btn btn-success no_print' %>
+			<%= link_to("Print", "javascript:print()", class: 'btn btn-default no_print') %> 
 			<%= form_tag(products_path, :method => "get", id: "search-form", class: 'navbar-form navbar-right') do %>
 				<%= text_field_tag :search, params[:search], placeholder: "Vul uw zoekterm in", class: 'form-control' %>
 				<%= submit_tag "Zoeken!", :name => nil, class: 'btn btn-primary' %>
@@ -25,7 +25,7 @@
 					<th class="col-md-10">Product</th>
 					<th class="col-md-2">Prijs</th>
 					<th class="col-md-0">Per</th>
-					<th colspan= "2"></th>
+					<th class='no_print' colspan= "2" ></th>
 
 				</tr>
 			</thead>
@@ -35,8 +35,8 @@
 					<td><%= product.name %></td>
 					<td>€ <%= product.price %></td>
 					<td><%= product.per %></td>
-					<td class="col-md-0"> <%= link_to 'Wijzigen', edit_product_path(product), class: 'btn btn-warning' %> </td>
-					<td class="col-md-0"> <%= link_to 'Verwijderen', product_path(product), method: :delete, data: {confirm: 'Weet u het zeker?'}, class: 'btn btn-danger' %> </td>
+					<td class="no_print col-md-0 "> <%= link_to 'Wijzigen', edit_product_path(product), class: 'btn btn-warning no_print' %> </td>
+					<td class="no_print col-md-0"> <%= link_to 'Verwijderen', product_path(product), method: :delete, data: {confirm: 'Weet u het zeker?'}, class: 'btn btn-danger no_print' %> </td>
 
 				</tr>
 			<% end %>
