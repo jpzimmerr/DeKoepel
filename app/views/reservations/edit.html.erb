@@ -10,7 +10,7 @@
 
 				<%= form_for @reservation do |f| %>	
 						
-					<%= hidden_field :customer_id, :value => @reservation.customer.id %>
+					<%= f.hidden_field(:customer_id, :value => @reservation.customer_id) %>
 						
 					<%= f.fields_for :customer do |c| %>
 						<%= render "customers/customer_fields", :f => c %>
