@@ -5,8 +5,9 @@
   </div>
   <div class="panel-body">
 		<%= simple_format @page.body %>
-		<%= link_to 'Wijzigen', edit_page_path(@page), class: 'btn btn-sm btn-warning' %>
-		<%= link_to 'Verwijder', page_path(@page), method: :delete, data: { confirm: 'Weet u het zeker?'}, class: 'btn btn-sm btn-danger' %>
+		<%= params[:kind] %>
+		<%= link_to 'Wijzigen', edit_page_path(@page, :kind => params[:kind]), class: 'btn btn-sm btn-warning' %>
+		<%= link_to 'Verwijder', page_path(@page, :kind => params[:kind]), method: :delete, data: { confirm: 'Weet u het zeker?'}, class: 'btn btn-sm btn-danger' %>
   </div>
 </div>
-<%= link_to 'Terug naar overzicht', arrangements_path, class: 'btn btn-primary no_print' %>
+<input class="btn btn-default" type="button" value="Terug" onClick="history.go(-1);return true;">
