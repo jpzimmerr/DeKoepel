@@ -1,4 +1,11 @@
 <h1> Overzicht alle klanten</h1>
+
+<% if params[:search].present? %>
+	<div class="alert alert-warning" role="alert">
+		<b>U heeft gezocht op: '<%= params[:search] %>'</b><br/>
+		<%= link_to 'Verwijder zoekwoord', reservations_path, class: 'btn btn-danger btn-xs' %>
+	</div>
+<% end %>
 <div class="row">
 	<div class="col-md-12">
 		<%= form_tag(customers_path, :method => "get", id: "search-form", class: 'navbar-form navbar-right') do %>
