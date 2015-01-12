@@ -4,7 +4,7 @@
 		
 		<% if params[:search].present? %>
 			<div class="alert alert-warning" role="alert">
-				<b>U heeft gezocht op: '<%= params[:search] %>'</b>
+				<b>U heeft gezocht op: '<%= params[:search] %>'</b><br />	
 				<%= link_to 'Verwijder zoekwoord', products_path, class: 'btn btn-danger btn-xs' %>
 			</div>
 		<% end %>
