@@ -5,8 +5,16 @@
 <% elsif params['kind'] == "2" %>
 	<h1>Arrangementen</h1>
 <% else %>
+  <h1>Alle items</h1>
 <% end %>
-<%= link_to 'Nieuwe Pagina', new_page_path(:kind => params[:kind]), class: 'btn btn-success' %>
+<div class="row">
+  <div class="col-md-12">
+    <br>
+    <%= link_to 'Nieuw', new_page_path(:kind => params[:kind]), class: 'btn btn-success' %>
+    <br>
+    <br>
+  </div>
+</div>
 <div class="panel panel-info">
 
   <div class="panel-heading ">
@@ -24,9 +32,9 @@
   		<% @pages.each do |page| %>
   			<tr>
   				<td class="col-md-12"> <%= page.title %> </td>
-  				<td class="col-md-0"> <%= link_to 'Bekijk', page_path(page), class: 'btn btn-info' %> </td>
-  				<td class="col-md-0"> <%= link_to 'Wijzigen', edit_page_path(page), class: 'btn btn-warning' %> </td>
-  				<td class="col-md-0"> <%= link_to 'Verwijderen', page_path(page), method: :delete, data: {confirm: 'Weet u het zeker?'}, class: 'btn btn-danger' %> </td>
+  				<td class="col-md-0"> <%= link_to 'Bekijk', page_path(page, :kind => params[:kind]), class: 'btn btn-info' %> </td>
+  				<td class="col-md-0"> <%= link_to 'Wijzigen', edit_page_path(page, :kind => params[:kind]), class: 'btn btn-warning' %> </td>
+  				<td class="col-md-0"> <%= link_to 'Verwijderen', page_path(page, :kind => params[:kind]), method: :delete, data: {confirm: 'Weet u het zeker?'}, class: 'btn btn-danger' %> </td>
   		<% end %>
    </table>
 </div>

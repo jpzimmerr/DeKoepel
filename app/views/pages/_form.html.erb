@@ -1,9 +1,34 @@
-<h1> Nieuw bericht toevoegen </h1>
+<% if action_name == "new" && params[:kind] == "0"%>
+	<h1>Nieuwe pagina</h1>
+<% elsif action_name == "edit" && params[:kind] == "0"%>
+	<h1>Pagina wijzigen</h1>
+<% elsif action_name == "new" && params[:kind] == "1"%>
+	<h1>Nieuw niewsitem</h1>
+<% elsif action_name == "edit" && params[:kind] == "1"%>
+	<h1>Nieuwsitem wijzigen</h1>
+<% elsif action_name == "new" && params[:kind] == "2"%>
+	<h1>Nieuw arrangement</h1>
+<% elsif action_name == "edit" && params[:kind] == "2"%>
+	<h1>Arrangement toevoegen</h1>
+<% end %>
 <div class="row">
 	<div class="col-md-10">
 		<div class="panel panel-primary">
 			<div class="panel-heading">
-				<h3 class="panel-title">Nieuws bericht</h3>
+				
+				<% if action_name == "new" && params[:kind] == "0" %>
+					<h3 class="panel-title">Nieuwe pagina</h3>
+				<% elsif action_name == "edit" && params[:kind] == "0" %>
+					<h3 class="panel-title">Pagina wijzigen</h3>
+				<% elsif action_name == "new" && params[:kind] == "1" %>
+					<h3 class="panel-title">Nieuw bericht</h3>
+				<% elsif action_name == "edit" && params[:kind] == "1" %>
+					<h3 class="panel-title">Bericht wijzigen </h3>
+				<% elsif action_name == "new" && params[:kind] == "2" %>
+					<h3 class="panel-title">Nieuw arrangement</h3>
+				<% elsif action_name == "edit" && params[:kind] == "2" %>
+					<h3 class="panel-title">Arrangement wijzigen </h3>
+				<% end %>
 			</div>
 		  	<div class="panel-body">
 				<%= form_for page do |f| %>
@@ -14,16 +39,23 @@
 					<div class="form-group">
 						<% f.label :body, 'Body' %>
 						<%= f.text_area :body, class: 'form-control' %>
-						<%= f.hidden_field :kind, value: "0" %>
 					</div>
+					<% if params[:kind] == "0"%>
+					<%= f.hidden_field :kind, value: "0" %>
+					<% elsif params[:kind] == "1" %>
+					<%= f.hidden_field :kind, value: "1" %>
+					<%elsif params[:kind] == "2" %>
+						<%= f.hidden_field :kind, value: "2" %>
+					<% end %>
+					<!-- <%= f.hidden_field :kind, value: "{params[:kind]}" %>-->
 					<div class="form-group">
-
+						<input class="btn btn-default" type="button" value="Terug" onClick="history.go(-1);return true;">
 						<%if action_name == 'edit'%>
-							<%= f.submit 'Opslaan', class: 'btn btn-warning' %>
+							<%= f.submit 'Opslaan', class: 'btn btn-warning pull-right' %>
 						<% elsif %>
-							<%= f.submit 'Opslaan', class: 'btn btn-success' %>
+							<%= f.submit 'Opslaan', class: 'btn btn-success pull-right' %>
 						<% else %>
-							<%= f.submit 'Opslaan', class: 'btn' %>
+							<%= f.submit 'Opslaan', class: 'btn pull-right' %>
 						<% end %>
 
 					</div>

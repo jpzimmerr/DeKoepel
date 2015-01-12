@@ -15,7 +15,7 @@ class PagesController < ApplicationController
 		page = Page.new
 		page = Page.new(page_params)
 		page.save
-		redirect_to pages_path
+		redirect_to pages_path(:kind => params[:kind])
 	end
 	def edit
 		@page = Page.find(params[:id])
@@ -23,12 +23,12 @@ class PagesController < ApplicationController
 	def update
 		@page = Page.find(params[:id]) 
 		@page.update(page_params)
-		redirect_to pages_path
+		redirect_to pages_path(:kind => params[:kind])
 	end
 	def destroy
 		@page = Page.find(params[:id])
 		@page.destroy
-		redirect_to pages_path
+		redirect_to pages_path(:kind => params[:kind])
 	end
 	private
 		def page_params
