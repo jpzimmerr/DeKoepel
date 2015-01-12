@@ -12,27 +12,22 @@
 
 
 <div class="row">
-	<div class="col-md-6 ">
-			
-	<% if params[:search].present? %>
-		<div class="alert alert-warning" role="alert">
-			<h3>U heeft gezocht op: '<%= params[:search] %>'</h3>
-			<%= link_to 'Verwijder zoekwoord', reservations_path, class: 'btn btn-info' %>
-		</div>
-	<% elsif params[:month].present? & params[:year].present? %>
-		<div class="alert alert-warning" role="alert" >
-			<h3>U heeft gefilterd op: 'Maand: <%= params[:month] %> en het Jaar: <%= params[:year] %>'</h3>
-			<%= link_to 'Verwijder filter', reservations_path, class: 'btn btn-info' %>
-		</div>
-	<% else %> 
+	<div class="col-md-12 ">
 		<h1> Overzicht reserveringen</h1>
-	<% end %>
 
-	
-</div>
-	<div class="col-md-6 ">
-		<br>
-		<br>
+		<% if params[:search].present? %>
+			<div class="alert alert-warning" role="alert">
+				<b>U heeft gezocht op: '<%= params[:search] %>'</b><br/>
+				<%= link_to 'Verwijder zoekwoord', reservations_path, class: 'btn btn-danger btn-xs' %>
+			</div>
+		<% elsif params[:month].present? & params[:year].present? %>
+			<div class="alert alert-warning" role="alert" >
+				<b>U heeft gefilterd op: 'Maand: <%= params[:month] %> en het Jaar: <%= params[:year] %>'</b><br/>
+				<%= link_to 'Verwijder filter', reservations_path, class: 'btn btn-danger btn-xs' %>
+			</div>
+		<% end %>
+	</div>
+	<div class="col-md-12 ">
 	<%= form_tag(reservations_path, :method => "get", id: "search-form", class: 'navbar-form navbar-right') do %>
 			<%= text_field_tag :search, params[:search], placeholder: "Zoek op naam", class: 'form-control' %>
 			<%= submit_tag "Zoeken!", :name => nil, :last_name => nil, :first_name => nil, class: 'btn btn-primary' %>
