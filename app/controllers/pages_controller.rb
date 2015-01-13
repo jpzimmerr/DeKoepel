@@ -6,7 +6,6 @@ class PagesController < ApplicationController
 	end
 	def new
 		@page = Page.new
-		@page.title = 'Dit is een titel'
 	end
 	def show
 		@page = Page.find(params[:id])
@@ -15,7 +14,7 @@ class PagesController < ApplicationController
 		page = Page.new
 		page = Page.new(page_params)
 		page.save
-		redirect_to pages_path(:kind => params[:kind])
+		redirect_to pages_path
 	end
 	def edit
 		@page = Page.find(params[:id])
@@ -23,12 +22,13 @@ class PagesController < ApplicationController
 	def update
 		@page = Page.find(params[:id]) 
 		@page.update(page_params)
-		redirect_to pages_path(:kind => params[:kind])
+		#redirect_to page_path(:kind => params[:id] )
+		redirect_to page_path
 	end
 	def destroy
 		@page = Page.find(params[:id])
 		@page.destroy
-		redirect_to pages_path(:kind => params[:kind])
+		redirect_to pages_path(params[:kind])
 	end
 	private
 		def page_params

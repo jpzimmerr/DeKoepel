@@ -32,9 +32,9 @@
   		<% @pages.each do |page| %>
   			<tr>
   				<td class="col-md-12"> <%= page.title %> </td>
-  				<td class="col-md-0"> <%= link_to 'Bekijk', page_path(page, :kind => params[:kind]), class: 'btn btn-info' %> </td>
-  				<td class="col-md-0"> <%= link_to 'Wijzigen', edit_page_path(page, :kind => params[:kind]), class: 'btn btn-warning' %> </td>
-  				<td class="col-md-0"> <%= link_to 'Verwijderen', page_path(page, :kind => params[:kind]), method: :delete, data: {confirm: 'Weet u het zeker?'}, class: 'btn btn-danger' %> </td>
+  				<td class="col-md-0"> <%= link_to 'Bekijk', page_path(page, :kind => params[:kind]), class: 'btn btn-info btn-xs' %> </td>
+  				<td class="col-md-0"> <%= link_to 'Wijzigen', edit_page_path(page, :kind => params[:kind]), class: 'btn btn-warning btn-xs' %> </td>
+  				<td class="col-md-0"> <%= link_to 'Verwijderen', page_path(page, :kind => params[:kind]), method: :delete, data: {confirm: 'Weet u het zeker?'}, class: 'btn btn-danger btn-xs' %> </td>
   		<% end %>
    </table>
 </div>

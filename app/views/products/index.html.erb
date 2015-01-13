@@ -18,28 +18,33 @@
 	</div>
 </div>
 <div class="row">
-	<div class="col-md-8">
-		<table class="table table-bordered table-striped table-hover">
-			<thead>
-				<tr class= "info">
-					<th class="col-md-10">Product</th>
-					<th class="col-md-2">Prijs</th>
-					<th class="col-md-0">Per</th>
-					<th class='no_print' colspan= "2" ></th>
+	<div class="col-md-8">		
+		<div class="panel panel-info">
+		  <div class="panel-heading ">
+		  	producten 
+		 
+		  </div>
+			<table class="table table-bordered table-striped table-hover">
+				<thead>
+					<tr>
+						<th class="col-md-10">Product</th>
+						<th class="col-md-2">Prijs</th>
+						<th class="col-md-0">Per</th>
+						<th class='no_print' colspan= "2" ></th>
 
-				</tr>
-			</thead>
-			<% @products.each do |product| %>
-				<tr>
+					</tr>
+				</thead>
+				<% @products.each do |product| %>
+					<tr>
+						<td><%= product.name %></td>
+						<td><%= number_to_currency(product.price) %></td>
+						<td><%= product.per %></td>
+						<td class="no_print col-md-0 "> <%= link_to 'Wijzigen', edit_product_path(product), class: 'btn btn-warning btn-xs no_print' %> </td>
+						<td class="no_print col-md-0"> <%= link_to 'Verwijderen', product_path(product), method: :delete, data: {confirm: 'Weet u het zeker?'}, class: 'btn btn-danger btn-xs no_print' %> </td>
 
-					<td><%= product.name %></td>
-					<td>€ <%= product.price %></td>
-					<td><%= product.per %></td>
-					<td class="no_print col-md-0 "> <%= link_to 'Wijzigen', edit_product_path(product), class: 'btn btn-warning no_print' %> </td>
-					<td class="no_print col-md-0"> <%= link_to 'Verwijderen', product_path(product), method: :delete, data: {confirm: 'Weet u het zeker?'}, class: 'btn btn-danger no_print' %> </td>
-
-				</tr>
-			<% end %>
-		</table>
+					</tr>
+				<% end %>
+			</table>
+		</div>
 	</div>
 </div>

@@ -3,7 +3,7 @@
 <% if params[:search].present? %>
 	<div class="alert alert-warning" role="alert">
 		<b>U heeft gezocht op: '<%= params[:search] %>'</b><br/>
-		<%= link_to 'Verwijder zoekwoord', reservations_path, class: 'btn btn-danger btn-xs' %>
+		<%= link_to 'Verwijder zoekwoord', customers_path, class: 'btn btn-danger btn-xs' %>
 	</div>
 <% end %>
 <div class="row">
@@ -18,12 +18,10 @@
 <div class="row">
 	<div class="col-md-12">
 		<div class="panel panel-info">
-		  <!-- Default panel contents -->
 		  <div class="panel-heading ">
 		  	Klanten 
 		 
 		  </div>
-		<!-- Table -->
 		  <table class="sortable table table-bordered table-striped table-hover">
 		  	<thead>
 					<tr>
@@ -52,7 +50,7 @@
 						<td> <%= customer.city %> </td>
 						<td> <%= customer.phone %> </td>
 						<td> <%= customer.email %> </td>
-						<td class="no_print"><%= link_to 'Bekijk', customer_path(customer), class: 'btn btn-info' %></td>
+						<td class="no_print"><%= link_to 'Bekijk', customer_path(customer), class: 'btn btn-info btn-xs' %></td>
 				<% end %>
 		  </table>
 		</div>
