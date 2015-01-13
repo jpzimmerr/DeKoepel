@@ -4,6 +4,8 @@ class Customer < ActiveRecord::Base
 	belongs_to :company
 	accepts_nested_attributes_for :company
 
+	self.per_page = 10
+
 	def edit
 
 	end

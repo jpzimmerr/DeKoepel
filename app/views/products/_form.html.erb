@@ -18,7 +18,7 @@
 					<% end %>
 			</div>
 		  	<div class="panel-body">
-				<%=form_for product do |f| %>
+				<%= form_for product do |f| %>
 					<div class="form-group">
 						<%= f.label :category_id, 'Categorie' %> <br>
 						<%= f.select :category_id, [['Consumpties', '0'], ['Faciliteiten', '1']], class: 'form-control' %>
@@ -43,7 +43,7 @@
 					<% else %>
 						<%= f.submit 'Product opslaan', class: 'btn btn-primary pull-right' %>
 					<% end %>
-				<%end%>
+				<% end %>
 			</div>	
 		</div>
 	</div>

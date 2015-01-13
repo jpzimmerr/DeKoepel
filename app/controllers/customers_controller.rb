@@ -1,8 +1,10 @@
 class CustomersController < ApplicationController
 	def index
 		@reservations = Reservation.all
-		@customers = Customer.all
+		@customers = Customer.paginate(:page => params[:page])
 		@companies = Company.all
+
+		@customers.per_page = 10
 
 		if params[:search]
 			@customers = @customers.search(params[:search])
