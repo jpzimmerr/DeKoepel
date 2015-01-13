@@ -1,4 +1,4 @@
-source 'http://rubygems.org'
+source 'https://rubygems.org'
 #bootstrap 3.3.1
 gem 'bootstrap-sass', '~> 3.3.1'
 gem 'haml'
