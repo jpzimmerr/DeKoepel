@@ -5,6 +5,13 @@
 <% else %>
 	<h1>Product</h1>
 <% end %>
+
+<div>
+<% if @product.errors.any? %>
+	<%= render :partial => 'validation' %>
+<% end %>
+</div>
+
 <div class="row">
 	<div class="col-md-4">
 		<div class="panel panel-primary">
