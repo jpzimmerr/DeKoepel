@@ -16,4 +16,4 @@
 		<%= link_to 'Verwijder', page_path(@page, :kind => params[:kind]), method: :delete, data: { confirm: 'Weet u het zeker?'}, class: 'btn btn-sm btn-danger' %>
   </div>
 </div>
-<input class="btn btn-default" type="button" value="Terug" onClick="history.go(-1);return true;">
+<%= link_to 'terug', pages_path(kind: params[:kind]), class: 'btn btn-sm btn-default' %>
