@@ -1,1 +1,4 @@
-<%=render 'form', product: @product %>
+<% if @product.errors.any? %>
+	<%= render :partial => 'validation' %>
+<% end %>
+<%= render 'form', product: @product %>

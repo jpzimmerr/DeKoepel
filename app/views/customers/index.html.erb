@@ -55,4 +55,7 @@
 		  </table>
 		</div>
 	</div>
+<nav>
+  <%= will_paginate @customers, :previous_label => 'Vorige', :next_label => 'Volgende' , renderer: BootstrapPagination::Rails %>
+</nav>
 </div>
