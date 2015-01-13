@@ -1,11 +1,17 @@
-<h1> Website </h1>
+
+<% if params[:kind] == "0"%>
+	<h1> Website pagina</h1>
+<% elsif params[:kind] == "1" %>
+	<h1> Nieuwsartikel </h1>
+<%elsif params[:kind] == "2" %>
+	<h1> Arrangement </h1>
+<% end %>
 <div class="panel panel-info">
   <div class="panel-heading">
 	<%= @page.title %> 
   </div>
   <div class="panel-body">
-		<%= simple_format @page.body %>
-		<%= params[:kind] %>
+		<%= raw @page.body %>
 		<%= link_to 'Wijzigen', edit_page_path(@page, :kind => params[:kind]), class: 'btn btn-sm btn-warning' %>
 		<%= link_to 'Verwijder', page_path(@page, :kind => params[:kind]), method: :delete, data: { confirm: 'Weet u het zeker?'}, class: 'btn btn-sm btn-danger' %>
   </div>
