@@ -1,14 +1,65 @@
-!!!
-%html
-  %head
-    %title de Koepel
-    
-    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
-    = stylesheet_link_tag    'reset', media: 'all', 'data-turbolinks-track' => true
-    = stylesheet_link_tag    'sites', media: 'all', 'data-turbolinks-track' => true
-    = javascript_include_tag 'application', 'data-turbolinks-track' => true
-    
-    = csrf_meta_tags
-  
-  %body
-    = yield
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>DeKoepel</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+  <%= stylesheet_link_tag "application", :media => 'print' %>
+  <%= javascript_include_tag "sorttable" %>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+
+</head>
+  <body>
+
+  <div class="col-md-2 no_print">
+
+    <div id="logo"> </div>
+
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h3 class="panel-title">Reserveringen</h3>
+    </div>
+      <div class="panel-body">
+        <ul class="nav nav-pills nav-stacked">
+          <li><%= link_to 'Overzicht reserveringen', reservations_path %></li>
+        </ul>
+    </div>
+  </div>
+
+
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h3 class="panel-title">Klanten</h3>
+    </div>
+    <div class="panel-body">
+       <ul class="nav nav-pills nav-stacked">
+        <li><%= link_to 'Overzicht klanten', customers_path%></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h3 class="panel-title">Website</h3>
+    </div>
+      <div class="panel-body">
+        <ul class="nav nav-pills nav-stacked">
+          <li><%= link_to "Website pagina's", pages_path(:kind => '0')%></li>
+          <li><%= link_to 'Nieuws berichten', pages_path(:kind => '1')%></li>
+          <li><%= link_to "Producten", products_path%></li>
+          <li><%= link_to "Arrangementen", pages_path(:kind => '2')%></li>
+        </ul>
+    </div>
+  </div>
+</div>
+
+  <div class= "col-md-10">
+
+      <%= yield %>
+    </div>
+  </body>
+</html>

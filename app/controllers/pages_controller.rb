@@ -14,7 +14,7 @@ class PagesController < ApplicationController
 		page = Page.new
 		page = Page.new(page_params)
 		page.save
-		redirect_to page_path(kind: @page.kind)
+		redirect_to page_path(kind: page.kind)
 	end
 	def edit
 		@page = Page.find(params[:id])
