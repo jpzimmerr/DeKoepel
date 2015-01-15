@@ -1,23 +1,185 @@
 // Place all the styles related to the sites controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-$website-width: 996px
+$website-width: 970px
 $height: 200px
+$margin: 26px
 #container
 	background-color: red
 	width: $website-width
-	height: $height
+	height: auto
 	width: 100%
+h2
+	font-size: 14pt
+	color: orange
+	margin: 30px 0 20px 0
+	font-size: 18pt
 
+h3
+	font-size: 14pt
+	font-weight: bold
+	margin-bottom: 20px
+
+.button
+	background-color: orange
+	height: auto
+	width: 183px
+	margin: 10px 20px 20px 20px
+	font-size: 12pt
+	padding: 10px
+	font-weight: bold
+	float: left
+	color: white
 .wrapper
 	background-color: green
 	width: 100%
-	height: $height
-	margin: 0px auto
-	height: 0px auto
+	height: auto
+	float: left
+	padding: 20px
 	.box-wrapper
 		width: $website-width
-		height: $height
+		margin-left: 180px
+		padding: 0px auto
+		height: auto
+		float: left
 		background-color: blue
+		.home
+			.box
+				width: 306px
+				height: 200px
+				background-color: red
+				float: left
+				margin-right: $margin
+				border: 5px solid white
+				position: relative
+				&:last-child
+					margin: 0
+				a.link
+					position: absolute
+					height: auto
+					width: 130px
+					padding: 10px
+					bottom: 20px
+					left: 0
+					background-color: blue
+					color: white
+					font-size: 14pt
+					font-weight: bold
+				ul
+					width: 100%
+					float: left
+					li
+						width: 100%
+						height: auto
+						float: left
+						background-color: green
+						&:hover
+							cursor: pointer
+							background-color: orange
 
-		
+						a
+							float: left
+							width: 256px
+							border-bottom: 1px solid grey
+							background-color: yellow
+							margin: 0 20px
+							padding: 10px
+		.arrangements
+			h2
+				color: orange
+			.box
+				background-color: white
+				width: 223px
+				height: auto
+				float: left
+				margin-right: $margin
+				&:last-child
+					margin-right: 0
+				.dummy
+					height: 150px
+					width: 100%
+					background-color: red
+				h3,	p
+					float: left
+					padding: 10px 20px
+				p
+					font-size: 10pt
+				h3
+					color: blue
+		h1
+			font-color: purple
+
+		.box-2
+			width: 472px
+			height: auto
+			background-color: pink
+			margin-right: $margin
+			float: left
+			&:last-child
+				margin-right: 0
+			h2
+				color: blue
+			.content
+				border: 1px solid grey
+				padding: 20px
+				float: left
+				.news
+					float: left
+					ul
+						li
+							border-top: 1px solid grey
+							float: left
+							padding: 10px 0
+							width: 100%
+							label
+								background-color: blue
+								font-size: 8pt
+								color: white
+								margin-right: 10px
+								padding: 5px
+								float: left
+							a
+								float: left
+								padding: 2px
+				.last-news-item
+					width: 430px
+					height: auto
+					float: left
+					margin-bottom: 20px
+					.dummy
+						height: 150px
+						width: 200px
+						margin-right: 20px
+						float: left
+						background-color: yellow
+						position: relative
+						.date
+							background-color: blue
+							width: 60px
+							height: 60px
+							padding: 10px
+							position: absolute
+							right: 0
+							bottom: 0
+							a
+								color: white
+								width: 100%
+								text-align: center
+							a.day
+								font-size: 18pt
+								float: left
+							a.month
+								font-size: 14pt
+								float: left
+					h3
+						width: 210px
+						height: auto
+						float: left
+						background-color: green
+						color: blue
+					p 
+						width: 210px
+						height: auto
+						float: left
+						background-color: purple
+
