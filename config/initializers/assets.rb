@@ -9,3 +9,5 @@ Rails.application.config.assets.version = '1.0'
 Rails.application.config.assets.precompile += %w( sorttable.js )
 Rails.application.config.assets.precompile += %w( reset.css )
 Rails.application.config.assets.precompile += %w( sites.css )
+#CUSTOMER.CSS WEGHALEN
+Rails.application.config.assets.precompile += %w( customer.css )
