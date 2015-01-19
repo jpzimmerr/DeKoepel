@@ -12,6 +12,7 @@ $button-main-hover: #dd4e00
 	width: $website-width
 	height: auto
 	width: 100%
+	color: #333333
 h2
 	font-size: 14pt
 	color: orange
@@ -21,7 +22,6 @@ h2
 h3
 	font-size: 14pt
 	font-weight: bold
-	margin-bottom: 20px
 
 .button
 	background-color: $button-main
@@ -57,13 +57,15 @@ h3
 			.box
 				width: 306px
 				height: 200px
-				background-color: red
+				background-image: image-url("deKoepel_home.png")
 				float: left
 				margin-right: $margin
 				border: 5px solid white
 				position: relative
 				&:last-child
 					margin: 0
+					background-color: #4d5254
+					background-image: none
 				a.link
 					position: absolute
 					height: auto
@@ -71,32 +73,39 @@ h3
 					padding: 10px
 					bottom: 20px
 					left: 0
-					background-color: blue
-					color: white
+					background-color: #4594ff
+					color: #e4e4e4
 					font-size: 14pt
 					font-weight: bold
+					text-decoration: none
+					cursor: pointer
+				h3
+					margin: 10px
+					color: white
 				ul
 					width: 100%
 					float: left
+					margin-top: 3px
 					li
 						width: 100%
 						height: auto
 						float: left
-						background-color: green
 						&:hover
 							cursor: pointer
-							background-color: orange
-
+							background-color: $button-main
+							a
+								border-bottom: 0px
 						a
 							float: left
 							width: 256px
+							color: white
 							border-bottom: 1px solid grey
-							background-color: yellow
 							margin: 0 20px
 							padding: 10px
+							text-decoration: none
 		.arrangements
 			h2
-				color: orange
+				color: #ff5a00
 			.box
 				background-color: white
 				width: 223px
@@ -108,14 +117,14 @@ h3
 				.dummy
 					height: 150px
 					width: 100%
-					background-color: red
+					background-image: image-url("arrangement_dummy.png")
 				h3,	p
 					float: left
 					padding: 10px 20px
 				p
 					font-size: 10pt
 				h3
-					color: blue
+					color: #4594ff
 		h1
 			font-color: purple
 
