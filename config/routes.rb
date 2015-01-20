@@ -16,4 +16,7 @@ Rails.application.routes.draw do
   root 'sites#index'
 
   get '/contact' => 'sites#contact'
+  get '/zaalverhuur' => 'sites#zaalverhuur'
+  get '/arrangementen' => 'sites#arrangementen'
+  get '/dekoepel' => 'sites#dekoepel'
 end

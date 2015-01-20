@@ -20,6 +20,12 @@ class SitesController < ApplicationController
 
 	def show
 	end
+	
+	def zaalverhuur
+	end
+	def arrangementen
+	end
+	def dekoepel
 
 	def contact
 		@sites = Sites.new
