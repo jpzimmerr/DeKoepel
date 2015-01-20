@@ -18,6 +18,9 @@ class SitesController < ApplicationController
 		end
 	end
 
+	def show
+	end
+
 	private
 		def reservation_params
 			params.require(:reservation).permit( :started_at,

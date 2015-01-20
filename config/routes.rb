@@ -14,4 +14,6 @@ Rails.application.routes.draw do
   resources :arrangements
 
   root 'sites#index'
+
+  get '/contact' => 'sites#contact'
 end
