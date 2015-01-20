@@ -24,7 +24,7 @@ class SitesController < ApplicationController
 	def arrangementen
 	end
 	def dekoepel
-
+	end
 	private
 		def site_params
 			params.require(:contact).permit( :started_at,
