@@ -17,4 +17,7 @@ Rails.application.routes.draw do
 
   match '/contact',     to: 'sites#contact',             via: 'get'
   resources "contacts", only: [:new, :create]
+  get '/zaalverhuur' => 'sites#zaalverhuur'
+  get '/arrangementen' => 'sites#arrangementen'
+  get '/dekoepel' => 'sites#dekoepel'
 end

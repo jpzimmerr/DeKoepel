@@ -17,5 +17,15 @@
 	%body
 		%ul
 			%li
-				%a =link_to 'Overzicht reserveringen', '/dekoepel'
+				%a 
+					= link_to 'Zaalverhuur', zaalverhuur_url
+			%li
+				%a 
+					= link_to 'Arrangementen', arrangementen_url
+			%li
+				%a 
+					= link_to 'De Koepel', dekoepel_url
+			%li
+				%a 
+					= link_to 'Contact', contact_url
 		= yield
