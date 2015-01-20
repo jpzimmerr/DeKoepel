@@ -1,18 +1,21 @@
 !!!
 %html
-  %head
-    %title de Koepel
-    
-    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
-    = stylesheet_link_tag    'reset', media: 'all', 'data-turbolinks-track' => true
-    = stylesheet_link_tag    'sites', media: 'all', 'data-turbolinks-track' => true
+	%head
+		%title de Koepel
 
-    //CUSTOMER WEGHALEN
-    = stylesheet_link_tag    'customer', media: 'all', 'data-turbolinks-track' => true
+		= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+		= stylesheet_link_tag    'reset', media: 'all', 'data-turbolinks-track' => true
+		= stylesheet_link_tag    'sites', media: 'all', 'data-turbolinks-track' => true
+
+		//CUSTOMER WEGHALEN
+		= stylesheet_link_tag    'customer', media: 'all', 'data-turbolinks-track' => true
+
+		= javascript_include_tag 'application', 'data-turbolinks-track' => true
     
-    = javascript_include_tag 'application', 'data-turbolinks-track' => true
-    
-    = csrf_meta_tags
+		= csrf_meta_tags
   
-  %body
-    = yield
+	%body
+		%ul
+			%li
+				%a =link_to 'Overzicht reserveringen', '/dekoepel'
+		= yield

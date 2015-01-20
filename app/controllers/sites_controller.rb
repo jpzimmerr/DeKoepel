@@ -26,7 +26,7 @@ class SitesController < ApplicationController
 	def arrangementen
 	end
 	def dekoepel
-
+	end
 	def contact
 		@sites = Sites.new
 	end
