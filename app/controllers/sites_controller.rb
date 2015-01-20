@@ -21,6 +21,10 @@ class SitesController < ApplicationController
 	def show
 	end
 
+	def contact
+		@sites = Sites.new
+	end
+
 	private
 		def reservation_params
 			params.require(:reservation).permit( :started_at,
