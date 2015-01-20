@@ -64,3 +64,6 @@ gem 'rubocop', '~> 0.28.0'
 
 #form validation
 gem "parsley-rails"
+
+#mailform
+gem 'mail_form', '~> 1.5.0'
