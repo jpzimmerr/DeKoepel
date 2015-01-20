@@ -1,2 +1,8 @@
-=form_for @site do |f|
-	=f.label :name, "Uw naam"
+%h3 Send A message to Us
+  = simple_form_for @contact, :html => {:class => 'form-horizontal' } do |f|
+    = f.input :name, :required => true
+    = f.input :email, :required => true
+    = f.input :message, :as => :text, :required => true
+    = f.input :nickname, :hint => 'Leave this field blank!'
+  %br
+    = f.button :submit, 'Send message', :class=> "btn btn-primary"

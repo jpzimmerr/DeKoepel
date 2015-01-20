@@ -5,12 +5,10 @@ class SitesController < ApplicationController
 		@reservation.customer.build_company
 	end
 
-	def create
-		@reservation = Reservation.new(reservation_params)
-
-		if @reservation.save 
-			SitesMailer.confirmation_email(@reservation).deliver
-			SitesMailer.reservation_email(@reservation).deliver
+	def contact
+		if @contact.save 
+			SitesMailer.confirmation_email(@sites).deliver
+			SitesMailer.reservation_email(@sites).deliver
 
 			redirect_to sites_path
 		else
@@ -21,13 +19,9 @@ class SitesController < ApplicationController
 	def show
 	end
 
-	def contact
-		@sites = Sites.new
-	end
-
 	private
-		def reservation_params
-			params.require(:reservation).permit( :started_at,
+		def site_params
+			params.require(:contact).permit( :started_at,
 												 :ended_at,
 												 :amount,
 												 :description,

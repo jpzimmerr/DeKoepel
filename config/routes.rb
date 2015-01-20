@@ -15,5 +15,6 @@ Rails.application.routes.draw do
 
   root 'sites#index'
 
-  get '/contact' => 'sites#contact'
+  match '/contact',     to: 'sites#contact',             via: 'get'
+  resources "contacts", only: [:new, :create]
 end
