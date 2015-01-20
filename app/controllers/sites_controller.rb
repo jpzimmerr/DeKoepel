@@ -18,6 +18,12 @@ class SitesController < ApplicationController
 
 	def show
 	end
+	
+	def zaalverhuur
+	end
+	def arrangementen
+	end
+	def dekoepel
 
 	private
 		def site_params
