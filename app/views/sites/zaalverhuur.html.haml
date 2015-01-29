@@ -1,0 +1,34 @@
+.wrapper
+	.box-wrapper.white
+		.box-3
+			%h3 Catering
+			%p
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent efficitur lacus id malesuada ultrices. In at quam molestie, consequat diam vitae, pulvinar enim. Suspendisse potenti. Nam hendrerit hendrerit neque, at feugiat urna sollicitudin vel. Nullam elementum pellentesque viverra. Curabitur tincidunt dui et felis condimentum fringilla. Aliquam sed varius tellus, eget consectetur dolor. Praesent luctus arcu posuere dui ornare mollis. In lobortis felis at lorem pulvinar interdum. Integer rutrum quam id tellus blandit, in blandit nibh fermentum. Aliquam ut dictum sapien. Proin dignissim facilisis elit, quis fringilla dui bibendum dignissim.
+			%table
+				%thead
+					%tr
+						%th.name Product
+						%th.price Prijs
+						%th.per Per
+				- @faciliteiten.each do |faciliteiten|
+					%tr
+						%td.name= faciliteiten.name
+						%td.price= number_to_currency(faciliteiten.price)
+						%td.per= faciliteiten.per
+			
+			%h3 Faciliciteiten
+			%p
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent efficitur lacus id malesuada ultrices. In at quam molestie, consequat diam vitae, pulvinar enim. Suspendisse potenti. Nam hendrerit hendrerit neque, at feugiat urna sollicitudin vel. Nullam elementum pellentesque viverra. Curabitur tincidunt dui et felis condimentum fringilla. Aliquam sed varius tellus, eget consectetur dolor. Praesent luctus arcu posuere dui ornare mollis. In lobortis felis at lorem pulvinar interdum. Integer rutrum quam id tellus blandit, in blandit nibh fermentum. Aliquam ut dictum sapien. Proin dignissim facilisis elit, quis fringilla dui bibendum dignissim.
+			%table
+				%thead
+					%tr
+						%th.name Product
+						%th.price Prijs
+						%th.per Per
+				- @faciliteiten.each do |faciliteiten|
+					%tr
+						%td.name= faciliteiten.name
+						%td.price= number_to_currency(faciliteiten.price)
+						%td.per= faciliteiten.per
+		.box-1
+			= render 'onze_voordelen'

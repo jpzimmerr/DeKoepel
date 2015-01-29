@@ -43,6 +43,8 @@ h3
 	height: auto
 	float: left
 	padding: 20px
+	.white
+		background-color: white
 	.box-wrapper
 		width: $website-width
 		margin-left: 180px
@@ -207,19 +209,61 @@ h3
 
 .logo-zakelijk
 	margin-top: 10px 20px 20px 0
-	width: 120px
-	height: 80px
-	background-image: image-url("zakelijk-font-eronder.png")
+	width: 166px
+	height: 111px
+	background-image: image-url("166x111wit.png")
 	float: left
+
 #menu ul
-	float: left
-	width: 700px
-	height: 50px
-	background-color: red
+	float: right
+	width: auto
+	height: auto
+	margin-top: 50px
 	li
 		width: auto
-		height: 50px
 		float: left
-		background-color: yellow
 		margin-right: 10px
+		padding: 5px
 		a
+			font-size: 14pt
+			font-weight: bold
+			color: black
+		//ul.submenu
+			//display: none
+			//&:hover > ul.submnenu
+				//display: block
+				//width: 200px
+				//height: 200px
+		li
+			width: 100%
+			float: left
+.box-3
+	width: 618px
+	height: auto
+	float: left
+	margin: 0 26px 10px 6px
+	background-color: white
+	padding: 20px 10px
+	p
+		margin-bottom: 20px
+table
+	background-color: white
+	margin-bottom: 30px
+	border: 1px solid #d9d9d9
+	tr
+		width: 596px
+		display: block
+		th
+			background-color: #d2d2d2
+		th,td
+			float: left
+			width: 100%
+			padding: 10px
+			&.name
+				width: 476px
+			&.price
+				width: 60px
+			&.per
+				width: 60px
+		td
+			border-top: 1px solid #d2d2d2

@@ -20,10 +20,15 @@ class SitesController < ApplicationController
 	end
 	
 	def zaalverhuur
+		@faciliteiten = Product.all
+  	@pages = Page.all
+		
 	end
 	def arrangementen
 	end
 	def dekoepel
+		@page = Page.last
+  	@pages = Page.all
 	end
 	private
 		def site_params
