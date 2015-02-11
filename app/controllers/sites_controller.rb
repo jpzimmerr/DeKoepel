@@ -20,7 +20,8 @@ class SitesController < ApplicationController
 	end
 	
 	def zaalverhuur
-		@faciliteiten = Product.all
+		@faciliteiten = Product.where("category_id = 0")
+		@consumpties = Product.where("Category_id = 1")
   	@pages = Page.all
 		
 	end

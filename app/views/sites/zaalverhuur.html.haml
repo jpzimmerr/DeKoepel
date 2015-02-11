@@ -10,11 +10,11 @@
 						%th.name Product
 						%th.price Prijs
 						%th.per Per
-				- @faciliteiten.each do |faciliteiten|
+				- @faciliteiten.each do |faciliteit|
 					%tr
-						%td.name= faciliteiten.name
-						%td.price= number_to_currency(faciliteiten.price)
-						%td.per= faciliteiten.per
+						%td.name= faciliteit.name
+						%td.price= number_to_currency(faciliteit.price)
+						%td.per= faciliteit.per
 			
 			%h3 Faciliciteiten
 			%p
@@ -25,10 +25,10 @@
 						%th.name Product
 						%th.price Prijs
 						%th.per Per
-				- @faciliteiten.each do |faciliteiten|
+				- @consumpties.each do |consumptie|
 					%tr
-						%td.name= faciliteiten.name
-						%td.price= number_to_currency(faciliteiten.price)
-						%td.per= faciliteiten.per
+						%td.name= consumptie.name
+						%td.price= number_to_currency(consumptie.price)
+						%td.per= consumptie.per
 		.box-1
 			= render 'onze_voordelen'
